@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/tags/docker/</link>
+    <description>Recent content in docker on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 03 Sep 2019 23:14:41 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>https://phoenixtree2poplar.github.io/post/docker/</link>
+      <pubDate>Tue, 03 Sep 2019 23:14:41 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/docker/</guid>
+      <description>常用 docker images 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 docker search 命令搜索指定的 image, 或者访问网址 https://hub.docker.com/explore/ docker pull openjdk:8-alpine # 大小为107.8MB docker pull openjdk:8 # 大小为309MB docker pull nginx docker pull tomcat docker pull wnameless/oracle-xe-11g docker pull python docker pull mysql docker pull mongo docker pull redis docker pull rabbitmq docker pull rabbitmq:3-management ------------------------------------ 用于 docker 命令学习的镜像和命令 docker pull nginx:1.15-alpine #只需要20M的空间 docker pull busybox #只占用</description>
+    </item>
+    
+  </channel>
+</rss>

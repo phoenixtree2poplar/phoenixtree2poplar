@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>idea on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/tags/idea/</link>
+    <description>Recent content in idea on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 25 Aug 2019 09:15:46 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/tags/idea/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>idea</title>
+      <link>https://phoenixtree2poplar.github.io/post/idea/</link>
+      <pubDate>Sun, 25 Aug 2019 09:15:46 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/idea/</guid>
+      <description>idea系统配置 在安装目录 \idea\bin idea.exe.vmoptions idea64.exe.vmoptions 2个文件可修改运行内存，根据物理机性能而定 idea.properties 文件修改可更改默认配置目录，最上面添加如下，可以不再C盘存放配置文件 idea.config.path=F:/dev/ideaconfig/config idea.system.path=F:/dev/ideaconfig/system idea.plugins.path=F:/dev/ideaconfig/plugins idea.log.path=F:/dev/ideaconfig/log idea激活 先下载补丁包，网上自行下载 idea.exe.vmoptions idea64.exe.vmoptions 文件末尾追加以下 -javaagent:F:\dev\ideaconfig\jetbrains-agent.jar 一、选择最后一种License server激活方式，地址填入：htt</description>
+    </item>
+    
+  </channel>
+</rss>

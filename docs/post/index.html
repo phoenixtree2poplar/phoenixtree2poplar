@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>Posts | 梧桐</title>
+    <meta property="og:title" content="Posts - 梧桐">
+    <meta property="og:type" content="article">
+        
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,梧桐,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="Posts">
+        
+    <meta name="author" content="梧桐">
+    <meta property="og:url" content="https://phoenixtree2poplar.github.io/post/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <link rel="alternate" type="application/rss+xml" href="https://phoenixtree2poplar.github.io/post/index.xml" title="梧桐" />
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://phoenixtree2poplar.github.io/">
+                        梧桐
+                    </a>
+                
+                <p class="description">专注于Java，生活源于热爱，视界决定世界</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://phoenixtree2poplar.github.io/">首页</a>
+                    
+                    <a  href="https://phoenixtree2poplar.github.io/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://phoenixtree2poplar.github.io/post/phoenixtree/" title="win装机">win装机</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月15日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/pkgs'>pkgs</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Long live the open source winrar 科学上网【官网】 Thunder迅雷最简版(文件位置修改) Thunder迅雷10去广告版 软件下载工具(绿色清爽版) ccleaner(软件卸载工具-清理注册表)【官网】 office-table插件 FSCapture(截图工具) 图片压缩工具 音乐下神器 听歌插件 【官网]】 win10 De……
+        </div>
+        <p class="readmore"><a href="https://phoenixtree2poplar.github.io/post/phoenixtree/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://phoenixtree2poplar.github.io/post/shell/" title="shell">shell</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年3月4日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/shell'>shell</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            for循环 for1.sh 1 2 3 4 5 #!/bin/bash for ((i=1;i&lt;=5;i++)) do echo $i &gt;&gt; test.txt done for2.sh 1 2 3 4 5 #!/bin/bash for i in {a..z} {A..Z} {0..9} # 可任意组合 do echo $i &gt;&gt; test.txt done for3.sh 1 2 3 4 5 #!/bin/bash for i in `ls` # ``为前置执行符 do echo $i &gt;&gt; test.txt done……
+        </div>
+        <p class="readmore"><a href="https://phoenixtree2poplar.github.io/post/shell/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://phoenixtree2poplar.github.io/post/mybatis-plus-generator/" title="mybatis-plus-generator">mybatis-plus-generator</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年2月20日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/mybatis'>mybatis</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            mybatis-plus-generator生成类代码，需要修改 pc.setParent(&ldquo;com.poplar&rdquo;) 项目路径 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 public class CodeGenerator { public static void main(String[] args) { // 代码生成器 AutoGenerator mpg = new AutoGenerator(); // 全局配置 GlobalConfig gc = new GlobalConfig(); String projectPath = System.getProperty(&#34;user.dir&#34;); gc.setOutputDir(projectPath + &#34;/src/main/java&#34;); gc.setAuthor(&#34;phoenix&#34;); gc.setOpen(false); gc.setIdType(IdType.AUTO); gc.setSwagger2(true); gc.setFileOverride(true); mpg.setGlobalConfig(gc); // 数据源配置 DataSourceConfig dsc = new DataSourceConfig(); dsc.setDbType(DbType.MYSQL); dsc.setUrl(&#34;jdbc:mysql://localhost:3306/poplar?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8&#34;); // dsc.setSchemaName(&#34;public&#34;); dsc.setDriverName(&#34;com.mysql.cj.jdbc.Driver&#34;); dsc.setUsername(&#34;root&#34;);……
+        </div>
+        <p class="readmore"><a href="https://phoenixtree2poplar.github.io/post/mybatis-plus-generator/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://phoenixtree2poplar.github.io/post/npm/" title="npm">npm</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年1月18日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/npm'>npm</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            nodejs包管理工具npm 1 2 3 npm config set registry http://registry.npm.taobao.org #配置淘宝仓库 npm config set prefix “F:\path\npm-pkg” #设置本地包下载位置(增加相应环境变量) npm config set cache “F:\path\npm-pkg\cache” #设置缓存位置 nrm仓库管理工具 1 2 3 4 npm install -g nrm #全局安装nrm nrm ls #列出所有仓库 nrm test……
+        </div>
+        <p class="readmore"><a href="https://phoenixtree2poplar.github.io/post/npm/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://phoenixtree2poplar.github.io/post/flyway/" title="flyway">flyway</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年12月6日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/flywaty'>flywaty</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            官网 【https://flywaydb.org/ Flyway是独立于数据库的应用、管理并跟踪数据库变更的数据库版本管理工具。用通俗的话讲，Flyway可以像Git管理不同人的代码那样，管理不同人的sql脚本，从而做到数据库同步。 流程 1、首先配置好flyway的基本信息后，运行项目……
+        </div>
+        <p class="readmore"><a href="https://phoenixtree2poplar.github.io/post/flyway/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://phoenixtree2poplar.github.io/post/Windows/" title="Windows">Windows</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年11月15日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/cmd'>cmd</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Windows 命令 1 2 3 4 5 6 7 8 9 10 netstat -ano | findstr &#34;:80&#34; #查询80端口，记下最后一位数字，即PID tasklist /fi &#34;PID eq 4&#34; #查询进程号为4的服务名称 taskkill /pid 4 /f #根据pid 关闭进程，其中 /f 表示强制关闭该进程 taskkill /im nginx.exe #根据服务名称关闭进程 sc delete sql #删除sql服务 regedit #打开注册表编辑器 slmgr.vbs -dlv #该命令命令可以查询到Win10的激活……
+        </div>
+        <p class="readmore"><a href="https://phoenixtree2poplar.github.io/post/Windows/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://phoenixtree2poplar.github.io/post/docker/" title="docker">docker</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年9月3日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/docker'>docker</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            常用 docker images 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 docker search 命令搜索指定的 image, 或者访问网址 https://hub.docker.com/explore/ docker pull openjdk:8-alpine # 大小为107.8MB docker pull openjdk:8 # 大小为309MB docker pull nginx docker pull tomcat docker pull wnameless/oracle-xe-11g docker pull python docker pull mysql docker pull mongo docker pull redis docker pull rabbitmq docker pull rabbitmq:3-management ------------------------------------ 用于 docker 命令学习的镜像和命令 docker pull nginx:1.15-alpine #只需要20M的空间 docker pull busybox #只占用……
+        </div>
+        <p class="readmore"><a href="https://phoenixtree2poplar.github.io/post/docker/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/" title="mybatis插件">mybatis插件</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年8月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/mybatis'>mybatis</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            mybatis 依赖添加并写配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 &lt;plugins&gt; &lt;plugin&gt; &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt; &lt;artifactId&gt;mybatis-generator-maven-plugin&lt;/artifactId&gt; &lt;version&gt;1.3.7&lt;/version&gt; &lt;configuration&gt; &lt;verbose&gt;true&lt;/verbose&gt; &lt;overwrite&gt;true&lt;/overwrite&gt; &lt;configurationFile&gt;src\main\resources\generationConfig.xml&lt;/configurationFile&gt; &lt;/configuration&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;mysql&lt;/groupId&gt; &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt; &lt;version&gt;5.1.47&lt;/version&gt; &lt;!-- 版本过高无法生成 delete updata 方法 --&gt; &lt;/dependency&gt; &lt;/dependencies&gt; &lt;/plugin&gt; &lt;/plugins&gt; generationConfig.xml 文件 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; &lt;!DOCTYPE generatorConfiguration PUBLIC……
+        </div>
+        <p class="readmore"><a href="https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://phoenixtree2poplar.github.io/post/redis/" title="redis">redis</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年8月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/redis'>redis</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Redis windows下运行 下载Redis压缩包 https://github.com/MicrosoftArchive/redis/releases 解压并执行 redis-server.exe redis.windows.conf……
+        </div>
+        <p class="readmore"><a href="https://phoenixtree2poplar.github.io/post/redis/">阅读全文</a></p>
+    </article>
+    
+    
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">
+                <a href="https://phoenixtree2poplar.github.io/post/mysql/" title="mysql">mysql</a>
+            </h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年8月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/sql'>sql</a></span>
+            
+        </div>
+        
+        <div class="post-content">
+            Mysql 命令 1 2 3 4 5 6 7 8 9 10 desc table； #显示表头 select Host,User,plugin from user; #用户名，登录方式，用户名，认证方式， ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY &#39;root&#39;; #修改root认证方式mysql_native_password，密码为root FLUSH PRIVILEGES; #刷新认证表 UPDATE user SET Password=PASSWORD(&#39;newpassword&#39;) where USER=&#39;root&#39;; #修改密码 ALTER USER root@localhost identified WITH mysql_native_password BY &#39;root&#39;; #修改密码 set password for root@localhost = password(&#39;root&#39;); #进入数据修……
+        </div>
+        <p class="readmore"><a href="https://phoenixtree2poplar.github.io/post/mysql/">阅读全文</a></p>
+    </article>
+    
+    
+    
+
+
+
+<ol class="page-navigator">
+    
+
+    
+    <li  class="current">
+        <a href="https://phoenixtree2poplar.github.io/post/">1</a>
+    </li>
+    
+    <li >
+        <a href="https://phoenixtree2poplar.github.io/post/page/2/">2</a>
+    </li>
+    
+    <li >
+        <a href="https://phoenixtree2poplar.github.io/post/page/3/">3</a>
+    </li>
+    
+
+    
+    <li class="next">
+        <a href="https://phoenixtree2poplar.github.io/post/page/2/">下一页</a>
+    </li>
+    
+</ol>
+
+
+
+</div>
+
+                    <footer id="footer">
+    <br />
+</footer>
+
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://phoenixtree2poplar.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://phoenixtree2poplar.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/phoenixtree/" title="win装机">win装机</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/shell/" title="shell">shell</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis-plus-generator/" title="mybatis-plus-generator">mybatis-plus-generator</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/npm/" title="npm">npm</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/flyway/" title="flyway">flyway</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/Windows/" title="Windows">Windows</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/docker/" title="docker">docker</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/" title="mybatis插件">mybatis插件</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/redis/" title="redis">redis</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mysql/" title="mysql">mysql</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/cmd/">cmd (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/command/">command (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/docker/">docker (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/flywaty/">flywaty (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/git/">git (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/hexo/">hexo (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/idea/">idea (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/java/">java (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/maven/">maven (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/mybatis/">mybatis (2)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/npm/">npm (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/pkgs/">pkgs (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/pom/">pom (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/redis/">redis (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/route/">route (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/shell/">shell (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/sql/">sql (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/win10/">win10 (2)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/OneDrive/">OneDrive</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/Remove-OneDrive/">Remove-OneDrive</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/bat/">bat</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/cmd/">cmd</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/command/">command</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/docker/">docker</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/flywaty/">flywaty</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/git/">git</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/hexo/">hexo</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/idea/">idea</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/java/">java</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/jdk/">jdk</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/linux/">linux</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/maven/">maven</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mvn/">mvn</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis/">mybatis</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis-plus/">mybatis-plus</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis-plus-generator/">mybatis-plus-generator</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mysql/">mysql</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/node/">node</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/npm/">npm</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/pkg/">pkg</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/pom/">pom</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/redis/">redis</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/route/">route</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/shell/">shell</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/sql/">sql</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/tomcat/">tomcat</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win10/">win10</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win10%E7%A6%81%E6%AD%A2%E6%9B%B4%E6%96%B0/"> win10禁止更新</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win%E8%A3%85%E6%9C%BA/">win装机</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E5%91%BD%E4%BB%A4/">命令</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E6%89%93%E5%8D%B0%E6%9C%BA%E6%9C%8D%E5%8A%A1/">打印机服务</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E8%84%9A%E6%9C%AC/">脚本</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a>
+    
+</div>
+    </section>
+
+    
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

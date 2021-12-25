@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>maven on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/tags/maven/</link>
+    <description>Recent content in maven on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 09 Aug 2019 22:24:12 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/tags/maven/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>command</title>
+      <link>https://phoenixtree2poplar.github.io/post/command/</link>
+      <pubDate>Fri, 09 Aug 2019 22:24:12 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/command/</guid>
+      <description>git https://github.com/pcottle/learnGitBranching # 交互式Git学习 1 2 3 4 5 6 7 8 git fetch --all #强制拉取 git reset --hard origin/master #强制覆盖本地 git checkout -b dev #从当前分支创建并切换分支到dev git push --set-upstream origin dev #当前分支推送远程分支dev git push origin :dev #推送空分支到远程即删除远程分支，需当前不在该分支 git rm -r --cached . #刷新文件缓存 #https://njuferret.github.io/2018/08/24/git-usage/ #git乱码 #https://github.com/phoenixtree2poplar/my-git/blob/master/git-workflow-tutorial.md #git工作流 Maven命</description>
+    </item>
+    
+    <item>
+      <title>maven配置</title>
+      <link>https://phoenixtree2poplar.github.io/post/maven%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 31 Aug 2018 10:53:29 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/maven%E9%85%8D%E7%BD%AE/</guid>
+      <description>maven历史版本下载 先附上缩减后的源配置文件 setting.xml 在 maven主目录/conf下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;settings xmlns=&amp;#34;http://maven.apache.org/SETTINGS/1.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&amp;#34;&amp;gt; &amp;lt;!-- localRepository元素根据个人习惯设置本地仓库下载位置，默认为${user.home}/.m2/repository --&amp;gt; &amp;lt;localRepository&amp;gt;F:\path\maven-jar&amp;lt;/localRepository&amp;gt; &amp;lt;mirrors&amp;gt; &amp;lt;!-- mirror 元素设置镜</description>
+    </item>
+    
+  </channel>
+</rss>

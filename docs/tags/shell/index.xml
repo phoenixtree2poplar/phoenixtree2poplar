@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/tags/shell/</link>
+    <description>Recent content in shell on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 04 Mar 2020 21:06:27 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>shell</title>
+      <link>https://phoenixtree2poplar.github.io/post/shell/</link>
+      <pubDate>Wed, 04 Mar 2020 21:06:27 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/shell/</guid>
+      <description>for循环 for1.sh 1 2 3 4 5 #!/bin/bash for ((i=1;i&amp;lt;=5;i++)) do echo $i &amp;gt;&amp;gt; test.txt done for2.sh 1 2 3 4 5 #!/bin/bash for i in {a..z} {A..Z} {0..9} # 可任意组合 do echo $i &amp;gt;&amp;gt; test.txt done for3.sh 1 2 3 4 5 #!/bin/bash for i in `ls` # ``为前置执行符 do echo $i &amp;gt;&amp;gt; test.txt done</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>flywaty on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/tags/flywaty/</link>
+    <description>Recent content in flywaty on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 06 Dec 2019 22:16:49 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/tags/flywaty/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>flyway</title>
+      <link>https://phoenixtree2poplar.github.io/post/flyway/</link>
+      <pubDate>Fri, 06 Dec 2019 22:16:49 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/flyway/</guid>
+      <description>官网 【https://flywaydb.org/ Flyway是独立于数据库的应用、管理并跟踪数据库变更的数据库版本管理工具。用通俗的话讲，Flyway可以像Git管理不同人的代码那样，管理不同人的sql脚本，从而做到数据库同步。 流程 1、首先配置好flyway的基本信息后，运行项目</description>
+    </item>
+    
+  </channel>
+</rss>

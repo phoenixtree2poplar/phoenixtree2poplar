@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>docker | 梧桐</title>
+    <meta property="og:title" content="docker - 梧桐">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2019-09-03T23:14:41&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2019-09-03T23:14:41&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,梧桐,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="docker">
+        
+    <meta name="author" content="梧桐">
+    <meta property="og:url" content="https://phoenixtree2poplar.github.io/post/docker/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://phoenixtree2poplar.github.io/">
+                        梧桐
+                    </a>
+                
+                <p class="description">专注于Java，生活源于热爱，视界决定世界</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://phoenixtree2poplar.github.io/">首页</a>
+                    
+                    <a  href="https://phoenixtree2poplar.github.io/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">docker</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年9月3日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/docker'>docker</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <!-- raw HTML omitted -->
+<h1 id="常用-docker-images">常用 docker images</h1>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search 命令搜索指定的 image, 或者访问网址 https://hub.docker.com/explore/ 
+docker pull openjdk:8-alpine  <span style="color:#998;font-style:italic"># 大小为107.8MB</span>
+docker pull openjdk:8             <span style="color:#998;font-style:italic"># 大小为309MB </span>
+docker pull nginx
+docker pull tomcat
+docker pull wnameless/oracle-xe-11g
+docker pull python
+docker pull mysql
+docker pull mongo
+docker pull redis
+docker pull rabbitmq
+docker pull rabbitmq:3-management
+------------------------------------
+用于 docker 命令学习的镜像和命令
+docker pull nginx:1.15-alpine  <span style="color:#998;font-style:italic">#只需要20M的空间</span>
+docker pull busybox  <span style="color:#998;font-style:italic">#只占用2M空间</span>
+以守护态运行容器, 经常用于容器的学习. 
+docker run -d --name mybusybox busybox /bin/sh -c <span style="color:#d14">&#34;while true; do echo hello world; sleep 1; done&#34;</span>
+使用镜像nginx:1.15-alpine以后台模式启动一个容器, 并将容器的80端口映射到主机随机端口<span style="color:#000;font-weight:bold">(</span>80是该镜像expose的端口<span style="color:#000;font-weight:bold">)</span>
+docker run -P -d --name mynginx1 nginx:1.15-alpine
+使用镜像nginx:1.15-alpine以后台模式启动一个容器, 指定主机的端口为 <span style="color:#099">80</span>
+docker run -p 80:80 -d --name mynginx2 nginx:1.15-alpine
+docker 容器端口映射
+1. 指定host端口和容器内端口
+使用镜像nginx:1.15-alpine以后台模式启动一个容器, 指定主机的端口为80, 冒号前的host端口, 冒号后为容器内部的端口. 
+docker run -p 80:80 -d --name mynginx2 nginx:1.15-alpine
+2. 容器内端口随机分配一个Host端口 
+下面 -p 参数的 <span style="color:#099">80</span> 指的是容器内部的端口, 没有指定host端口, docker在主机上自动开放一个映射端口<span style="color:#000;font-weight:bold">(</span>当然是未被占用的<span style="color:#000;font-weight:bold">)</span>, 自动端口号一般大于等于 <span style="color:#099">32768</span> . 
+docker run -p <span style="color:#099">80</span> -d --name mynginx2 nginx:1.15-alpine
+3. 自动为所有的 Dockerfile EXPOSE 端口映射Host端口
+Dockerfile EXPOSE 可能会开放多个端口, 使用 -P 参数将自动为这些容器内部端口分配对应的Host主机端口
+docker run -P -d --name mynginx1 nginx:1.15-alpine
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="常用命令">常用命令</h1>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker images 命令, 显示可用的容器
+docker rmi &lt;镜像Id&gt; 命令,删除指定镜像
+docker pull hello-world 命令 , 下载 hello-world image
+docker rmi &lt;镜像Id&gt; 命令,删除指定镜像
+docker ps 命令, 列出当前正在运行的容器, 结果的第一列是container_Id, 第2列是容器名称. 
+docker ps -a 命令, 列出当前正在运行的和之前运行完的容器
+docker stop container_id/container-name 命令, 停止指定的容器, 该容器Id或名称可以从docker ps中获取. 
+docker restart container_id/container-name 命令, 重新启动指定的容器, 该容器Id或名称可以从docker ps中获取. 
+docker start container_id/container-name 命令, 启动指定的容器, 该容器Id或名称可以从docker ps中获取. 
+docker rm container_id/container-name, 删除指定的容器
+docker rm <span style="color:#000;font-weight:bold">$(</span>docker ps -a -q<span style="color:#000;font-weight:bold">)</span> 命令, 删除所有运行结束了容器, 正在运行的容器不会被删除
+docker top container_id/container-name, 查看容器内的进程
+docker logs <span style="color:#000;font-weight:bold">[</span>-f<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">[</span>-t<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">[</span>--tail string<span style="color:#000;font-weight:bold">]</span> 容器名, 查看容器的日志输出, -f是打开跟踪, -t是加上时间戳, --tail <span style="color:#099">100</span> 表示仅显示最后的100行日志
+docker search nginx, 在hub站点中搜索 nginx 镜像
+docker image inspect image_id 命令, 显示指定镜像的详细信息. 
+docker container inspect container_id/container-name 命令, 显示指定容器的详细信息,包括容器的Ip
+docker images -f <span style="color:#008080">dangling</span><span style="color:#000;font-weight:bold">=</span><span style="color:#0086b3">true</span> 命令, 列出没有被容器化的镜像
+docker rmi <span style="color:#000;font-weight:bold">$(</span>docker images -qf <span style="color:#008080">dangling</span><span style="color:#000;font-weight:bold">=</span><span style="color:#0086b3">true</span><span style="color:#000;font-weight:bold">)</span> 命令, 删除那些没有被容器化的镜像
+docker system df 命令, 可以一次性查看镜像/容器/host volume的磁盘占用情况. 
+docker ps -s 命令, 输出容器的空间占用
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="docker-一些管理命令集">docker 一些管理命令集</h1>
+<h4 id="除了上面常用的命令外-docker-还有一些管理命令集-这些命令集还可以包含二级命令">除了上面常用的命令外, docker 还有一些管理命令集, 这些命令集还可以包含二级命令:</h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">config Manage Docker configs
+container Manage containers
+image Manage images
+network Manage networks
+node Manage Swarm nodes
+plugin Manage plugins
+secret Manage Docker secrets
+service Manage services
+stack Manage Docker stacks
+swarm Manage Swarm
+system Manage Docker
+trust Manage trust on Docker images
+volume Manage volumes
+比较常用的是, 
+docker image build, 编译 Dockfile
+docker network create, 创建 docker 网络
+docker volume create, 创建数据卷
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="ocker-runexec-命令">ocker run/exec 命令</h1>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">运行 hello-world 容器, 如果本地没有下载, 将会自动从hub站点下载. 
+docker run hello-world 命令
+以守护态运行容器
+docker run -d --name mybusybox busybox /bin/sh -c <span style="color:#d14">&#34;while true; do echo hello world; sleep 1; done&#34;</span>
+登陆一个容器, 运行中的容器其实是一个功能完备的Linux操作系统, 所以我们可以在登陆该容器执行常规的Linux命令. 
+docker <span style="color:#0086b3">exec</span> -it container_id/container-name /bin/bash
+使用 redis-cli 登陆 myredis 容器
+docker <span style="color:#0086b3">exec</span> -it myredis redis-cli 
+<span style="color:#0086b3">exec</span> 后的 -it 参数的意思是, 以交互的方式并分配一个伪tty, 经常一起联用.
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="docker-redis-使用">docker redis 使用</h1>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull redis:latest  <span style="color:#998;font-style:italic"># 下载最新版的 redis image</span>
+pull run redis  <span style="color:#998;font-style:italic"># 简单方式启动 redis 服务</span>
+
+下面命令摘自: https://blog.csdn.net/cookily_liangzai/article/details/80726163
+docker run --name redis-test -p 6379:6379 -d --restart<span style="color:#000;font-weight:bold">=</span>always redis:latest redis-server --appendonly yes --requirepass <span style="color:#d14">&#34;your passwd&#34;</span>
+--name redis-test: 为容器指定名称为 redis-test
+-p 6379:6379 :将容器内端口映射到宿主机端口<span style="color:#000;font-weight:bold">(</span>容器端口在右边, 宿主端口在左边<span style="color:#000;font-weight:bold">)</span> 
+-d: 即 --detach, 以后台的方式执行容器
+–restart<span style="color:#000;font-weight:bold">=</span>always: 随docker启动而启动
+redis-server –appendonly yes: 在容器执行redis-server启动命令, 并打开redis持久化配置 
+requirepass <span style="color:#d14">&#34;your passwd&#34;</span> : 设置redis认证密码
+
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">下面命令摘自: http://www.cnblogs.com/cgpei/p/7151612.html
+<span style="color:#998;font-style:italic"># docker run -p 6699:6379 --name myredis -v $PWD/redis.conf:/etc/redis/redis.conf -v $PWD/data:/data -d redis:3.2 redis-server /etc/redis/redis.conf --appendonly yes</span>
+　　命令说明：
+　　--name myredis : 指定容器名称，这个最好加上，不然在看docker进程的时候会很尴尬。
+　　-p 6699:6379 ： 端口映射，默认redis启动的是6379，至于外部端口，随便玩吧，不冲突就行。
+　　-v <span style="color:#008080">$PWD</span>/redis.conf:/etc/redis/redis.conf ： 将主机中当前目录下的redis.conf配置文件映射。
+　　-v <span style="color:#008080">$PWD</span>/data:/data -d redis:3.2 ： 将主机中当前目录下的data挂载到容器的/data
+　　--redis-server --appendonly yes :在容器执行redis-server启动命令，并打开redis持久化配置<span style="color:#d14">\
+</span><span style="color:#d14"></span>　　注意事项：
+　　　　如果不需要指定配置，-v <span style="color:#008080">$PWD</span>/redis.conf:/etc/redis/redis.conf 可以不用 ，
+　　　　redis-server 后面的那段 /etc/redis/redis.conf 也可以不用。
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="mysql-官方docker镜像的使用">MySQL 官方Docker镜像的使用</h1>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">摘自 https://itbilu.com/linux/docker/EyP7QP86M.html
+
+docker run --name itbilu-mysql -p 3306:3306 -e <span style="color:#008080">MYSQL_ROOT_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>my-pass -d mysql:5.7
+我们就创建了一个名为 itbilu-mysql 的MySQL数据库服务器容器实例, 在创建数据库时，通过环境变量MYSQL_ROOT_PASSWORD设置数据库的root密码，还通过5.7标签指定了所使用的镜像版本。
+
+不使用cnf文件的配置方式, 启动一个MySQL服务器容器，并使用UTF-8<span style="color:#000;font-weight:bold">(</span>utf8mb4<span style="color:#000;font-weight:bold">)</span>格式的表编码：
+docker run --name itbilu-mysql -p 3306:3306 -e <span style="color:#008080">MYSQL_ROOT_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>my-pw -d mysql:5.7 --character-set-server<span style="color:#000;font-weight:bold">=</span>utf8mb4 --collation-server<span style="color:#000;font-weight:bold">=</span>utf8mb4_unicode_ci
+
+使用宿主机/my/cnf/my.cnf 配置文件，这时就可以通过以下方式启动MySQL容器
+docker run --name itbilu-mysql -p 3306:3306 -v /my/cnf/:/etc/mysql/ -e <span style="color:#008080">MYSQL_ROOT_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>my-pass -d mysql:5.7
+
+指定MySQL数据目录的volume 
+docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my/cnf/:/etc/mysql/ -e <span style="color:#008080">MYSQL_ROOT_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>my-pw -d mysql:5.7
+</code></pre></td></tr></table>
+</div>
+</div>
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/mybatis%E6%8F%92%E4%BB%B6/">mybatis插件</a></li>
+        
+        <li><a href="/post/redis/">redis</a></li>
+        
+        <li><a href="/post/mysql/">mysql</a></li>
+        
+        <li><a href="/post/idea/">idea</a></li>
+        
+        <li><a href="/post/command/">command</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/docker'>docker</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+</div>
+
+                    <footer id="footer">
+    <br />
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://phoenixtree2poplar.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://phoenixtree2poplar.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/phoenixtree/" title="win装机">win装机</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/shell/" title="shell">shell</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis-plus-generator/" title="mybatis-plus-generator">mybatis-plus-generator</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/npm/" title="npm">npm</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/flyway/" title="flyway">flyway</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/Windows/" title="Windows">Windows</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/docker/" title="docker">docker</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/" title="mybatis插件">mybatis插件</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/redis/" title="redis">redis</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mysql/" title="mysql">mysql</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/cmd/">cmd (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/command/">command (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/docker/">docker (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/flywaty/">flywaty (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/git/">git (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/hexo/">hexo (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/idea/">idea (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/java/">java (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/maven/">maven (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/mybatis/">mybatis (2)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/npm/">npm (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/pkgs/">pkgs (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/pom/">pom (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/redis/">redis (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/route/">route (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/shell/">shell (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/sql/">sql (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/win10/">win10 (2)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/OneDrive/">OneDrive</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/Remove-OneDrive/">Remove-OneDrive</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/bat/">bat</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/cmd/">cmd</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/command/">command</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/docker/">docker</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/flywaty/">flywaty</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/git/">git</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/hexo/">hexo</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/idea/">idea</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/java/">java</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/jdk/">jdk</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/linux/">linux</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/maven/">maven</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mvn/">mvn</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis/">mybatis</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis-plus/">mybatis-plus</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis-plus-generator/">mybatis-plus-generator</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mysql/">mysql</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/node/">node</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/npm/">npm</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/pkg/">pkg</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/pom/">pom</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/redis/">redis</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/route/">route</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/shell/">shell</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/sql/">sql</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/tomcat/">tomcat</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win10/">win10</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win10%E7%A6%81%E6%AD%A2%E6%9B%B4%E6%96%B0/"> win10禁止更新</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win%E8%A3%85%E6%9C%BA/">win装机</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E5%91%BD%E4%BB%A4/">命令</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E6%89%93%E5%8D%B0%E6%9C%BA%E6%9C%8D%E5%8A%A1/">打印机服务</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E8%84%9A%E6%9C%AC/">脚本</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a>
+    
+</div>
+    </section>
+
+    
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

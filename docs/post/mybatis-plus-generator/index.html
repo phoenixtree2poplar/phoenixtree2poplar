@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>mybatis-plus-generator | 梧桐</title>
+    <meta property="og:title" content="mybatis-plus-generator - 梧桐">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-02-20T15:16:52&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-02-20T15:16:52&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,梧桐,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="mybatis-plus-generator">
+        
+    <meta name="author" content="梧桐">
+    <meta property="og:url" content="https://phoenixtree2poplar.github.io/post/mybatis-plus-generator/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://phoenixtree2poplar.github.io/">
+                        梧桐
+                    </a>
+                
+                <p class="description">专注于Java，生活源于热爱，视界决定世界</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://phoenixtree2poplar.github.io/">首页</a>
+                    
+                    <a  href="https://phoenixtree2poplar.github.io/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents"></nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">mybatis-plus-generator</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年2月20日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/mybatis'>mybatis</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <p>mybatis-plus-generator生成类代码，需要修改 pc.setParent(&ldquo;com.poplar&rdquo;) 项目路径</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">CodeGenerator</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">static</span> <span style="color:#458;font-weight:bold">void</span> <span style="color:#900;font-weight:bold">main</span><span style="color:#000;font-weight:bold">(</span>String<span style="color:#000;font-weight:bold">[]</span> args<span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#998;font-style:italic">// 代码生成器
+</span><span style="color:#998;font-style:italic"></span>        AutoGenerator mpg <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> AutoGenerator<span style="color:#000;font-weight:bold">();</span>
+
+        <span style="color:#998;font-style:italic">// 全局配置
+</span><span style="color:#998;font-style:italic"></span>        GlobalConfig gc <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> GlobalConfig<span style="color:#000;font-weight:bold">();</span>
+        String projectPath <span style="color:#000;font-weight:bold">=</span> System<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">getProperty</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;user.dir&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        gc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setOutputDir</span><span style="color:#000;font-weight:bold">(</span>projectPath <span style="color:#000;font-weight:bold">+</span> <span style="color:#d14">&#34;/src/main/java&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        gc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setAuthor</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;phoenix&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        gc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setOpen</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">false</span><span style="color:#000;font-weight:bold">);</span>
+        gc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setIdType</span><span style="color:#000;font-weight:bold">(</span>IdType<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">AUTO</span><span style="color:#000;font-weight:bold">);</span>
+        gc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setSwagger2</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">);</span>
+        gc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setFileOverride</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">);</span>
+        mpg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setGlobalConfig</span><span style="color:#000;font-weight:bold">(</span>gc<span style="color:#000;font-weight:bold">);</span>
+
+        <span style="color:#998;font-style:italic">// 数据源配置
+</span><span style="color:#998;font-style:italic"></span>        DataSourceConfig dsc <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> DataSourceConfig<span style="color:#000;font-weight:bold">();</span>
+        dsc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setDbType</span><span style="color:#000;font-weight:bold">(</span>DbType<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">MYSQL</span><span style="color:#000;font-weight:bold">);</span>
+        dsc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setUrl</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;jdbc:mysql://localhost:3306/poplar?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#998;font-style:italic">// dsc.setSchemaName(&#34;public&#34;);
+</span><span style="color:#998;font-style:italic"></span>        dsc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setDriverName</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;com.mysql.cj.jdbc.Driver&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        dsc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setUsername</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;root&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        dsc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setPassword</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;root&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        mpg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setDataSource</span><span style="color:#000;font-weight:bold">(</span>dsc<span style="color:#000;font-weight:bold">);</span>
+
+        <span style="color:#998;font-style:italic">// 包配置
+</span><span style="color:#998;font-style:italic"></span>        PackageConfig pc <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> PackageConfig<span style="color:#000;font-weight:bold">();</span>
+        pc<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setParent</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;com.poplar&#34;</span><span style="color:#000;font-weight:bold">);</span>
+        mpg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setPackageInfo</span><span style="color:#000;font-weight:bold">(</span>pc<span style="color:#000;font-weight:bold">);</span>
+
+        <span style="color:#998;font-style:italic">// 策略配置
+</span><span style="color:#998;font-style:italic"></span>        StrategyConfig strategy <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">new</span> StrategyConfig<span style="color:#000;font-weight:bold">();</span>
+        strategy<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setNaming</span><span style="color:#000;font-weight:bold">(</span>NamingStrategy<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">underline_to_camel</span><span style="color:#000;font-weight:bold">);</span>
+        strategy<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setColumnNaming</span><span style="color:#000;font-weight:bold">(</span>NamingStrategy<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">underline_to_camel</span><span style="color:#000;font-weight:bold">);</span>
+        strategy<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setEntityLombokModel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">);</span>
+        strategy<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setRestControllerStyle</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">true</span><span style="color:#000;font-weight:bold">);</span>
+        mpg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">setStrategy</span><span style="color:#000;font-weight:bold">(</span>strategy<span style="color:#000;font-weight:bold">);</span>
+
+        mpg<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">execute</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Swagger配置类代码</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#3c5d5d;font-weight:bold">@Configuration</span>
+<span style="color:#3c5d5d;font-weight:bold">@EnableSwagger2</span>
+<span style="color:#000;font-weight:bold">public</span> <span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">SwaggerConfig</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#3c5d5d;font-weight:bold">@Bean</span>
+    <span style="color:#000;font-weight:bold">public</span> Docket <span style="color:#900;font-weight:bold">createRestApi</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> Docket<span style="color:#000;font-weight:bold">(</span>DocumentationType<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">SWAGGER_2</span><span style="color:#000;font-weight:bold">)</span>
+                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">apiInfo</span><span style="color:#000;font-weight:bold">(</span>apiInfo<span style="color:#000;font-weight:bold">())</span>
+                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">select</span><span style="color:#000;font-weight:bold">()</span>
+                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">apis</span><span style="color:#000;font-weight:bold">(</span>RequestHandlerSelectors<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">withMethodAnnotation</span><span style="color:#000;font-weight:bold">(</span>ApiOperation<span style="color:#000;font-weight:bold">.</span><span style="color:#008080">class</span><span style="color:#000;font-weight:bold">))</span>
+                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#000;font-weight:bold">}</span>
+
+    <span style="color:#000;font-weight:bold">private</span> ApiInfo <span style="color:#900;font-weight:bold">apiInfo</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">new</span> ApiInfoBuilder<span style="color:#000;font-weight:bold">()</span>
+                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">title</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;Poplar Service API&#34;</span><span style="color:#000;font-weight:bold">)</span>
+                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">description</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;User用户管理接口&#34;</span><span style="color:#000;font-weight:bold">)</span>
+                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">version</span><span style="color:#000;font-weight:bold">(</span><span style="color:#d14">&#34;V1.0&#34;</span><span style="color:#000;font-weight:bold">)</span>
+                <span style="color:#000;font-weight:bold">.</span><span style="color:#008080">build</span><span style="color:#000;font-weight:bold">();</span>
+    <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>代码生成后，需要的依赖pom.xml</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#999;font-weight:bold;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#000080">&lt;project</span> <span style="color:#008080">xmlns=</span><span style="color:#d14">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span style="color:#008080">xmlns:xsi=</span><span style="color:#d14">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span style="color:#008080">xsi:schemaLocation=</span><span style="color:#d14">&#34;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#000080">&gt;</span>
+    <span style="color:#000080">&lt;modelVersion&gt;</span>4.0.0<span style="color:#000080">&lt;/modelVersion&gt;</span>
+
+    <span style="color:#000080">&lt;parent&gt;</span>
+        <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+        <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter-parent<span style="color:#000080">&lt;/artifactId&gt;</span>
+        <span style="color:#000080">&lt;version&gt;</span>2.1.6.RELEASE<span style="color:#000080">&lt;/version&gt;</span>
+    <span style="color:#000080">&lt;/parent&gt;</span>
+
+    <span style="color:#000080">&lt;groupId&gt;</span>com.phoenix<span style="color:#000080">&lt;/groupId&gt;</span>
+    <span style="color:#000080">&lt;artifactId&gt;</span>mybatis-plus-generator<span style="color:#000080">&lt;/artifactId&gt;</span>
+    <span style="color:#000080">&lt;version&gt;</span>0.0.1-SNAPSHOT<span style="color:#000080">&lt;/version&gt;</span>
+
+    <span style="color:#000080">&lt;dependencies&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>com.baomidou<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>mybatis-plus-generator<span style="color:#000080">&lt;/artifactId&gt;</span>
+            <span style="color:#000080">&lt;version&gt;</span>3.3.1.tmp<span style="color:#000080">&lt;/version&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>org.apache.velocity<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>velocity-engine-core<span style="color:#000080">&lt;/artifactId&gt;</span>
+            <span style="color:#000080">&lt;version&gt;</span>2.2<span style="color:#000080">&lt;/version&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+        <span style="color:#998;font-style:italic">&lt;!-- springboot --&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#000080">&lt;/artifactId&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-starter-thymeleaf<span style="color:#000080">&lt;/artifactId&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>spring-boot-configuration-processor<span style="color:#000080">&lt;/artifactId&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+        <span style="color:#998;font-style:italic">&lt;!-- lombok注解 --&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>org.projectlombok<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>lombok<span style="color:#000080">&lt;/artifactId&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+        <span style="color:#998;font-style:italic">&lt;!-- swagger --&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>io.springfox<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>springfox-swagger2<span style="color:#000080">&lt;/artifactId&gt;</span>
+            <span style="color:#000080">&lt;version&gt;</span>2.9.2<span style="color:#000080">&lt;/version&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>io.springfox<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>springfox-swagger-ui<span style="color:#000080">&lt;/artifactId&gt;</span>
+            <span style="color:#000080">&lt;version&gt;</span>2.9.2<span style="color:#000080">&lt;/version&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+        <span style="color:#998;font-style:italic">&lt;!-- db驱动 --&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>mysql<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>mysql-connector-java<span style="color:#000080">&lt;/artifactId&gt;</span>
+            <span style="color:#000080">&lt;version&gt;</span>8.0.16<span style="color:#000080">&lt;/version&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+        <span style="color:#998;font-style:italic">&lt;!-- db连接池 --&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>com.alibaba<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>druid-spring-boot-starter<span style="color:#000080">&lt;/artifactId&gt;</span>
+            <span style="color:#000080">&lt;version&gt;</span>1.1.10<span style="color:#000080">&lt;/version&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+        <span style="color:#998;font-style:italic">&lt;!-- mybatis-spring --&gt;</span>
+        <span style="color:#000080">&lt;dependency&gt;</span>
+            <span style="color:#000080">&lt;groupId&gt;</span>org.mybatis.spring.boot<span style="color:#000080">&lt;/groupId&gt;</span>
+            <span style="color:#000080">&lt;artifactId&gt;</span>mybatis-spring-boot-starter<span style="color:#000080">&lt;/artifactId&gt;</span>
+            <span style="color:#000080">&lt;version&gt;</span>2.1.0<span style="color:#000080">&lt;/version&gt;</span>
+        <span style="color:#000080">&lt;/dependency&gt;</span>
+    <span style="color:#000080">&lt;/dependencies&gt;</span>
+<span style="color:#000080">&lt;/project&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="easycode的idea插件也可很快的生成代码">EasyCode的idea插件也可很快的生成代码</h1>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/mybatis%E6%8F%92%E4%BB%B6/">mybatis插件</a></li>
+        
+        <li><a href="/post/npm/">npm</a></li>
+        
+        <li><a href="/post/flyway/">flyway</a></li>
+        
+        <li><a href="/post/Windows/">Windows</a></li>
+        
+        <li><a href="/post/docker/">docker</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/mybatis'>mybatis</a></li>
+                
+                <li><a href='/tags/mybatis-plus'>mybatis-plus</a></li>
+                
+                <li><a href='/tags/mybatis-plus-generator'>mybatis-plus-generator</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+</div>
+
+                    <footer id="footer">
+    <br />
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://phoenixtree2poplar.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://phoenixtree2poplar.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/phoenixtree/" title="win装机">win装机</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/shell/" title="shell">shell</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis-plus-generator/" title="mybatis-plus-generator">mybatis-plus-generator</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/npm/" title="npm">npm</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/flyway/" title="flyway">flyway</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/Windows/" title="Windows">Windows</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/docker/" title="docker">docker</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/" title="mybatis插件">mybatis插件</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/redis/" title="redis">redis</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mysql/" title="mysql">mysql</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/cmd/">cmd (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/command/">command (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/docker/">docker (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/flywaty/">flywaty (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/git/">git (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/hexo/">hexo (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/idea/">idea (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/java/">java (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/maven/">maven (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/mybatis/">mybatis (2)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/npm/">npm (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/pkgs/">pkgs (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/pom/">pom (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/redis/">redis (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/route/">route (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/shell/">shell (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/sql/">sql (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/win10/">win10 (2)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/OneDrive/">OneDrive</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/Remove-OneDrive/">Remove-OneDrive</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/bat/">bat</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/cmd/">cmd</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/command/">command</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/docker/">docker</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/flywaty/">flywaty</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/git/">git</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/hexo/">hexo</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/idea/">idea</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/java/">java</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/jdk/">jdk</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/linux/">linux</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/maven/">maven</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mvn/">mvn</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis/">mybatis</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis-plus/">mybatis-plus</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis-plus-generator/">mybatis-plus-generator</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mysql/">mysql</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/node/">node</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/npm/">npm</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/pkg/">pkg</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/pom/">pom</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/redis/">redis</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/route/">route</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/shell/">shell</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/sql/">sql</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/tomcat/">tomcat</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win10/">win10</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win10%E7%A6%81%E6%AD%A2%E6%9B%B4%E6%96%B0/"> win10禁止更新</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win%E8%A3%85%E6%9C%BA/">win装机</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E5%91%BD%E4%BB%A4/">命令</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E6%89%93%E5%8D%B0%E6%9C%BA%E6%9C%8D%E5%8A%A1/">打印机服务</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E8%84%9A%E6%9C%AC/">脚本</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a>
+    
+</div>
+    </section>
+
+    
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

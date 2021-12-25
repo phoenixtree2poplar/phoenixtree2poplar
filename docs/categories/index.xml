@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/categories/</link>
+    <description>Recent content in Categories on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 15 Mar 2020 17:28:12 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pkgs</title>
+      <link>https://phoenixtree2poplar.github.io/categories/pkgs/</link>
+      <pubDate>Sun, 15 Mar 2020 17:28:12 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/pkgs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://phoenixtree2poplar.github.io/categories/shell/</link>
+      <pubDate>Wed, 04 Mar 2020 21:06:27 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mybatis</title>
+      <link>https://phoenixtree2poplar.github.io/categories/mybatis/</link>
+      <pubDate>Thu, 20 Feb 2020 15:16:52 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/mybatis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npm</title>
+      <link>https://phoenixtree2poplar.github.io/categories/npm/</link>
+      <pubDate>Sat, 18 Jan 2020 22:03:18 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>flywaty</title>
+      <link>https://phoenixtree2poplar.github.io/categories/flywaty/</link>
+      <pubDate>Fri, 06 Dec 2019 22:16:49 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/flywaty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cmd</title>
+      <link>https://phoenixtree2poplar.github.io/categories/cmd/</link>
+      <pubDate>Fri, 15 Nov 2019 21:57:50 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/cmd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://phoenixtree2poplar.github.io/categories/docker/</link>
+      <pubDate>Tue, 03 Sep 2019 23:14:41 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redis</title>
+      <link>https://phoenixtree2poplar.github.io/categories/redis/</link>
+      <pubDate>Sun, 25 Aug 2019 14:47:56 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sql</title>
+      <link>https://phoenixtree2poplar.github.io/categories/sql/</link>
+      <pubDate>Sun, 25 Aug 2019 14:46:27 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>idea</title>
+      <link>https://phoenixtree2poplar.github.io/categories/idea/</link>
+      <pubDate>Sun, 25 Aug 2019 09:15:46 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/idea/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>command</title>
+      <link>https://phoenixtree2poplar.github.io/categories/command/</link>
+      <pubDate>Fri, 09 Aug 2019 22:24:12 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/command/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://phoenixtree2poplar.github.io/categories/git/</link>
+      <pubDate>Fri, 12 Jul 2019 21:49:14 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pom</title>
+      <link>https://phoenixtree2poplar.github.io/categories/pom/</link>
+      <pubDate>Fri, 12 Jul 2019 21:38:02 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/pom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://phoenixtree2poplar.github.io/categories/java/</link>
+      <pubDate>Thu, 07 Mar 2019 12:55:58 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>maven</title>
+      <link>https://phoenixtree2poplar.github.io/categories/maven/</link>
+      <pubDate>Fri, 31 Aug 2018 10:53:29 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/maven/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>route</title>
+      <link>https://phoenixtree2poplar.github.io/categories/route/</link>
+      <pubDate>Thu, 01 Jun 2017 14:23:12 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/route/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>win10</title>
+      <link>https://phoenixtree2poplar.github.io/categories/win10/</link>
+      <pubDate>Tue, 23 May 2017 08:38:16 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/win10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hexo</title>
+      <link>https://phoenixtree2poplar.github.io/categories/hexo/</link>
+      <pubDate>Fri, 12 Aug 2016 17:06:56 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/hexo/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

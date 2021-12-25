@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/tags/git/</link>
+    <description>Recent content in git on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 12 Jul 2019 21:49:14 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git-init</title>
+      <link>https://phoenixtree2poplar.github.io/post/git-init/</link>
+      <pubDate>Fri, 12 Jul 2019 21:49:14 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/git-init/</guid>
+      <description>gitgub初始化 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 cd /d #切换到d盘 mkdir git #建立git目录 cd git #进入git目录 git init #初始化仓库 git config --global user.name &amp;#34;phoenixtree&amp;#34; #设置用户名 git config --global user.email &amp;#34;wu_ton-g@foxmail.com&amp;#34; #设置用户邮箱 git remote add origin git@github.com:phoenixtree2poplar/only-test.git #关联远程仓库 #########第一次SSH认证时候用############## rm -fr ~/.ssh #删除本地</description>
+    </item>
+    
+  </channel>
+</rss>

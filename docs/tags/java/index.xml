@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/tags/java/</link>
+    <description>Recent content in java on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 07 Mar 2019 12:55:58 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java环境变量配置</title>
+      <link>https://phoenixtree2poplar.github.io/post/Java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 07 Mar 2019 12:55:58 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/Java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</guid>
+      <description>安装java环境，选择安装目录，安装过程中会出现两次安装提示。 第一次是安装jdk，第二次是安装jre 。 建议两个都安装在同一个文件夹中的不同文件夹中。（不能都安装在java文件夹的根目录下，jdk和jre安装在同一文件夹会出错 1.安装jdk 根据个人喜好选择安装目录 2.安装jre 根据</description>
+    </item>
+    
+  </channel>
+</rss>

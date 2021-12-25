@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mysql on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/tags/mysql/</link>
+    <description>Recent content in mysql on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 25 Aug 2019 14:46:27 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mysql</title>
+      <link>https://phoenixtree2poplar.github.io/post/mysql/</link>
+      <pubDate>Sun, 25 Aug 2019 14:46:27 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/mysql/</guid>
+      <description>Mysql 命令 1 2 3 4 5 6 7 8 9 10 desc table； #显示表头 select Host,User,plugin from user; #用户名，登录方式，用户名，认证方式， ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY &amp;#39;root&amp;#39;; #修改root认证方式mysql_native_password，密码为root FLUSH PRIVILEGES; #刷新认证表 UPDATE user SET Password=PASSWORD(&amp;#39;newpassword&amp;#39;) where USER=&amp;#39;root&amp;#39;; #修改密码 ALTER USER root@localhost identified WITH mysql_native_password BY &amp;#39;root&amp;#39;; #修改密码 set password for root@localhost = password(&amp;#39;root&amp;#39;); #进入数据修</description>
+    </item>
+    
+  </channel>
+</rss>

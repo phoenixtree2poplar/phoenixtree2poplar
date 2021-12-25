@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>npm on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/categories/npm/</link>
+    <description>Recent content in npm on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 18 Jan 2020 22:03:18 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/categories/npm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>npm</title>
+      <link>https://phoenixtree2poplar.github.io/post/npm/</link>
+      <pubDate>Sat, 18 Jan 2020 22:03:18 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/npm/</guid>
+      <description>nodejs包管理工具npm 1 2 3 npm config set registry http://registry.npm.taobao.org #配置淘宝仓库 npm config set prefix “F:\path\npm-pkg” #设置本地包下载位置(增加相应环境变量) npm config set cache “F:\path\npm-pkg\cache” #设置缓存位置 nrm仓库管理工具 1 2 3 4 npm install -g nrm #全局安装nrm nrm ls #列出所有仓库 nrm test</description>
+    </item>
+    
+  </channel>
+</rss>

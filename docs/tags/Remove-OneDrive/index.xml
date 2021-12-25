@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Remove-OneDrive on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/tags/Remove-OneDrive/</link>
+    <description>Recent content in Remove-OneDrive on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 05 May 2017 10:27:52 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/tags/Remove-OneDrive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Remove OneDrive</title>
+      <link>https://phoenixtree2poplar.github.io/post/%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4-onedirve/</link>
+      <pubDate>Fri, 05 May 2017 10:27:52 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4-onedirve/</guid>
+      <description>关于禁止onedrive自启动简单的就是在任务管理器的启动中禁用onedrive的启动项目就可以。 关于组策略管理 运行gpedit.msc，进入【计算机配置】-【管理模板】-【windows组件】-【onedrive】，右侧的三个选项： 默认情况下，将文档保存到 OneDrive，选择</description>
+    </item>
+    
+  </channel>
+</rss>

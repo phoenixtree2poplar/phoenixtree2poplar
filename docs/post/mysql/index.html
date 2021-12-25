@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+
+    <title>mysql | 梧桐</title>
+    <meta property="og:title" content="mysql - 梧桐">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2019-08-25T14:46:27&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2019-08-25T14:46:27&#43;08:00'>
+        
+    <meta name="Keywords" content="golang,go语言,go语言笔记,梧桐,java,android,博客,项目管理,python,软件架构,公众号,小程序">
+    <meta name="description" content="mysql">
+        
+    <meta name="author" content="梧桐">
+    <meta property="og:url" content="https://phoenixtree2poplar.github.io/post/mysql/">
+    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+    
+    
+    
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://phoenixtree2poplar.github.io/">
+                        梧桐
+                    </a>
+                
+                <p class="description">专注于Java，生活源于热爱，视界决定世界</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://phoenixtree2poplar.github.io/">首页</a>
+                    
+                    <a  href="https://phoenixtree2poplar.github.io/archives/" title="归档">归档</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    <style type="text/css">
+    .post-toc {
+        position: fixed;
+        width: 200px;
+        margin-left: -210px;
+        padding: 5px 10px;
+        font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+        font-size: 12px;
+        border: 1px solid rgba(0, 0, 0, .07);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.98);
+        background-clip: padding-box;
+        -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, .125);
+        word-wrap: break-word;
+        white-space: nowrap;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        z-index: 999;
+        cursor: pointer;
+        max-height: 70%;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .post-toc .post-toc-title {
+        width: 100%;
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .post-toc .post-toc-content {
+        font-size: 15px;
+    }
+
+    .post-toc .post-toc-content>nav>ul {
+        margin: 10px 0;
+    }
+
+    .post-toc .post-toc-content ul {
+        padding-left: 20px;
+        list-style: square;
+        margin: 0.5em;
+        line-height: 1.8em;
+    }
+
+    .post-toc .post-toc-content ul ul {
+        padding-left: 15px;
+        display: none;
+    }
+
+    @media print,
+    screen and (max-width:1057px) {
+        .post-toc {
+            display: none;
+        }
+    }
+</style>
+<div class="post-toc" style="position: absolute; top: 188px;">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mysql-命令">Mysql 命令</a></li>
+    <li><a href="#mysql7解压版cmd命令安装">Mysql7解压版cmd命令安装</a></li>
+    <li><a href="#连接mysql时的url解析">连接MySQL时的url解析</a>
+      <ul>
+        <li></li>
+        <li><a href="#mysql最强笔记-httpsmpweixinqqcomsmzfdir8920uymj5ai8tj8q">mysql最强笔记 【https://mp.weixin.qq.com/s/mzFdir8920uYmj5AI8TJ8Q</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var postToc = $(".post-toc");
+        if (postToc.length) {
+            var leftPos = $("#main").offset().left;
+            if(leftPos<220){
+                postToc.css({"width":leftPos-10,"margin-left":(0-leftPos)})
+            }
+
+            var t = postToc.offset().top - 20,
+                a = {
+                    start: {
+                        position: "absolute",
+                        top: t
+                    },
+                    process: {
+                        position: "fixed",
+                        top: 20
+                    },
+                };
+            $(window).scroll(function () {
+                var e = $(window).scrollTop();
+                e < t ? postToc.css(a.start) : postToc.css(a.process)
+            })
+        }
+    })
+</script>
+    <article class="post">
+        <header>
+            <h1 class="post-title">mysql</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年8月25日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='/categories/sql'>sql</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">|<span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span>
+        </div>
+        
+        
+        <div class="clear" style="display: none">
+            <div class="toc-article">
+                <div class="toc-title">文章目录</div>
+            </div>
+        </div>
+        
+        <div class="post-content">
+            <h2 id="mysql-命令">Mysql 命令</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">desc table；  #显示表头
+select Host,User,plugin from user;  #用户名，登录方式，用户名，认证方式，
+ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY &#39;root&#39;;  #修改root认证方式mysql_native_password，密码为root
+FLUSH PRIVILEGES;  #刷新认证表
+UPDATE user SET Password=PASSWORD(&#39;newpassword&#39;) where USER=&#39;root&#39;;   #修改密码
+ALTER USER root@localhost identified WITH mysql_native_password BY &#39;root&#39;;  #修改密码
+
+<span style="color:#000;font-weight:bold">set</span> <span style="color:#008080">password for root@localhost </span>= password(&#39;root&#39;);   #进入数据修改密码 mysql5.7
+mysql&gt; use mysql;  #切换库
+mysql&gt; update user set host = &#39;%&#39;  where user = &#39;root&#39;;  #授权非本地登录
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="mysql7解压版cmd命令安装">Mysql7解压版cmd命令安装</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">解压目录下新建  my.ini  文件，内容如下
+----------
+[mysqld]
+port= 3306                      #服务器端口
+basedir=<span style="color:#d14">&#34;D:/path/mysql7&#34;</span>        #安装目录（因人而异）
+datadir=<span style="color:#d14">&#34;D:/path/mysql7/data&#34;</span>   #数据保存位置（必须存在，不然报错）
+max_connections=200
+character-set-server=utf8
+default-storage-engine=INNODB
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+[mysql]
+default-character-set=utf8
+----------
+在解压目录bin下启动cmd（管理员权限）
+mysqld --initialize-insecure  #初始化无密码数据库
+mysqld --install  sql7  #安装服务，服务名为 sql7（个人喜好）
+net start sql7           #开启数据库 提示成功，表示安装成功
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="连接mysql时的url解析">连接MySQL时的url解析</h2>
+<pre tabindex="0"><code>jdbc:mysql://localhost:3306/popalr?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true
+</code></pre><h4 id="localhost地址">localhost：地址</h4>
+<h4 id="3306端口默认是3306">3306：端口，默认是3306</h4>
+<h4 id="newdb数据库名">newdb：数据库名</h4>
+<h4 id="useunicodetruetrue表示使用unicode编码">useUnicode=true：true表示使用unicode编码</h4>
+<h4 id="characterencodingutf-8字符集">characterEncoding=UTF-8：字符集</h4>
+<h4 id="zerodatetimebehaviorconverttonulljava在连接mysql数据库时在操作值为0的timestamp类型时不能正确的处理而是默认抛出一个异常就是所见的javasqlsqlexceptioncannotconvertvalue0000-00-00000000fromcolumn7totimestamp这一问题在官方文档中有详细说明">zeroDateTimeBehavior=convertToNull：java在连接mysql数据库时，在操作值为0的timestamp类型时不能正确的处理，而是默认抛出一个异常，就是所见的：java.sql.SQLException: Cannot convert value &lsquo;0000-00-00 00:00:00&rsquo; from column 7 to TIMESTAMP。这一问题在官方文档中有详细说明。</h4>
+<h4 id="在jdbc连接串中有一项属性zerodatetimebehavior可以用来配置出现这种情况时的处理策略该属性有下列三个属性值">在JDBC连接串中有一项属性：zeroDateTimeBehavior,可以用来配置出现这种情况时的处理策略，该属性有下列三个属性值：</h4>
+<h4 id="exception默认值即抛出sqlstates1009cannotconvertvalue的异常">exception：默认值，即抛出SQL state [S1009]. Cannot convert value&hellip;.的异常；</h4>
+<h4 id="converttonull将日期转换成null值">convertToNull：将日期转换成NULL值；</h4>
+<h4 id="round替换成最近的日期即0001-01-01">round：替换成最近的日期即0001-01-01；</h4>
+<h4 id="因此对于这类异常可以考虑通过修改连接串附加zerodatetimebehaviorconverttonull属性的方式予以规避例如">因此对于这类异常，可以考虑通过修改连接串，附加zeroDateTimeBehavior=convertToNull属性的方式予以规避，例如：</h4>
+<h4 id="jdbcmysqllocalhost3306mydbnamezerodatetimebehaviorconverttonull">jdbc:mysql://localhost:3306/mydbname?zeroDateTimeBehavior=convertToNull</h4>
+<h4 id="从另一个层面讲这类异常的触发也与timestamp赋值的操作有关如果能够在设计阶段和记录写入阶段做好逻辑判断避免写入-0000-00-00-000000这类值那么也可以避免出现-cannotconvertvalue0000-00-00000000fromcolumnntotimestamp的错-误">从另一个层面讲，这类异常的触发也与timestamp赋值的操作有关，如果能够在设计阶段和记录写入阶段做好逻辑判断，避免写入 &lsquo;0000-00-00 00:00:00&rsquo;这类值，那么也可以避免出现 Cannot convert value &lsquo;0000-00-00 00:00:00&rsquo; from column N to TIMESTAMP的错 误。</h4>
+<h4 id="usessltrue使用jdbc跟你的数据库连接的时候你的jdbc版本与mysql版本不兼容mysql的版本更高一些在连接语句后加上usessltrue-就可以连接到数据库了">useSSL=true：使用JDBC跟你的数据库连接的时候，你的JDBC版本与MySQL版本不兼容，MySQL的版本更高一些，在连接语句后加上“useSSL=‘true’” ，就可以连接到数据库了。</h4>
+<h3 id="mysql最强笔记-httpsmpweixinqqcomsmzfdir8920uymj5ai8tj8q">mysql最强笔记 【https://mp.weixin.qq.com/s/mzFdir8920uYmj5AI8TJ8Q</h3>
+
+        </div>
+
+        
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/idea/">idea</a></li>
+        
+        <li><a href="/post/command/">command</a></li>
+        
+        <li><a href="/post/git-init/">git-init</a></li>
+        
+        <li><a href="/post/My-pom-xml/">My-pom.xml</a></li>
+        
+        <li><a href="/post/Java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/">Java环境变量配置</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='/tags/sql'>sql</a></li>
+                
+                <li><a href='/tags/mysql'>mysql</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+    
+</div>
+
+                    <footer id="footer">
+    <br />
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='https://phoenixtree2poplar.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://phoenixtree2poplar.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/phoenixtree/" title="win装机">win装机</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/shell/" title="shell">shell</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis-plus-generator/" title="mybatis-plus-generator">mybatis-plus-generator</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/npm/" title="npm">npm</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/flyway/" title="flyway">flyway</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/Windows/" title="Windows">Windows</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/docker/" title="docker">docker</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/" title="mybatis插件">mybatis插件</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/redis/" title="redis">redis</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/mysql/" title="mysql">mysql</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
+<ul class="widget-list">
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/cmd/">cmd (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/command/">command (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/docker/">docker (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/flywaty/">flywaty (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/git/">git (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/hexo/">hexo (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/idea/">idea (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/java/">java (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/maven/">maven (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/mybatis/">mybatis (2)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/npm/">npm (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/pkgs/">pkgs (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/pom/">pom (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/redis/">redis (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/route/">route (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/shell/">shell (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/sql/">sql (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/win10/">win10 (2)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
+<div class="tagcloud">
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/OneDrive/">OneDrive</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/Remove-OneDrive/">Remove-OneDrive</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/bat/">bat</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/cmd/">cmd</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/command/">command</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/docker/">docker</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/flywaty/">flywaty</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/git/">git</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/hexo/">hexo</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/idea/">idea</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/java/">java</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/jdk/">jdk</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/linux/">linux</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/maven/">maven</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mvn/">mvn</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis/">mybatis</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis-plus/">mybatis-plus</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mybatis-plus-generator/">mybatis-plus-generator</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/mysql/">mysql</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/node/">node</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/npm/">npm</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/pkg/">pkg</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/pom/">pom</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/redis/">redis</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/route/">route</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/shell/">shell</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/sql/">sql</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/tomcat/">tomcat</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win10/">win10</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win10%E7%A6%81%E6%AD%A2%E6%9B%B4%E6%96%B0/"> win10禁止更新</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/win%E8%A3%85%E6%9C%BA/">win装机</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E5%91%BD%E4%BB%A4/">命令</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E6%89%93%E5%8D%B0%E6%9C%BA%E6%9C%8D%E5%8A%A1/">打印机服务</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E8%84%9A%E6%9C%AC/">脚本</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a>
+    
+</div>
+    </section>
+
+    
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

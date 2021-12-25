@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hexo on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/tags/hexo/</link>
+    <description>Recent content in hexo on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 09 Aug 2019 22:24:12 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>command</title>
+      <link>https://phoenixtree2poplar.github.io/post/command/</link>
+      <pubDate>Fri, 09 Aug 2019 22:24:12 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/command/</guid>
+      <description>git https://github.com/pcottle/learnGitBranching # 交互式Git学习 1 2 3 4 5 6 7 8 git fetch --all #强制拉取 git reset --hard origin/master #强制覆盖本地 git checkout -b dev #从当前分支创建并切换分支到dev git push --set-upstream origin dev #当前分支推送远程分支dev git push origin :dev #推送空分支到远程即删除远程分支，需当前不在该分支 git rm -r --cached . #刷新文件缓存 #https://njuferret.github.io/2018/08/24/git-usage/ #git乱码 #https://github.com/phoenixtree2poplar/my-git/blob/master/git-workflow-tutorial.md #git工作流 Maven命</description>
+    </item>
+    
+    <item>
+      <title>install-hexo</title>
+      <link>https://phoenixtree2poplar.github.io/post/install-hexo/</link>
+      <pubDate>Fri, 12 Aug 2016 17:06:56 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/install-hexo/</guid>
+      <description>准备环境 安装Windows环境 安装Git: https://www.git-scm.com/ 安装Node.js: https://nodejs.org/en/ 安装过程就不说了,一直Next就行了 1、进入Git Bash 1 npm install -g hexo #注意：-g是指全局安装hexo 安装完成后，在你喜爱的文件夹下（如D:\Hexo），执行以下指令(在D:\Hexo内点击鼠标右键，选择Git Bash) 1 2 3 4 hexo</description>
+    </item>
+    
+  </channel>
+</rss>
