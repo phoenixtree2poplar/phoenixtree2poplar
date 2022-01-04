@@ -2,7 +2,7 @@
 1. [winrar](https://github.com/phoenixtree2poplar/release-tools-v1/releases/tag/%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6)
 2. [科学上网](https://github.com/phoenixtree2poplar/release-tools-v1/releases/tag/%E5%BC%80%E6%BA%90%E7%BF%BB%E5%A2%99)【[官网](https://github.com/haotian-wang/google-access-helper)】
 3. [Thunder](https://github.com/phoenixtree2poplar/release-tools-v1/releases/tag/%E8%BF%85%E9%9B%B7%E6%9C%80%E7%AE%80%E7%89%88)迅雷最简版(文件位置修改)
-4. [Thunder](https://github.com/phoenixtree2poplar/release-pkg-v1/releases/tag/thunder)迅雷10去广告版
+4. Thunder迅雷10去广告版
 5. [软件下载工具](https://github.com/phoenixtree2poplar/release-tools-v2/releases/tag/software-download)(绿色清爽版)
 6. [ccleaner](https://github.com/phoenixtree2poplar/release-pkg-v1/releases/tag/CCleaner5.63)(软件卸载工具-清理注册表)【[官网](https://www.ccleaner.com/)】
 7. [office-table插件](https://github.com/phoenixtree2poplar/release-tools-v1/releases/tag/office%E6%8F%92%E4%BB%B6)
