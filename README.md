@@ -1,11 +1,4 @@
-+++
-title="win装机"
-date= 2020-03-15 17:28:12
-tags=["pkg","win装机"]
-categories=["pkgs"]
-toc=true
-+++
-# Long live the open source
+# 开源万岁
 1. [winrar](https://github.com/phoenixtree2poplar/release-tools-v1/releases/tag/%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6)
 2. [科学上网](https://github.com/phoenixtree2poplar/release-tools-v1/releases/tag/%E5%BC%80%E6%BA%90%E7%BF%BB%E5%A2%99)【[官网](https://github.com/haotian-wang/google-access-helper)】
 3. [Thunder](https://github.com/phoenixtree2poplar/release-tools-v1/releases/tag/%E8%BF%85%E9%9B%B7%E6%9C%80%E7%AE%80%E7%89%88)迅雷最简版(文件位置修改)
@@ -31,12 +24,12 @@ toc=true
 23. [mysql7](https://github.com/phoenixtree2poplar/release-pkg-v1/releases/tag/mysql7)【[官网](https://dev.mysql.com/downloads/mysql)】
 <!-- -->
 ### 仅官网
-1. [notepad++](https://notepad-plus.en.softonic.com/)
-2. [postman](https://www.getpostman.com/)
-3. [docker](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
-4. [typora](https://www.typora.io/)
+- [notepad++](https://notepad-plus.en.softonic.com/)
+- [postman](https://www.getpostman.com/)
+- [docker](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+- [typora](https://www.typora.io/)
 ### plugins插件
-1. [idea插件官网](https://plugins.jetbrains.com)
+- [idea插件官网](https://plugins.jetbrains.com)
     - [EasyCode](https://github.com/phoenixtree2poplar/release-pkg-v1/releases/tag/EasyCode-1.2.2)
     - [free mybatis plugin](https://github.com/phoenixtree2poplar/release-pkg-v1/releases/tag/EasyCode-1.2.2)
     - [maven helper](https://github.com/phoenixtree2poplar/release-pkg-v1/releases/tag/EasyCode-1.2.2)
