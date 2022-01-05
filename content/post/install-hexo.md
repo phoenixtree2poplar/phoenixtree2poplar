@@ -54,7 +54,6 @@ hexo n == hexo new
 hexo s -g  #本地测试
 hexo d -g  #git发布
 ```
-`
 ## 本地资料丢失后的流程当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤
 1. 使用git clone 拷贝仓库（默认分支为hexo）；
 2. 在本地新拷贝的github.io文件夹下通过Git bash依次执行下列指令：
