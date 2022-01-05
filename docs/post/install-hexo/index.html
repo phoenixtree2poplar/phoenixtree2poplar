@@ -139,27 +139,18 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#准备环境">准备环境</a>
       <ul>
-        <li><a href="#安装windows环境">安装Windows环境</a></li>
-        <li><a href="#安装git-httpswwwgit-scmcom">安装Git: <a href="https://www.git-scm.com/">https://www.git-scm.com/</a></a></li>
-        <li><a href="#安装nodejs-httpsnodejsorgen">安装Node.js: <a href="https://nodejs.org/en/">https://nodejs.org/en/</a></a></li>
+        <li></li>
       </ul>
     </li>
-    <li><a href="#1进入git-bash">1、进入Git Bash</a></li>
-    <li><a href="#2创建github账号并添加key网上有教程就不进行说明了">2、创建github账号并添加key(网上有教程就不进行说明了)</a></li>
-    <li><a href="#3国内直接使用-npm-的官方镜像是非常慢的这里推荐使用淘宝-npm-镜像">3、国内直接使用 npm 的官方镜像是非常慢的，这里推荐使用淘宝 NPM 镜像。</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#4新版特性--支持缩写">4、新版特性  支持缩写</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#1创建双分支">1、创建双分支</a></li>
-    <li><a href="#2关于日常的改动流程在本地对博客进行修改添加新博文修改样式等等后通过下面的流程进行管理">2、关于日常的改动流程在本地对博客进行修改（添加新博文、修改样式等等）后，通过下面的流程进行管理。</a></li>
-    <li><a href="#3本地资料丢失后的流程当重装电脑之后或者想在其他电脑上修改博客可以使用下列步骤">3、本地资料丢失后的流程当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤</a></li>
+    <li><a href="#进入命令行">进入命令行</a></li>
+    <li><a href="#创建github账号并添加key网上有教程就不进行说明了">创建github账号并添加key(网上有教程就不进行说明了)</a></li>
+    <li><a href="#国内直接使用-npm-的官方镜像是非常慢的这里推荐使用淘宝-npm-镜像">国内直接使用 npm 的官方镜像是非常慢的，这里推荐使用淘宝 NPM 镜像。</a></li>
+    <li><a href="#新版特性--支持缩写">新版特性  支持缩写</a></li>
+    <li><a href="#本地资料丢失后的流程当重装电脑之后或者想在其他电脑上修改博客可以使用下列步骤">本地资料丢失后的流程当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤</a></li>
     <li><a href="#hexo添加图片">hexo添加图片</a></li>
+    <li><a href="#nrm仓库管理工具">nrm仓库管理工具</a></li>
   </ul>
 </nav>
     </div>
@@ -220,12 +211,12 @@
         </div>
         
         <div class="post-content">
-            <h1 id="准备环境">准备环境</h1>
-<h3 id="安装windows环境">安装Windows环境</h3>
-<h3 id="安装git-httpswwwgit-scmcom">安装Git: <a href="https://www.git-scm.com/">https://www.git-scm.com/</a></h3>
-<h3 id="安装nodejs-httpsnodejsorgen">安装Node.js: <a href="https://nodejs.org/en/">https://nodejs.org/en/</a></h3>
+            <h2 id="准备环境">准备环境</h2>
+<h4 id="安装windows环境">安装Windows环境</h4>
+<h4 id="安装git-httpswwwgit-scmcom">安装Git: <a href="https://www.git-scm.com/">https://www.git-scm.com/</a></h4>
+<h4 id="安装nodejs-httpsnodejsorgen">安装Node.js: <a href="https://nodejs.org/en/">https://nodejs.org/en/</a></h4>
 <h4 id="安装过程就不说了一直next就行了">安装过程就不说了,一直Next就行了</h4>
-<h2 id="1进入git-bash">1、进入Git Bash</h2>
+<h2 id="进入命令行">进入命令行</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -250,7 +241,7 @@ hexo server  #也可以输入缩写 hexo s -g (gener + server)
 </code></pre></td></tr></table>
 </div>
 </div><p>现在我们已经搭建起本地的hexo博客了，执行以下命令(在D:\Hexo)，然后到浏览器输入localhost:4000看看。</p>
-<h2 id="2创建github账号并添加key网上有教程就不进行说明了">2、创建github账号并添加key(网上有教程就不进行说明了)</h2>
+<h2 id="创建github账号并添加key网上有教程就不进行说明了">创建github账号并添加key(网上有教程就不进行说明了)</h2>
 <p>建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】，固定写法然后建立关联
 现在我们需要_config.yml文件，来建立关联，可参考<a href="https://hexo.io/">官网</a>说明 <a href="https://hexo.io/docs/deployment.html">https://hexo.io/docs/deployment.html</a>
 编辑  _config.yml 翻到最下面，改成我这样子的</p>
@@ -282,7 +273,7 @@ hexo d -g  <span style="color:#998;font-style:italic">#发布你的 blog</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>你的博客就搭建成功了  网址为your_user_name.github.io</p>
-<h2 id="3国内直接使用-npm-的官方镜像是非常慢的这里推荐使用淘宝-npm-镜像">3、国内直接使用 npm 的官方镜像是非常慢的，这里推荐使用淘宝 NPM 镜像。</h2>
+<h2 id="国内直接使用-npm-的官方镜像是非常慢的这里推荐使用淘宝-npm-镜像">国内直接使用 npm 的官方镜像是非常慢的，这里推荐使用淘宝 NPM 镜像。</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -295,22 +286,7 @@ npm config <span style="color:#0086b3">set</span> prefix “F:<span style="color
 npm config <span style="color:#0086b3">set</span> cache “F:<span style="color:#d14">\p</span>ath<span style="color:#d14">\n</span>pm-pkg<span style="color:#d14">\c</span>ache”  <span style="color:#998;font-style:italic">#设置缓存位置，根据个人，可不改</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="nrm仓库管理工具">nrm仓库管理工具</h1>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">npm install -g nrm  #全局安装nrm
-nrm ls  #列出所有仓库
-nrm test  #仓库测试(果断淘宝第一)
-nrm use taobao  #使用淘宝仓库
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="4新版特性--支持缩写">4、新版特性  支持缩写</h2>
+</div><h2 id="新版特性--支持缩写">新版特性  支持缩写</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -329,47 +305,8 @@ hexo s -g  <span style="color:#998;font-style:italic">#本地测试</span>
 hexo d -g  <span style="color:#998;font-style:italic">#git发布</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="双分支管理git">双分支管理git</h1>
-<h2 id="1创建双分支">1、创建双分支</h2>
-<p>1.创建仓库;
-2.创建两个分支：master 与 hexo
-3.设置hexo为默认分支（因为我们只需要手动管理这个分支上的Hexo网站文件）
-4.使用git clone 拷贝仓库
-5.在本地github.io文件夹下通过Git bash依次执行</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install hexo
-hexo init
-npm install
-npm install hexo-deployer-git  <span style="color:#998;font-style:italic">#此时当前分支应显示为hexo，hexo可能洗掉 git环境</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>6.修改_config.yml中的deploy参数，分支应为master
-7.这样一来，在GitHub上仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</p>
-<h2 id="2关于日常的改动流程在本地对博客进行修改添加新博文修改样式等等后通过下面的流程进行管理">2、关于日常的改动流程在本地对博客进行修改（添加新博文、修改样式等等）后，通过下面的流程进行管理。</h2>
-<p>依次执行</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add .  <span style="color:#998;font-style:italic">#最后有个 “.”  表示当前目录</span>
-git commit -m <span style="color:#d14">&#34;...&#34;</span>
-git push origin hexo  <span style="color:#998;font-style:italic">#指令将改动推送到GitHub（此时当前分支应为hexo）</span>
-hexo g -d  <span style="color:#998;font-style:italic">#发布网站到master分支上</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>虽然两个过程顺序调转一般不会有问题，不过逻辑上这样的顺序是绝对没问题的（例如突然死机要重装了，悲催&hellip;.的情况，调转顺序就有问题了）。</p>
-<h2 id="3本地资料丢失后的流程当重装电脑之后或者想在其他电脑上修改博客可以使用下列步骤">3、本地资料丢失后的流程当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤</h2>
+</div><p>`</p>
+<h2 id="本地资料丢失后的流程当重装电脑之后或者想在其他电脑上修改博客可以使用下列步骤">本地资料丢失后的流程当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤</h2>
 <ol>
 <li>使用git clone 拷贝仓库（默认分支为hexo）；</li>
 <li>在本地新拷贝的github.io文件夹下通过Git bash依次执行下列指令：</li>
@@ -397,6 +334,21 @@ npm install hexo-deployer-git  <span style="color:#998;font-style:italic">#记�
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install https://github.com/CodeFalling/hexo-asset-image --save <span style="color:#998;font-style:italic">#安装图片插件</span>
 <span style="color:#998;font-style:italic">#这样，在你新创建  hexo n  博客时就会在与博客同目录自动创建同名文件夹，将图片放入该文件夹</span>
 <span style="color:#000;font-weight:bold">{</span>% asset_img  你的图片全名包含后缀 %<span style="color:#000;font-weight:bold">}</span>  <span style="color:#998;font-style:italic">#博客中插入图片格式(使用markdown格式将无法显示)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="nrm仓库管理工具">nrm仓库管理工具</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">npm install -g nrm  #全局安装nrm
+nrm ls  #列出所有仓库
+nrm test  #仓库测试(果断淘宝第一)
+nrm use taobao  #使用淘宝仓库
 </code></pre></td></tr></table>
 </div>
 </div>
