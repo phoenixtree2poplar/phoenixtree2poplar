@@ -63,7 +63,7 @@ C盘100G
 - [v2rayNG](https://github.com/2dust/v2rayNG/releases)] Android
 - [v2rayx](https://github.com/Cenmrev/V2RayX/releases)】mac
 - [科学上网官网](https://github.com/haotian-wang/google-access-helper)
-### github  ssh配置
+## git配置
 ```cmd
 git config --global user.name "phoenix"                  
 git config --global user.email "wu_ton-g@foxmail.com"   
