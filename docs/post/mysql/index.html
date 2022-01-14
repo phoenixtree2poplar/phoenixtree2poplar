@@ -141,12 +141,7 @@
   <ul>
     <li><a href="#mysql-命令">Mysql 命令</a></li>
     <li><a href="#mysql7解压版cmd命令安装">Mysql7解压版cmd命令安装</a></li>
-    <li><a href="#连接mysql时的url解析">连接MySQL时的url解析</a>
-      <ul>
-        <li></li>
-        <li><a href="#mysql最强笔记-httpsmpweixinqqcomsmzfdir8920uymj5ai8tj8q">mysql最强笔记 【https://mp.weixin.qq.com/s/mzFdir8920uYmj5AI8TJ8Q</a></li>
-      </ul>
-    </li>
+    <li><a href="#连接mysql时的url解析">连接MySQL时的url解析</a></li>
   </ul>
 </nav>
     </div>
@@ -277,22 +272,22 @@ net start sql7           #开启数据库 提示成功，表示安装成功
 </div>
 </div><h2 id="连接mysql时的url解析">连接MySQL时的url解析</h2>
 <pre tabindex="0"><code>jdbc:mysql://localhost:3306/popalr?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true
-</code></pre><h4 id="localhost地址">localhost：地址</h4>
-<h4 id="3306端口默认是3306">3306：端口，默认是3306</h4>
-<h4 id="newdb数据库名">newdb：数据库名</h4>
-<h4 id="useunicodetruetrue表示使用unicode编码">useUnicode=true：true表示使用unicode编码</h4>
-<h4 id="characterencodingutf-8字符集">characterEncoding=UTF-8：字符集</h4>
-<h4 id="zerodatetimebehaviorconverttonulljava在连接mysql数据库时在操作值为0的timestamp类型时不能正确的处理而是默认抛出一个异常就是所见的javasqlsqlexceptioncannotconvertvalue0000-00-00000000fromcolumn7totimestamp这一问题在官方文档中有详细说明">zeroDateTimeBehavior=convertToNull：java在连接mysql数据库时，在操作值为0的timestamp类型时不能正确的处理，而是默认抛出一个异常，就是所见的：java.sql.SQLException: Cannot convert value &lsquo;0000-00-00 00:00:00&rsquo; from column 7 to TIMESTAMP。这一问题在官方文档中有详细说明。</h4>
-<h4 id="在jdbc连接串中有一项属性zerodatetimebehavior可以用来配置出现这种情况时的处理策略该属性有下列三个属性值">在JDBC连接串中有一项属性：zeroDateTimeBehavior,可以用来配置出现这种情况时的处理策略，该属性有下列三个属性值：</h4>
-<h4 id="exception默认值即抛出sqlstates1009cannotconvertvalue的异常">exception：默认值，即抛出SQL state [S1009]. Cannot convert value&hellip;.的异常；</h4>
-<h4 id="converttonull将日期转换成null值">convertToNull：将日期转换成NULL值；</h4>
-<h4 id="round替换成最近的日期即0001-01-01">round：替换成最近的日期即0001-01-01；</h4>
-<h4 id="因此对于这类异常可以考虑通过修改连接串附加zerodatetimebehaviorconverttonull属性的方式予以规避例如">因此对于这类异常，可以考虑通过修改连接串，附加zeroDateTimeBehavior=convertToNull属性的方式予以规避，例如：</h4>
-<h4 id="jdbcmysqllocalhost3306mydbnamezerodatetimebehaviorconverttonull">jdbc:mysql://localhost:3306/mydbname?zeroDateTimeBehavior=convertToNull</h4>
-<h4 id="从另一个层面讲这类异常的触发也与timestamp赋值的操作有关如果能够在设计阶段和记录写入阶段做好逻辑判断避免写入-0000-00-00-000000这类值那么也可以避免出现-cannotconvertvalue0000-00-00000000fromcolumnntotimestamp的错-误">从另一个层面讲，这类异常的触发也与timestamp赋值的操作有关，如果能够在设计阶段和记录写入阶段做好逻辑判断，避免写入 &lsquo;0000-00-00 00:00:00&rsquo;这类值，那么也可以避免出现 Cannot convert value &lsquo;0000-00-00 00:00:00&rsquo; from column N to TIMESTAMP的错 误。</h4>
-<h4 id="usessltrue使用jdbc跟你的数据库连接的时候你的jdbc版本与mysql版本不兼容mysql的版本更高一些在连接语句后加上usessltrue-就可以连接到数据库了">useSSL=true：使用JDBC跟你的数据库连接的时候，你的JDBC版本与MySQL版本不兼容，MySQL的版本更高一些，在连接语句后加上“useSSL=‘true’” ，就可以连接到数据库了。</h4>
-<h3 id="mysql最强笔记-httpsmpweixinqqcomsmzfdir8920uymj5ai8tj8q">mysql最强笔记 【https://mp.weixin.qq.com/s/mzFdir8920uYmj5AI8TJ8Q</h3>
-
+</code></pre><pre tabindex="0"><code>localhost：地址
+3306：端口，默认是3306
+newdb：数据库名
+useUnicode=true：true表示使用unicode编码
+characterEncoding=UTF-8：字符集
+zeroDateTimeBehavior=convertToNull：java在连接mysql数据库时，在操作值为0的timestamp类型时不能正确的处理，而是默认抛出一个异常，就是所见的：java.sql.SQLException: Cannot convert value '0000-00-00 00:00:00' from column 7 to TIMESTAMP。这一问题在官方文档中有详细说明。
+在JDBC连接串中有一项属性：zeroDateTimeBehavior,可以用来配置出现这种情况时的处理策略，该属性有下列三个属性值：
+exception：默认值，即抛出SQL state [S1009]. Cannot convert value....的异常；
+convertToNull：将日期转换成NULL值；
+round：替换成最近的日期即0001-01-01；
+因此对于这类异常，可以考虑通过修改连接串，附加zeroDateTimeBehavior=convertToNull属性的方式予以规避，例如：
+jdbc:mysql://localhost:3306/mydbname?zeroDateTimeBehavior=convertToNull
+从另一个层面讲，这类异常的触发也与timestamp赋值的操作有关，如果能够在设计阶段和记录写入阶段做好逻辑判断，避免写入 '0000-00-00 00:00:00'这类值，那么也可以避免出现 Cannot convert value '0000-00-00 00:00:00' from column N to TIMESTAMP的错 误。
+useSSL=true：使用JDBC跟你的数据库连接的时候，你的JDBC版本与MySQL版本不兼容，MySQL的版本更高一些，在连接语句后加上“useSSL=‘true’” ，就可以连接到数据库了。
+mysql最强笔记 【https://mp.weixin.qq.com/s/mzFdir8920uYmj5AI8TJ8Q
+</code></pre>
         </div>
 
         
@@ -312,7 +307,7 @@ net start sql7           #开启数据库 提示成功，表示安装成功
         
         <li><a href="/post/My-pom-xml/">My-pom.xml</a></li>
         
-        <li><a href="/post/Java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/">Java环境变量配置</a></li>
+        <li><a href="/post/cisco-c3600/">cisco-c3600</a></li>
         
     </ul>
 </div>
@@ -401,11 +396,11 @@ net start sql7           #开启数据库 提示成功，表示安装成功
 <ul class="widget-list">
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/phoenixtree/" title="win装机">win装机</a>
+        <a href="https://phoenixtree2poplar.github.io/post/config/" title="config">config</a>
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/shell/" title="shell">shell</a>
+        <a href="https://phoenixtree2poplar.github.io/post/win/" title="win装机">win装机</a>
     </li>
     
     <li>
@@ -413,15 +408,7 @@ net start sql7           #开启数据库 提示成功，表示安装成功
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/npm/" title="npm">npm</a>
-    </li>
-    
-    <li>
         <a href="https://phoenixtree2poplar.github.io/post/flyway/" title="flyway">flyway</a>
-    </li>
-    
-    <li>
-        <a href="https://phoenixtree2poplar.github.io/post/Windows/" title="Windows">Windows</a>
     </li>
     
     <li>
@@ -429,7 +416,7 @@ net start sql7           #开启数据库 提示成功，表示安装成功
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/" title="mybatis插件">mybatis插件</a>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis-plus/" title="mybatis-plus">mybatis-plus</a>
     </li>
     
     <li>
@@ -438,6 +425,14 @@ net start sql7           #开启数据库 提示成功，表示安装成功
     
     <li>
         <a href="https://phoenixtree2poplar.github.io/post/mysql/" title="mysql">mysql</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/idea/" title="idea">idea</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/command/" title="command">command</a>
     </li>
     
 </ul>
@@ -449,9 +444,9 @@ net start sql7           #开启数据库 提示成功，表示安装成功
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://phoenixtree2poplar.github.io/categories/cmd/">cmd (1)</a></li>
-    
     <li><a href="https://phoenixtree2poplar.github.io/categories/command/">command (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/config/">config (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/docker/">docker (1)</a></li>
     
@@ -463,13 +458,7 @@ net start sql7           #开启数据库 提示成功，表示安装成功
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/idea/">idea (1)</a></li>
     
-    <li><a href="https://phoenixtree2poplar.github.io/categories/java/">java (1)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/maven/">maven (1)</a></li>
-    
     <li><a href="https://phoenixtree2poplar.github.io/categories/mybatis/">mybatis (2)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/npm/">npm (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/pkgs/">pkgs (1)</a></li>
     
@@ -478,8 +467,6 @@ net start sql7           #开启数据库 提示成功，表示安装成功
     <li><a href="https://phoenixtree2poplar.github.io/categories/redis/">redis (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/route/">route (1)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/shell/">shell (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/sql/">sql (1)</a></li>
     
@@ -490,11 +477,11 @@ net start sql7           #开启数据库 提示成功，表示安装成功
         <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://phoenixtree2poplar.github.io/tags/bat/">bat</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/cmd/">cmd</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/command/">command</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/config/">config</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/docker/">docker</a>
     
@@ -505,10 +492,6 @@ net start sql7           #开启数据库 提示成功，表示安装成功
     <a href="https://phoenixtree2poplar.github.io/tags/hexo/">hexo</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/idea/">idea</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/java/">java</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/jdk/">jdk</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/linux/">linux</a>
     
@@ -524,10 +507,6 @@ net start sql7           #开启数据库 提示成功，表示安装成功
     
     <a href="https://phoenixtree2poplar.github.io/tags/mysql/">mysql</a>
     
-    <a href="https://phoenixtree2poplar.github.io/tags/node/">node</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/npm/">npm</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/pkgs/">pkgs</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/pom/">pom</a>
@@ -536,8 +515,6 @@ net start sql7           #开启数据库 提示成功，表示安装成功
     
     <a href="https://phoenixtree2poplar.github.io/tags/route/">route</a>
     
-    <a href="https://phoenixtree2poplar.github.io/tags/shell/">shell</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/sql/">sql</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/tomcat/">tomcat</a>
@@ -545,8 +522,6 @@ net start sql7           #开启数据库 提示成功，表示安装成功
     <a href="https://phoenixtree2poplar.github.io/tags/win%E8%A3%85%E6%9C%BA/">win装机</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/%E5%91%BD%E4%BB%A4/">命令</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/%E8%84%9A%E6%9C%AC/">脚本</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a>
     

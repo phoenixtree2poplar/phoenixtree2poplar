@@ -6,23 +6,23 @@
     <description>Recent content in Posts on 梧桐</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 15 Mar 2020 17:28:12 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Jan 2022 02:21:14 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>win装机</title>
-      <link>https://phoenixtree2poplar.github.io/post/phoenixtree/</link>
-      <pubDate>Sun, 15 Mar 2020 17:28:12 +0000</pubDate>
+      <title>config</title>
+      <link>https://phoenixtree2poplar.github.io/post/config/</link>
+      <pubDate>Fri, 14 Jan 2022 02:21:14 +0000</pubDate>
       
-      <guid>https://phoenixtree2poplar.github.io/post/phoenixtree/</guid>
-      <description>Win装机 C盘100G Windows官网最新镜像制作&amp;ndash;&amp;gt;安装 国内镜像 系统文件夹地址更改(重要) 安装完后更新一次 关闭Windows保护 &amp;ndash;&amp;gt; 关闭Win更新 &amp;ndash;&amp;gt; win10 Defender一键关闭 &amp;ndash;&amp;gt; Windows激活&amp;ndash;&amp;gt;重启 开启备份 software winrar 解压软件 + 迅雷 (修改下载位置</description>
+      <guid>https://phoenixtree2poplar.github.io/post/config/</guid>
+      <description>git 1 2 3 4 5 6 git config --global user.name &amp;#34;phoenixtree&amp;#34; #设置用户名 git config --global user.email &amp;#34;wu_ton-g@foxmail.com&amp;#34; #设置用户邮箱 #########第一次SSH认证时候用############## rm -fr ~/.ssh #删除本地密码对 ssh-keygen -t rsa -C &amp;#34;wu_ton-g@foxmail.com&amp;#34; #生成密码对 cp ~/.ssh/id_rsa.pub . #拷贝密码锁到 git目录 maven 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;settings xmlns=&amp;#34;http://maven.apache.org/SETTINGS/1.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&amp;#34;&amp;gt; &amp;lt;!-- localReposi</description>
     </item>
     
     <item>
-      <title>shell</title>
-      <link>https://phoenixtree2poplar.github.io/post/shell/</link>
-      <pubDate>Wed, 04 Mar 2020 21:06:27 +0000</pubDate>
+      <title>win装机</title>
+      <link>https://phoenixtree2poplar.github.io/post/win/</link>
+      <pubDate>Sun, 15 Mar 2020 17:28:12 +0000</pubDate>
       
-      <guid>https://phoenixtree2poplar.github.io/post/shell/</guid>
-      <description>for循环 for1.sh 1 2 3 4 5 #!/bin/bash for ((i=1;i&amp;lt;=5;i++)) do echo $i &amp;gt;&amp;gt; test.txt done for2.sh 1 2 3 4 5 #!/bin/bash for i in {a..z} {A..Z} {0..9} # 可任意组合 do echo $i &amp;gt;&amp;gt; test.txt done for3.sh 1 2 3 4 5 #!/bin/bash for i in `ls` # ``为前置执行符 do echo $i &amp;gt;&amp;gt; test.txt done</description>
+      <guid>https://phoenixtree2poplar.github.io/post/win/</guid>
+      <description>Win装机 C盘100G Windows官网最新镜像制作&amp;ndash;&amp;gt;安装 国内镜像 系统文件夹地址更改(重要) 安装完后更新一次 关闭Windows保护 &amp;ndash;&amp;gt; 关闭Win更新 &amp;ndash;&amp;gt; win10 Defender一键关闭 &amp;ndash;&amp;gt; Windows激活&amp;ndash;&amp;gt;重启 开启备份 software winrar 解压软件 + 迅雷 (修改下载位置</description>
     </item>
     
     <item>
@@ -35,15 +35,6 @@
     </item>
     
     <item>
-      <title>npm</title>
-      <link>https://phoenixtree2poplar.github.io/post/npm/</link>
-      <pubDate>Sat, 18 Jan 2020 22:03:18 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/post/npm/</guid>
-      <description>nodejs包管理工具npm 1 2 3 npm config set registry http://registry.npm.taobao.org #配置淘宝仓库 npm config set prefix “F:\path\npm-pkg” #设置本地包下载位置(增加相应环境变量) npm config set cache “F:\path\npm-pkg\cache” #设置缓存位置 nrm仓库管理工具 1 2 3 4 npm install -g nrm #全局安装nrm nrm ls #列出所有仓库 nrm test</description>
-    </item>
-    
-    <item>
       <title>flyway</title>
       <link>https://phoenixtree2poplar.github.io/post/flyway/</link>
       <pubDate>Fri, 06 Dec 2019 22:16:49 +0000</pubDate>
@@ -53,29 +44,20 @@
     </item>
     
     <item>
-      <title>Windows</title>
-      <link>https://phoenixtree2poplar.github.io/post/Windows/</link>
-      <pubDate>Fri, 15 Nov 2019 21:57:50 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/post/Windows/</guid>
-      <description>Windows 命令 1 2 3 4 5 6 7 8 9 10 netstat -ano | findstr &amp;#34;:80&amp;#34; #查询80端口，记下最后一位数字，即PID tasklist /fi &amp;#34;PID eq 4&amp;#34; #查询进程号为4的服务名称 taskkill /pid 4 /f #根据pid 关闭进程，其中 /f 表示强制关闭该进程 taskkill /im nginx.exe #根据服务名称关闭进程 sc delete sql #删除sql服务 regedit #打开注册表编辑器 slmgr.vbs -dlv #该命令命令可以查询到Win10的激活</description>
-    </item>
-    
-    <item>
       <title>docker</title>
       <link>https://phoenixtree2poplar.github.io/post/docker/</link>
       <pubDate>Tue, 03 Sep 2019 23:14:41 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/post/docker/</guid>
-      <description>常用 docker images 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 docker search 命令搜索指定的 image, 或者访问网址 https://hub.docker.com/explore/ docker pull openjdk:8-alpine # 大小为107.8MB docker pull openjdk:8 # 大小为309MB docker pull nginx docker pull tomcat docker pull wnameless/oracle-xe-11g docker pull python docker pull mysql docker pull mongo docker pull redis docker pull rabbitmq docker pull rabbitmq:3-management ------------------------------------ 用于 docker 命令学习的镜像和命令 docker pull nginx:1.15-alpine #只需要20M的空间 docker pull busybox #只占用</description>
+      <description>docker 基础镜像环境 alpine 在hub官网会经常能看到 alpine 字样, alpine 是要给非常轻量级的Linux发行版,Docker官方已经推荐使用alpine 代替之前的 Ubuntu作为基础镜像环境, 好处是制作出的最终镜像文件很多, 但docker dub上目前仍以 Ubuntu 为主流的基础镜像环境. 下面是几个常用发行版基础镜像</description>
     </item>
     
     <item>
-      <title>mybatis插件</title>
-      <link>https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/</link>
+      <title>mybatis-plus</title>
+      <link>https://phoenixtree2poplar.github.io/post/mybatis-plus/</link>
       <pubDate>Sun, 25 Aug 2019 16:19:30 +0000</pubDate>
       
-      <guid>https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/</guid>
+      <guid>https://phoenixtree2poplar.github.io/post/mybatis-plus/</guid>
       <description>mybatis 依赖添加并写配置 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis.generator&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-generator-maven-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.3.7&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;verbose&amp;gt;true&amp;lt;/verbose&amp;gt; &amp;lt;overwrite&amp;gt;true&amp;lt;/overwrite&amp;gt; &amp;lt;configurationFile&amp;gt;src\main\resources\generationConfig.xml&amp;lt;/configurationFile&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.47&amp;lt;/version&amp;gt; &amp;lt;!-- 版本过高无法生成 delete updata 方法 --&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; generationConfig.xml 文件 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;!DOCTYPE generatorConfiguration PUBLIC</description>
     </item>
     
@@ -103,7 +85,7 @@
       <pubDate>Sun, 25 Aug 2019 09:15:46 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/post/idea/</guid>
-      <description>idea系统配置 在安装目录 \idea\bin idea.exe.vmoptions idea64.exe.vmoptions 2个文件可修改运行内存，根据物理机性能而定 idea.properties 文件修改可更改默认配置目录，最上面添加如下，可以不再C盘存放配置文件 idea.config.path=F:/dev/ideaconfig/config idea.system.path=F:/dev/ideaconfig/system idea.plugins.path=F:/dev/ideaconfig/plugins idea.log.path=F:/dev/ideaconfig/log idea激活 先下载补丁包，网上自行下载 idea.exe.vmoptions idea64.exe.vmoptions 文件末尾追加以下 -javaagent:F:\dev\ideaconfig\jetbrains-agent.jar 一、选择最后一种License server激活方式，地址填入：htt</description>
+      <description>idea系统配置 在安装目录\binidea.exe.vmoptions idea64.exe.vmoptions 2个文件可修改运行内存，根据物理机性能而定 idea.properties 文件修改可更改默认配置目录，最上面添加如下 idea.config.path=F:/dev/ideaconfig/config idea.system.path=F:/dev/ideaconfig/system idea.plugins.path=F:/dev/ideaconfig/plugins idea.log.path=F:/dev/ideaconfig/log idea激活 1 2 # idea激活教程 https://blog.lupf.cn/articles/2021/12/30/1640851099736.html -javaagent:D:\dev\mave-jar\ja-netfilter\ja-netfilter.jar idea快捷键 Alt + Insert #set/get; 构造方法; toString; 重写方法。。。 Ctrl+Alt+T #将代码包在一个块中，例如</description>
     </item>
     
     <item>
@@ -112,7 +94,7 @@
       <pubDate>Fri, 09 Aug 2019 22:24:12 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/post/command/</guid>
-      <description>git https://github.com/pcottle/learnGitBranching # 交互式Git学习 1 2 3 4 5 6 7 8 git fetch --all #强制拉取 git reset --hard origin/master #强制覆盖本地 git checkout -b dev #从当前分支创建并切换分支到dev git push --set-upstream origin dev #当前分支推送远程分支dev git push origin :dev #推送空分支到远程即删除远程分支，需当前不在该分支 git rm -r --cached . #刷新文件缓存 #https://njuferret.github.io/2018/08/24/git-usage/ #git乱码 #https://github.com/phoenixtree2poplar/my-git/blob/master/git-workflow-tutorial.md #git工作流 Maven命</description>
+      <description>git https://github.com/pcottle/learnGitBranching # 交互式Git学习 1 2 3 4 5 6 7 8 9 git fetch --all #强制拉取 git reset --hard origin/master #强制覆盖本地 git checkout -b dev #从当前分支创建并切换分支到dev git push --set-upstream origin dev #当前分支推送远程分支dev git push origin :dev #推送空分支到远程即删除远程分支，需当前不在该分支 git rm -r --cached . #刷新文件缓存 git update-index --assume-unchanged file #手动忽略某个文件 git update-index --no-assume-unchanged file #取消</description>
     </item>
     
     <item>
@@ -131,24 +113,6 @@
       
       <guid>https://phoenixtree2poplar.github.io/post/My-pom-xml/</guid>
       <description>phoenixtree-parent的pom.xml 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;com.phoenixtree&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;phoenixtree-parent&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;pom&amp;lt;/packaging&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;maven.compiler.source&amp;gt;1.8&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;1.8&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;project.reporting.outputEncoding&amp;gt;UTF-8&amp;lt;/project.reporting.outputEncoding&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;dependencyManagement&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-dependencies&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.0.4.RELEASE&amp;lt;/version&amp;gt; &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt; &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;/dependencyManagement&amp;gt; &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.7.0&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;encoding&amp;gt;utf-8&amp;lt;/encoding&amp;gt; &amp;lt;source&amp;gt;1.8&amp;lt;/source&amp;gt; &amp;lt;target&amp;gt;1.8&amp;lt;/target&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt; &amp;lt;/project&amp;gt; phoenixtree-poplar的pom.xml 1 2 3 4</description>
-    </item>
-    
-    <item>
-      <title>Java环境变量配置</title>
-      <link>https://phoenixtree2poplar.github.io/post/Java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Thu, 07 Mar 2019 12:55:58 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/post/Java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</guid>
-      <description>安装java环境，选择安装目录，安装过程中会出现两次安装提示。 第一次是安装jdk，第二次是安装jre 。 建议两个都安装在同一个文件夹中的不同文件夹中。（不能都安装在java文件夹的根目录下，jdk和jre安装在同一文件夹会出错 1.安装jdk 根据个人喜好选择安装目录 2.安装jre 根据</description>
-    </item>
-    
-    <item>
-      <title>maven配置</title>
-      <link>https://phoenixtree2poplar.github.io/post/maven%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Fri, 31 Aug 2018 10:53:29 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/post/maven%E9%85%8D%E7%BD%AE/</guid>
-      <description>maven历史版本下载 先附上缩减后的源配置文件 setting.xml 在 maven主目录/conf下 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;settings xmlns=&amp;#34;http://maven.apache.org/SETTINGS/1.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&amp;#34;&amp;gt; &amp;lt;!-- localRepository元素根据个人习惯设置本地仓库下载位置，默认为${user.home}/.m2/repository --&amp;gt; &amp;lt;localRepository&amp;gt;F:\path\maven-jar&amp;lt;/localRepository&amp;gt; &amp;lt;mirrors&amp;gt; &amp;lt;!-- mirror 元素设置镜</description>
     </item>
     
     <item>
@@ -172,7 +136,7 @@
     <item>
       <title>first blog-git</title>
       <link>https://phoenixtree2poplar.github.io/post/first-blog-git/</link>
-      <pubDate>Wed, 12 Aug 2015 17:06:56 +0000</pubDate>
+      <pubDate>Wed, 12 Aug 2015 21:21:21 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/post/first-blog-git/</guid>
       <description>forever lover 小白</description>

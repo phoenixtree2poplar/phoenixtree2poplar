@@ -144,6 +144,8 @@
         <li></li>
       </ul>
     </li>
+    <li><a href="#shell-for循环">shell for循环</a></li>
+    <li><a href="#windows-命令">Windows 命令</a></li>
     <li><a href="#maven命令">Maven命令</a></li>
     <li><a href="#free">free</a></li>
     <li><a href="#hexo-命令">Hexo 命令</a></li>
@@ -227,6 +229,7 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git fetch --all   <span style="color:#998;font-style:italic">#强制拉取</span>
@@ -235,11 +238,12 @@ git checkout -b dev  <span style="color:#998;font-style:italic">#从当前分支
 git push --set-upstream origin dev  <span style="color:#998;font-style:italic">#当前分支推送远程分支dev</span>
 git push origin :dev  <span style="color:#998;font-style:italic">#推送空分支到远程即删除远程分支，需当前不在该分支</span>
 git rm -r --cached .  <span style="color:#998;font-style:italic">#刷新文件缓存</span>
-<span style="color:#998;font-style:italic">#https://njuferret.github.io/2018/08/24/git-usage/  #git乱码</span>
-<span style="color:#998;font-style:italic">#https://github.com/phoenixtree2poplar/my-git/blob/master/git-workflow-tutorial.md  #git工作流</span>
+git update-index --assume-unchanged file  <span style="color:#998;font-style:italic">#手动忽略某个文件</span>
+git update-index --no-assume-unchanged file  <span style="color:#998;font-style:italic">#取消忽略</span>
+<span style="color:#998;font-style:italic"># https://njuferret.github.io/2018/08/24/git-usage/  #git学习</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="maven命令">Maven命令</h2>
+</div><h2 id="shell-for循环">shell for循环</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -252,23 +256,118 @@ git rm -r --cached .  <span style="color:#998;font-style:italic">#刷新文件�
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">mvn archetype:create -DgroupId=packageName -DartifactId=projectName  #创建Maven的普通Java项目
-mvn archetype:generate -DgroupId=packageName -DartifactId=webappName -DarchetypeArtifactId=maven-archetype-webapp  #创建Maven的Web项目
-mvn compile  #编译源代码
-mvn test-compile  #编译测试代码
-mvn test  #运行测试
-mvn package  #打包
-mvn clean  #清除产生的项目
-mvn idea:idea  #生成idea项目
-mvn install  #在本地Repository中安装jar
-mvn -DskipTests clean package  #本地跳过测试打包
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#998;font-style:italic"># for1.sh</span>
+<span style="color:#998;font-style:italic">#!/bin/bash</span>
+<span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">((</span><span style="color:#008080">i</span><span style="color:#000;font-weight:bold">=</span>1;i&lt;<span style="color:#000;font-weight:bold">=</span>5;i++<span style="color:#000;font-weight:bold">))</span>
+<span style="color:#000;font-weight:bold">do</span>
+  <span style="color:#0086b3">echo</span> <span style="color:#008080">$i</span> &gt;&gt; test.txt
+<span style="color:#000;font-weight:bold">done</span>
+<span style="color:#998;font-style:italic"># for2.sh</span>
+<span style="color:#000;font-weight:bold">for</span> i in <span style="color:#000;font-weight:bold">{</span>a..z<span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">{</span>A..Z<span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">{</span>0..9<span style="color:#000;font-weight:bold">}</span>  <span style="color:#998;font-style:italic"># 可任意组合</span>
+<span style="color:#000;font-weight:bold">do</span>
+  <span style="color:#0086b3">echo</span> <span style="color:#008080">$i</span> &gt;&gt; test.txt
+<span style="color:#000;font-weight:bold">done</span>
+<span style="color:#998;font-style:italic"># for3.sh</span>
+<span style="color:#000;font-weight:bold">for</span> i in <span style="color:#d14">`</span>ls<span style="color:#d14">`</span>  <span style="color:#998;font-style:italic"># ``为前置执行符</span>
+<span style="color:#000;font-weight:bold">do</span>
+  <span style="color:#0086b3">echo</span> <span style="color:#008080">$i</span> &gt;&gt; test.txt
+<span style="color:#000;font-weight:bold">done</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="windows-命令">Windows 命令</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">netstat -ano | findstr <span style="color:#d14">&#34;:80&#34;</span>    #查询80端口，记下最后一位数字，即PID
+tasklist /fi <span style="color:#d14">&#34;PID eq 4&#34;</span>        #查询进程号为4的服务名称
+taskkill /pid 4 /f               #根据pid 关闭进程，其中 /f 表示强制关闭该进程
+taskkill /im nginx.exe           #根据服务名称关闭进程
+
+sc delete sql   #删除sql服务
+regedit         #打开注册表编辑器
+slmgr.vbs -dlv  #该命令命令可以查询到Win10的激活信息，包括：激活ID、安装ID、激活截止日期等信息     
+slmgr.vbs -dli  #命令可以查询到操作系统版本、部分产品密钥、许可证状态等
+slmgr.vbs -xpr  #命令可以查询Win10是否永久激活
+--------------------- bat脚本 ------------------------------
+@<span style="color:#000;font-weight:bold">echo</span> off
+<span style="color:#000;font-weight:bold">echo</span> <span style="color:#d14">&#34;开始更新..  执行 git pull&#34;</span>
+<span style="color:#000;font-weight:bold">cd</span> <span style="color:#008080">%~dp0</span>
+<span style="color:#000;font-weight:bold">set</span> <span style="color:#008080">currentFolder</span>=<span style="color:#008080">%~dp0</span>
+<span style="color:#000;font-weight:bold">for</span> /D <span style="color:#d14">%%</span>i <span style="color:#000;font-weight:bold">in</span> (Folder*) <span style="color:#000;font-weight:bold">do</span> ( 
+  <span style="color:#000;font-weight:bold">echo</span> <span style="color:#d14">%%</span>i
+  <span style="color:#000;font-weight:bold">cd</span> <span style="color:#d14">%%</span>i
+  git pull
+  <span style="color:#998;font-style:italic">rem git branch  字段rem是用来注释的 “:” 也可以用来注释</span>
+  <span style="color:#000;font-weight:bold">cd</span> ..
+)
+<span style="color:#000;font-weight:bold">pause</span>
+
+<span style="color:#000;font-weight:bold">if</span> 1<span style="color:#000;font-weight:bold">==</span>1 (
+  xcopy /y *.jar <span style="color:#008080">%currentFolder%</span>jar  #bat拷贝命令参数/y是覆盖
+  <span style="color:#000;font-weight:bold">rd</span> /q/s package  #删除目录package /q不询问，静默模式 /s目录树迭代删除
+  <span style="color:#000;font-weight:bold">md</span> package  #创建目录package
+  jar xf dev.jar  #静默解压dev.jar到当前目录
+  <span style="color:#000;font-weight:bold">pause</span>  #暂停
+)
+
+<span style="color:#000;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">/l</span> <span style="color:#d14">%%</span>i <span style="color:#000;font-weight:bold">in</span> (<span style="color:#099">1</span>,<span style="color:#099">1</span>,<span style="color:#099">40</span>) <span style="color:#000;font-weight:bold">do</span> (<span style="color:#000;font-weight:bold">echo</span> INSERT INTO `t_user` VALUES (<span style="color:#d14">%%</span>i, &#39;poplar<span style="color:#d14">%%</span>i&#39;, &#39;di<span style="color:#d14">%%</span>i&#39;, &#39;<span style="color:#d14">%%</span>i&#39;<span style="color:#d14">^)^;</span> &gt;&gt; sql-test-user.sh)
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="maven命令">Maven命令</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">mvn -DskipTests clean package  #本地跳过测试打包
+<span style="color:#000;font-weight:bold">call</span> mvn -f pom.xml dependency:copy-dependencies  #根据pom.xml拉取仓库
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="free">free</h2>
 <pre tabindex="0"><code>PURGE RECYCLEBIN  #清除回收BIN，gaussdb数据库命令
-call mvn -f pom.xml dependency:copy-dependencies  #根据pom.xml拉取仓库
 # java远程调试
 java -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=20001 -Dfile.encoding=utf-8 -jar poplar.jar --server.port=20000
 #sed命令修改 free.sh文件的第五行
@@ -353,15 +452,15 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/maven%E9%85%8D%E7%BD%AE/">maven配置</a></li>
-        
         <li><a href="/post/install-hexo/">install-hexo</a></li>
         
         <li><a href="/post/git-init/">git-init</a></li>
         
         <li><a href="/post/My-pom-xml/">My-pom.xml</a></li>
         
-        <li><a href="/post/Java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/">Java环境变量配置</a></li>
+        <li><a href="/post/cisco-c3600/">cisco-c3600</a></li>
+        
+        <li><a href="/post/first-blog-git/">first blog-git</a></li>
         
     </ul>
 </div>
@@ -384,6 +483,8 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
                 <li><a href='/tags/maven'>maven</a></li>
                 
                 <li><a href='/tags/mvn'>mvn</a></li>
+                
+                <li><a href='/tags/cmd'>cmd</a></li>
                 
             </ul>
             
@@ -460,11 +561,11 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
 <ul class="widget-list">
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/phoenixtree/" title="win装机">win装机</a>
+        <a href="https://phoenixtree2poplar.github.io/post/config/" title="config">config</a>
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/shell/" title="shell">shell</a>
+        <a href="https://phoenixtree2poplar.github.io/post/win/" title="win装机">win装机</a>
     </li>
     
     <li>
@@ -472,15 +573,7 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/npm/" title="npm">npm</a>
-    </li>
-    
-    <li>
         <a href="https://phoenixtree2poplar.github.io/post/flyway/" title="flyway">flyway</a>
-    </li>
-    
-    <li>
-        <a href="https://phoenixtree2poplar.github.io/post/Windows/" title="Windows">Windows</a>
     </li>
     
     <li>
@@ -488,7 +581,7 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/" title="mybatis插件">mybatis插件</a>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis-plus/" title="mybatis-plus">mybatis-plus</a>
     </li>
     
     <li>
@@ -497,6 +590,14 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
     
     <li>
         <a href="https://phoenixtree2poplar.github.io/post/mysql/" title="mysql">mysql</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/idea/" title="idea">idea</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/command/" title="command">command</a>
     </li>
     
 </ul>
@@ -508,9 +609,9 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://phoenixtree2poplar.github.io/categories/cmd/">cmd (1)</a></li>
-    
     <li><a href="https://phoenixtree2poplar.github.io/categories/command/">command (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/config/">config (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/docker/">docker (1)</a></li>
     
@@ -522,13 +623,7 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/idea/">idea (1)</a></li>
     
-    <li><a href="https://phoenixtree2poplar.github.io/categories/java/">java (1)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/maven/">maven (1)</a></li>
-    
     <li><a href="https://phoenixtree2poplar.github.io/categories/mybatis/">mybatis (2)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/npm/">npm (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/pkgs/">pkgs (1)</a></li>
     
@@ -537,8 +632,6 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
     <li><a href="https://phoenixtree2poplar.github.io/categories/redis/">redis (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/route/">route (1)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/shell/">shell (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/sql/">sql (1)</a></li>
     
@@ -549,11 +642,11 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
         <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://phoenixtree2poplar.github.io/tags/bat/">bat</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/cmd/">cmd</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/command/">command</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/config/">config</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/docker/">docker</a>
     
@@ -564,10 +657,6 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
     <a href="https://phoenixtree2poplar.github.io/tags/hexo/">hexo</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/idea/">idea</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/java/">java</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/jdk/">jdk</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/linux/">linux</a>
     
@@ -583,10 +672,6 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
     
     <a href="https://phoenixtree2poplar.github.io/tags/mysql/">mysql</a>
     
-    <a href="https://phoenixtree2poplar.github.io/tags/node/">node</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/npm/">npm</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/pkgs/">pkgs</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/pom/">pom</a>
@@ -595,8 +680,6 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
     
     <a href="https://phoenixtree2poplar.github.io/tags/route/">route</a>
     
-    <a href="https://phoenixtree2poplar.github.io/tags/shell/">shell</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/sql/">sql</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/tomcat/">tomcat</a>
@@ -604,8 +687,6 @@ free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
     <a href="https://phoenixtree2poplar.github.io/tags/win%E8%A3%85%E6%9C%BA/">win装机</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/%E5%91%BD%E4%BB%A4/">命令</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/%E8%84%9A%E6%9C%AC/">脚本</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a>
     

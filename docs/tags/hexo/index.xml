@@ -13,7 +13,7 @@
       <pubDate>Fri, 09 Aug 2019 22:24:12 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/post/command/</guid>
-      <description>git https://github.com/pcottle/learnGitBranching # 交互式Git学习 1 2 3 4 5 6 7 8 git fetch --all #强制拉取 git reset --hard origin/master #强制覆盖本地 git checkout -b dev #从当前分支创建并切换分支到dev git push --set-upstream origin dev #当前分支推送远程分支dev git push origin :dev #推送空分支到远程即删除远程分支，需当前不在该分支 git rm -r --cached . #刷新文件缓存 #https://njuferret.github.io/2018/08/24/git-usage/ #git乱码 #https://github.com/phoenixtree2poplar/my-git/blob/master/git-workflow-tutorial.md #git工作流 Maven命</description>
+      <description>git https://github.com/pcottle/learnGitBranching # 交互式Git学习 1 2 3 4 5 6 7 8 9 git fetch --all #强制拉取 git reset --hard origin/master #强制覆盖本地 git checkout -b dev #从当前分支创建并切换分支到dev git push --set-upstream origin dev #当前分支推送远程分支dev git push origin :dev #推送空分支到远程即删除远程分支，需当前不在该分支 git rm -r --cached . #刷新文件缓存 git update-index --assume-unchanged file #手动忽略某个文件 git update-index --no-assume-unchanged file #取消</description>
     </item>
     
     <item>

@@ -1,7 +1,7 @@
 +++
 title="command"
 date= 2019-08-09 22:24:12
-tags=["命令","command","hexo","linux","tomcat","maven","mvn"]
+tags=["命令","command","hexo","linux","tomcat","maven","mvn","cmd"]
 categories=["command"]
 toc=true
 +++
@@ -14,26 +14,74 @@ git checkout -b dev  #从当前分支创建并切换分支到dev
 git push --set-upstream origin dev  #当前分支推送远程分支dev
 git push origin :dev  #推送空分支到远程即删除远程分支，需当前不在该分支
 git rm -r --cached .  #刷新文件缓存
-#https://njuferret.github.io/2018/08/24/git-usage/  #git乱码
-#https://github.com/phoenixtree2poplar/my-git/blob/master/git-workflow-tutorial.md  #git工作流
+git update-index --assume-unchanged file  #手动忽略某个文件
+git update-index --no-assume-unchanged file  #取消忽略
+# https://njuferret.github.io/2018/08/24/git-usage/  #git学习
 ```
+## shell for循环
+```sh
+# for1.sh
+#!/bin/bash
+for ((i=1;i<=5;i++))
+do
+  echo $i >> test.txt
+done
+# for2.sh
+for i in {a..z} {A..Z} {0..9}  # 可任意组合
+do
+  echo $i >> test.txt
+done
+# for3.sh
+for i in `ls`  # ``为前置执行符
+do
+  echo $i >> test.txt
+done
+```
+## Windows 命令
+```cmd
+netstat -ano | findstr ":80"    #查询80端口，记下最后一位数字，即PID
+tasklist /fi "PID eq 4"        #查询进程号为4的服务名称
+taskkill /pid 4 /f               #根据pid 关闭进程，其中 /f 表示强制关闭该进程
+taskkill /im nginx.exe           #根据服务名称关闭进程
+
+sc delete sql   #删除sql服务
+regedit         #打开注册表编辑器
+slmgr.vbs -dlv  #该命令命令可以查询到Win10的激活信息，包括：激活ID、安装ID、激活截止日期等信息     
+slmgr.vbs -dli  #命令可以查询到操作系统版本、部分产品密钥、许可证状态等
+slmgr.vbs -xpr  #命令可以查询Win10是否永久激活
+--------------------- bat脚本 ------------------------------
+@echo off
+echo "开始更新..  执行 git pull"
+cd %~dp0
+set currentFolder=%~dp0
+for /D %%i in (Folder*) do ( 
+  echo %%i
+  cd %%i
+  git pull
+  rem git branch  字段rem是用来注释的 “:” 也可以用来注释
+  cd ..
+)
+pause
+
+if 1==1 (
+  xcopy /y *.jar %currentFolder%jar  #bat拷贝命令参数/y是覆盖
+  rd /q/s package  #删除目录package /q不询问，静默模式 /s目录树迭代删除
+  md package  #创建目录package
+  jar xf dev.jar  #静默解压dev.jar到当前目录
+  pause  #暂停
+)
+
+for /l %%i in (1,1,40) do (echo INSERT INTO `t_user` VALUES (%%i, 'poplar%%i', 'di%%i', '%%i'^)^; >> sql-test-user.sh)
+```
+
 ## Maven命令
 ```cmd
-mvn archetype:create -DgroupId=packageName -DartifactId=projectName  #创建Maven的普通Java项目
-mvn archetype:generate -DgroupId=packageName -DartifactId=webappName -DarchetypeArtifactId=maven-archetype-webapp  #创建Maven的Web项目
-mvn compile  #编译源代码
-mvn test-compile  #编译测试代码
-mvn test  #运行测试
-mvn package  #打包
-mvn clean  #清除产生的项目
-mvn idea:idea  #生成idea项目
-mvn install  #在本地Repository中安装jar
 mvn -DskipTests clean package  #本地跳过测试打包
+call mvn -f pom.xml dependency:copy-dependencies  #根据pom.xml拉取仓库
 ```
 ## free
 ```
 PURGE RECYCLEBIN  #清除回收BIN，gaussdb数据库命令
-call mvn -f pom.xml dependency:copy-dependencies  #根据pom.xml拉取仓库
 # java远程调试
 java -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=20001 -Dfile.encoding=utf-8 -jar poplar.jar --server.port=20000
 #sed命令修改 free.sh文件的第五行
@@ -49,8 +97,6 @@ hexo d  #　　== hexo deploy  #推送远程发布，即正式发布
 hexo s -g  #本地测试
 hexo d -g  #发布网页
 ```
-
-
 ## tomcat 直接部署应用到根目录
 ### 方法一：（最简单直接的方法）
 #### 删除原 webapps/ROOT 目录下的所有文件，将应用下的所有文件和文件夹复制到ROOT文件夹下。

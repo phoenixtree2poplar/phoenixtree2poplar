@@ -42,18 +42,20 @@ net start sql7           #开启数据库 提示成功，表示安装成功
 ```
 jdbc:mysql://localhost:3306/popalr?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true
 ```
-#### localhost：地址
-#### 3306：端口，默认是3306
-#### newdb：数据库名
-#### useUnicode=true：true表示使用unicode编码
-#### characterEncoding=UTF-8：字符集
-#### zeroDateTimeBehavior=convertToNull：java在连接mysql数据库时，在操作值为0的timestamp类型时不能正确的处理，而是默认抛出一个异常，就是所见的：java.sql.SQLException: Cannot convert value '0000-00-00 00:00:00' from column 7 to TIMESTAMP。这一问题在官方文档中有详细说明。
-#### 在JDBC连接串中有一项属性：zeroDateTimeBehavior,可以用来配置出现这种情况时的处理策略，该属性有下列三个属性值：
-#### exception：默认值，即抛出SQL state [S1009]. Cannot convert value....的异常；
-#### convertToNull：将日期转换成NULL值；
-#### round：替换成最近的日期即0001-01-01；
-#### 因此对于这类异常，可以考虑通过修改连接串，附加zeroDateTimeBehavior=convertToNull属性的方式予以规避，例如：
-#### jdbc:mysql://localhost:3306/mydbname?zeroDateTimeBehavior=convertToNull
-#### 从另一个层面讲，这类异常的触发也与timestamp赋值的操作有关，如果能够在设计阶段和记录写入阶段做好逻辑判断，避免写入 '0000-00-00 00:00:00'这类值，那么也可以避免出现 Cannot convert value '0000-00-00 00:00:00' from column N to TIMESTAMP的错 误。
-#### useSSL=true：使用JDBC跟你的数据库连接的时候，你的JDBC版本与MySQL版本不兼容，MySQL的版本更高一些，在连接语句后加上“useSSL=‘true’” ，就可以连接到数据库了。
-### mysql最强笔记 【https://mp.weixin.qq.com/s/mzFdir8920uYmj5AI8TJ8Q
+```
+localhost：地址
+3306：端口，默认是3306
+newdb：数据库名
+useUnicode=true：true表示使用unicode编码
+characterEncoding=UTF-8：字符集
+zeroDateTimeBehavior=convertToNull：java在连接mysql数据库时，在操作值为0的timestamp类型时不能正确的处理，而是默认抛出一个异常，就是所见的：java.sql.SQLException: Cannot convert value '0000-00-00 00:00:00' from column 7 to TIMESTAMP。这一问题在官方文档中有详细说明。
+在JDBC连接串中有一项属性：zeroDateTimeBehavior,可以用来配置出现这种情况时的处理策略，该属性有下列三个属性值：
+exception：默认值，即抛出SQL state [S1009]. Cannot convert value....的异常；
+convertToNull：将日期转换成NULL值；
+round：替换成最近的日期即0001-01-01；
+因此对于这类异常，可以考虑通过修改连接串，附加zeroDateTimeBehavior=convertToNull属性的方式予以规避，例如：
+jdbc:mysql://localhost:3306/mydbname?zeroDateTimeBehavior=convertToNull
+从另一个层面讲，这类异常的触发也与timestamp赋值的操作有关，如果能够在设计阶段和记录写入阶段做好逻辑判断，避免写入 '0000-00-00 00:00:00'这类值，那么也可以避免出现 Cannot convert value '0000-00-00 00:00:00' from column N to TIMESTAMP的错 误。
+useSSL=true：使用JDBC跟你的数据库连接的时候，你的JDBC版本与MySQL版本不兼容，MySQL的版本更高一些，在连接语句后加上“useSSL=‘true’” ，就可以连接到数据库了。
+mysql最强笔记 【https://mp.weixin.qq.com/s/mzFdir8920uYmj5AI8TJ8Q
+```

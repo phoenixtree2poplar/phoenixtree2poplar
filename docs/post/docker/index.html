@@ -139,6 +139,10 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
+    <li><a href="#docker-基础镜像环境-alpine">docker 基础镜像环境 alpine</a></li>
+  </ul>
+
+  <ul>
     <li>
       <ul>
         <li></li>
@@ -204,8 +208,19 @@
         </div>
         
         <div class="post-content">
-            <!-- raw HTML omitted -->
-<h1 id="常用-docker-images">常用 docker images</h1>
+            <p>
+        <img class="mx-auto" alt="" src="docker.jpg" />   
+    </p>
+<h2 id="docker-基础镜像环境-alpine">docker 基础镜像环境 alpine</h2>
+<p>在hub官网会经常能看到 alpine 字样, alpine 是要给非常轻量级的Linux发行版,Docker官方已经推荐使用alpine 代替之前的 Ubuntu作为基础镜像环境, 好处是制作出的最终镜像文件很多, 但docker dub上目前仍以 Ubuntu 为主流的基础镜像环境.
+下面是几个常用发行版基础镜像的大小.</p>
+<pre tabindex="0"><code>REPOSITORY TAG IMAGE ID VIRTUAL SIZE
+alpine latest 4e38e38c8ce0       4.799 MB
+debian latest 4d6ce913b130      84.98 MB
+ubuntu latest b39b81afc8ca      188.3 MB
+centos latest 8efe422e6104       210 MB
+alpine 内置 apk 包管理器, 而不是Ubuntu的apt, alpine 包的网址是 https://pkgs.alpinelinux.org/packages
+</code></pre><h1 id="常用-docker-images">常用 docker images</h1>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -494,7 +509,7 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/mybatis%E6%8F%92%E4%BB%B6/">mybatis插件</a></li>
+        <li><a href="/post/mybatis-plus/">mybatis-plus</a></li>
         
         <li><a href="/post/redis/">redis</a></li>
         
@@ -589,11 +604,11 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
 <ul class="widget-list">
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/phoenixtree/" title="win装机">win装机</a>
+        <a href="https://phoenixtree2poplar.github.io/post/config/" title="config">config</a>
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/shell/" title="shell">shell</a>
+        <a href="https://phoenixtree2poplar.github.io/post/win/" title="win装机">win装机</a>
     </li>
     
     <li>
@@ -601,15 +616,7 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/npm/" title="npm">npm</a>
-    </li>
-    
-    <li>
         <a href="https://phoenixtree2poplar.github.io/post/flyway/" title="flyway">flyway</a>
-    </li>
-    
-    <li>
-        <a href="https://phoenixtree2poplar.github.io/post/Windows/" title="Windows">Windows</a>
     </li>
     
     <li>
@@ -617,7 +624,7 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/" title="mybatis插件">mybatis插件</a>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis-plus/" title="mybatis-plus">mybatis-plus</a>
     </li>
     
     <li>
@@ -626,6 +633,14 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
     
     <li>
         <a href="https://phoenixtree2poplar.github.io/post/mysql/" title="mysql">mysql</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/idea/" title="idea">idea</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/command/" title="command">command</a>
     </li>
     
 </ul>
@@ -637,9 +652,9 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://phoenixtree2poplar.github.io/categories/cmd/">cmd (1)</a></li>
-    
     <li><a href="https://phoenixtree2poplar.github.io/categories/command/">command (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/config/">config (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/docker/">docker (1)</a></li>
     
@@ -651,13 +666,7 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/idea/">idea (1)</a></li>
     
-    <li><a href="https://phoenixtree2poplar.github.io/categories/java/">java (1)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/maven/">maven (1)</a></li>
-    
     <li><a href="https://phoenixtree2poplar.github.io/categories/mybatis/">mybatis (2)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/npm/">npm (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/pkgs/">pkgs (1)</a></li>
     
@@ -666,8 +675,6 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
     <li><a href="https://phoenixtree2poplar.github.io/categories/redis/">redis (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/route/">route (1)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/shell/">shell (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/sql/">sql (1)</a></li>
     
@@ -678,11 +685,11 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
         <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://phoenixtree2poplar.github.io/tags/bat/">bat</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/cmd/">cmd</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/command/">command</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/config/">config</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/docker/">docker</a>
     
@@ -693,10 +700,6 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
     <a href="https://phoenixtree2poplar.github.io/tags/hexo/">hexo</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/idea/">idea</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/java/">java</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/jdk/">jdk</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/linux/">linux</a>
     
@@ -712,10 +715,6 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
     
     <a href="https://phoenixtree2poplar.github.io/tags/mysql/">mysql</a>
     
-    <a href="https://phoenixtree2poplar.github.io/tags/node/">node</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/npm/">npm</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/pkgs/">pkgs</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/pom/">pom</a>
@@ -724,8 +723,6 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
     
     <a href="https://phoenixtree2poplar.github.io/tags/route/">route</a>
     
-    <a href="https://phoenixtree2poplar.github.io/tags/shell/">shell</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/sql/">sql</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/tomcat/">tomcat</a>
@@ -733,8 +730,6 @@ docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my
     <a href="https://phoenixtree2poplar.github.io/tags/win%E8%A3%85%E6%9C%BA/">win装机</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/%E5%91%BD%E4%BB%A4/">命令</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/%E8%84%9A%E6%9C%AC/">脚本</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a>
     

@@ -40,7 +40,7 @@ hexo d -g  #发布你的 blog
 ```
 你的博客就搭建成功了  网址为your_user_name.github.io
 ## 国内直接使用 npm 的官方镜像是非常慢的，这里推荐使用淘宝 NPM 镜像。
-```bash
+```
 npm config set registry http://registry.npm.taobao.org  #配置淘宝仓库
 npm config set prefix “F:\path\npm-pkg”  #设置本地包下载位置(增加相应环境变量)，根据个人，可不改
 npm config set cache “F:\path\npm-pkg\cache”  #设置缓存位置，根据个人，可不改

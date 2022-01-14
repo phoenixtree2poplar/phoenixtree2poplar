@@ -5,17 +5,18 @@ tags=["docker"]
 categories=["docker"]
 toc=true
 +++
-<img src="http://pic.poplar.cool/docker.jpg">
-# docker 基础镜像环境 alpine
+![](docker.jpg)
+## docker 基础镜像环境 alpine
 在hub官网会经常能看到 alpine 字样, alpine 是要给非常轻量级的Linux发行版,Docker官方已经推荐使用alpine 代替之前的 Ubuntu作为基础镜像环境, 好处是制作出的最终镜像文件很多, 但docker dub上目前仍以 Ubuntu 为主流的基础镜像环境.
 下面是几个常用发行版基础镜像的大小. 
+```
 REPOSITORY TAG IMAGE ID VIRTUAL SIZE
 alpine latest 4e38e38c8ce0       4.799 MB
 debian latest 4d6ce913b130      84.98 MB
 ubuntu latest b39b81afc8ca      188.3 MB
 centos latest 8efe422e6104       210 MB
 alpine 内置 apk 包管理器, 而不是Ubuntu的apt, alpine 包的网址是 https://pkgs.alpinelinux.org/packages
-
+```
 # 常用 docker images
 ```bash
 docker search 命令搜索指定的 image, 或者访问网址 https://hub.docker.com/explore/ 

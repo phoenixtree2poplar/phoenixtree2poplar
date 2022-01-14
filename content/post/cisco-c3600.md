@@ -5,6 +5,7 @@ tags=["路由器","route"]
 categories=["route"]
 toc=true
 +++
+![](TCP-IP.jpg)
 ```bash
 en                     #enable  进入特权模式
 disa                   #disable  退出特权模式，进入用户模式
@@ -52,4 +53,3 @@ password               #登录密码
 privilege level 15     #权限15即特权模式
 username ccna privilege 15 password ciso #用户名 ccna 登录等级 15特权  密码 ciso
 ```
-<img src="http://pic.poplar.cool/TCP-IP.jpg">

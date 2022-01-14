@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>config on 梧桐</title>
+    <link>https://phoenixtree2poplar.github.io/categories/config/</link>
+    <description>Recent content in config on 梧桐</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 14 Jan 2022 02:21:14 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/categories/config/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>config</title>
+      <link>https://phoenixtree2poplar.github.io/post/config/</link>
+      <pubDate>Fri, 14 Jan 2022 02:21:14 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/post/config/</guid>
+      <description>git 1 2 3 4 5 6 git config --global user.name &amp;#34;phoenixtree&amp;#34; #设置用户名 git config --global user.email &amp;#34;wu_ton-g@foxmail.com&amp;#34; #设置用户邮箱 #########第一次SSH认证时候用############## rm -fr ~/.ssh #删除本地密码对 ssh-keygen -t rsa -C &amp;#34;wu_ton-g@foxmail.com&amp;#34; #生成密码对 cp ~/.ssh/id_rsa.pub . #拷贝密码锁到 git目录 maven 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;settings xmlns=&amp;#34;http://maven.apache.org/SETTINGS/1.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&amp;#34;&amp;gt; &amp;lt;!-- localReposi</description>
+    </item>
+    
+  </channel>
+</rss>

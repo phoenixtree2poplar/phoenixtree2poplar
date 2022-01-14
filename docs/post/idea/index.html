@@ -141,24 +141,21 @@
   <ul>
     <li><a href="#idea系统配置">idea系统配置</a>
       <ul>
-        <li><a href="#在安装目录-ideabin">在安装目录 \idea\bin</a></li>
+        <li><a href="#在安装目录binideaexevmoptions-idea64exevmoptions-2个文件可修改运行内存根据物理机性能而定">在安装目录\binidea.exe.vmoptions idea64.exe.vmoptions 2个文件可修改运行内存，根据物理机性能而定</a></li>
+        <li><a href="#ideaproperties-文件修改可更改默认配置目录最上面添加如下">idea.properties 文件修改可更改默认配置目录，最上面添加如下</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
+    <li><a href="#idea激活">idea激活</a></li>
     <li><a href="#idea快捷键">idea快捷键</a></li>
     <li><a href="#idea配置">idea配置</a></li>
     <li><a href="#启动run-dashboard">启动Run Dashboard</a>
       <ul>
         <li></li>
-        <li><a href="#idea插件-httpsblogcsdnnetheatdeatharticledetails80156993">idea插件 <a href="https://blog.csdn.net/HeatDeath/article/details/80156993">https://blog.csdn.net/HeatDeath/article/details/80156993</a></a></li>
-        <li><a href="#idea插件-httpsblogcsdnnetwin7systemarticledetails83508313">idea插件 <a href="https://blog.csdn.net/win7system/article/details/83508313">https://blog.csdn.net/win7system/article/details/83508313</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#idea插件">idea插件</a>
+      <ul>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -222,21 +219,24 @@
         
         <div class="post-content">
             <h2 id="idea系统配置">idea系统配置</h2>
-<h3 id="在安装目录-ideabin">在安装目录 \idea\bin</h3>
-<h4 id="ideaexevmoptions-idea64exevmoptions-2个文件可修改运行内存根据物理机性能而定">idea.exe.vmoptions idea64.exe.vmoptions 2个文件可修改运行内存，根据物理机性能而定</h4>
-<h4 id="ideaproperties-文件修改可更改默认配置目录最上面添加如下可以不再c盘存放配置文件">idea.properties 文件修改可更改默认配置目录，最上面添加如下，可以不再C盘存放配置文件</h4>
+<h3 id="在安装目录binideaexevmoptions-idea64exevmoptions-2个文件可修改运行内存根据物理机性能而定">在安装目录\binidea.exe.vmoptions idea64.exe.vmoptions 2个文件可修改运行内存，根据物理机性能而定</h3>
+<h3 id="ideaproperties-文件修改可更改默认配置目录最上面添加如下">idea.properties 文件修改可更改默认配置目录，最上面添加如下</h3>
 <pre tabindex="0"><code>idea.config.path=F:/dev/ideaconfig/config
 idea.system.path=F:/dev/ideaconfig/system
 idea.plugins.path=F:/dev/ideaconfig/plugins
 idea.log.path=F:/dev/ideaconfig/log
-</code></pre><h1 id="idea激活">idea激活</h1>
-<h4 id="先下载补丁包网上自行下载">先下载补丁包，网上自行下载</h4>
-<h4 id="ideaexevmoptions-idea64exevmoptions-文件末尾追加以下">idea.exe.vmoptions idea64.exe.vmoptions 文件末尾追加以下</h4>
-<pre tabindex="0"><code>-javaagent:F:\dev\ideaconfig\jetbrains-agent.jar
-</code></pre><h4 id="一选择最后一种license-server激活方式地址填入httpjetbrains-license-server-应该会自动填上或者点击按钮discover-server来自动填充地址完成激活">一、选择最后一种License server激活方式，地址填入：http://jetbrains-license-server （应该会自动填上），或者点击按钮：”Discover Server”来自动填充地址，完成激活</h4>
-<h4 id="二如果服务器激活方式无法激活还可以选择activation-code方式激活复制下面激活码即可">二、如果服务器激活方式无法激活，还可以选择Activation code方式激活，复制下面激活码即可</h4>
-<pre tabindex="0"><code>D00F1BDTGF-eyJsaWNlbnNlSWQiOiJEMDBGMUJEVEdGIiwibGljZW5zZWVOYW1lIjoiaHR0cHM6Ly96aGlsZS5pbyIsImFzc2lnbmVlTmFtZSI6IiIsImFzc2lnbmVlRW1haWwiOiIiLCJsaWNlbnNlUmVzdHJpY3Rpb24iOiJVbmxpbWl0ZWQgbGljZW5zZSB0aWxsIGVuZCBvZiB0aGUgY2VudHVyeS4iLCJjaGVja0NvbmN1cnJlbnRVc2UiOmZhbHNlLCJwcm9kdWN0cyI6W3siY29kZSI6IklJIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiUlMwIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiV1MiLCJwYWlkVXBUbyI6IjIwODktMDctMDcifSx7ImNvZGUiOiJSRCIsInBhaWRVcFRvIjoiMjA4OS0wNy0wNyJ9LHsiY29kZSI6IlJDIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiREMiLCJwYWlkVXBUbyI6IjIwODktMDctMDcifSx7ImNvZGUiOiJEQiIsInBhaWRVcFRvIjoiMjA4OS0wNy0wNyJ9LHsiY29kZSI6IlJNIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiRE0iLCJwYWlkVXBUbyI6IjIwODktMDctMDcifSx7ImNvZGUiOiJBQyIsInBhaWRVcFRvIjoiMjA4OS0wNy0wNyJ9LHsiY29kZSI6IkRQTiIsInBhaWRVcFRvIjoiMjA4OS0wNy0wNyJ9LHsiY29kZSI6IkdPIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiUFMiLCJwYWlkVXBUbyI6IjIwODktMDctMDcifSx7ImNvZGUiOiJDTCIsInBhaWRVcFRvIjoiMjA4OS0wNy0wNyJ9LHsiY29kZSI6IlBDIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In0seyJjb2RlIjoiUlNVIiwicGFpZFVwVG8iOiIyMDg5LTA3LTA3In1dLCJoYXNoIjoiODkwNzA3MC8wIiwiZ3JhY2VQZXJpb2REYXlzIjowLCJhdXRvUHJvbG9uZ2F0ZWQiOmZhbHNlLCJpc0F1dG9Qcm9sb25nYXRlZCI6ZmFsc2V9-3OPFIX9/KSL76ctAKOwpBPCCAfUhUbucdNbtqMaTqRryvKEvrFqCKncE0eMHA2YkrcP2CtV9LKjlIXhJMqp0N821Qv1AhuIJrDMBubqiEtiqnGkcGV35DF0GzyUQaUdN6fTbZna05riHzR6yzgEzo9R3RIzCTDMQdB/0EojWM0nCBkPsLdncZeDv3+Y+VA8ZH3/BBvzwR1e0gWsT3mfT9tIvwxPuEhNrQFNOP1PZOjC8nX9h/J7ag5X3JQL1CQVi4TnEipdy0fxKbDPKTloM3Y/bA23uaW+Q/JQFBRKRR0q3FYJ1DQuSc7YmeJ7Q2IHq7u5QYz8jPZJtP6PKs6g/tQ==-MIIECDCCAfCgAwIBAgIJAI5/xwNtz47cMA0GCSqGSIb3DQEBCwUAMBgxFjAUBgNVBAMMDUpldFByb2ZpbGUgQ0EwIBcNMTgwODIzMDcwNDA3WhgPMjExODA3MzAwNzA0MDdaMBExDzANBgNVBAMMBnByb2QzeTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOZ3WopNRg9J8k3apGYFEUGRlvkRsQnQSEz1yMKY4YWg9ElxmuF0mQRAaIj3WOl1eqTn1CXsn4vXV7GODJk9A/rCqEk960sPesWn/RVz7zo5+KazE3Y9yYtwskKxlnkFNp82Kha6dUGDSwG2lYh0Sria2ByOhgr6gmyXtC0PKqlIlTAPcBvz0MEnKTZkxfSqdiHo/meTlMRd9885vr4P52Fd9Ryxe3yVAKZSP9ZzPmRvCvgF1oGCgobZJ5d7FvTwkGt2t4pjy/RlU6FDcXNMHLk4pfJqr3lnEkAh2MbCGlGo1i6Rc6DtgISuJn2AUkrQKhI6F0U7o9e5qPEOjNkhznMCAwEAAaNaMFgwCQYDVR0TBAIwADALBgNVHQ8EBAMCBaAwHQYDVR0OBBYEFJDgSMx4XrLktYOG827wP7VULTnJMB8GA1UdIwQYMBaAFDAS51akWaJlzxC2x4yP3iAYbqtxMA0GCSqGSIb3DQEBCwUAA4ICAQBxRyfCpL7q2VurGfh9XqaC4GsGp6ut3l/rOEyc6DP148A69DRmZ7saqfZW87DcLkmcynPhyBOxdcGwtwKlR9E/+X923JeL6VPQCTY5WyJKib36vQCnoC4ELTnw1yc51v2j+MaZXjrlzBIcCUocWK14WS4iBycUwLuMszz6rJ8xluuYDKDeNcS/AjQf+yTUfDXjktHLgcE27sSEQUQ+7bpbKHkJ5xBvaupJEPX+ndj7V2eD+/sO03jgnsWVa2nky7yDXX/5KCqzL5kAA1n2t2dWSJXxpac8O2bPyRhk6dUSwzNr+IjCjHqUKIouB0nosi85Q5MaIE0pwOOSggnawpnjmL3qDnsS/n7NUcX/mF4eiNQ8cMJmKIgfS6rntKuQY2zSod+4+G0AFbiihVTnKsRf7CiJa/VniZdaGdbclT8KzRnNKJ1TrPO8rVPjg+SpvqTq75xynS08/OXCpoJ3aVeBWZJYJmheHhvJw2RiNW2P2GSIw+m6HIIsthUtvvHqdKpIaThFHAOKmw0LpPO7uGs/z/Q3un7+lqSlW7akUoSCHdiAJ4wWv+qFEgE4mq8bKtHoa9yy6FZBoORbbRTj8WkS+UvCLN5p7kZenmKYnWCzBf02O1ULpMsR5WvKCGCekSwWf3lAF9lYTL12JaFTw9iH1nSkyvcu7AoXlWI50hOhmA==
-</code></pre><h2 id="idea快捷键">idea快捷键</h2>
+</code></pre><h2 id="idea激活">idea激活</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd"># idea激活教程 https://blog.lupf.cn/articles/2021/12/30/1640851099736.html
+-javaagent:D:\dev\mave-jar\ja-netfilter\ja-netfilter.jar
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="idea快捷键">idea快捷键</h2>
 <pre tabindex="0"><code>Alt + Insert  #set/get; 构造方法;  toString; 重写方法。。。
 Ctrl+Alt+T  #将代码包在一个块中，例如try/catch  ;synchronized等
 Ctrl+E  #最近使用的文件
@@ -301,9 +301,12 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
   <span style="color:#000080">&lt;/component&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="idea插件-httpsblogcsdnnetheatdeatharticledetails80156993">idea插件 <a href="https://blog.csdn.net/HeatDeath/article/details/80156993">https://blog.csdn.net/HeatDeath/article/details/80156993</a></h3>
-<h3 id="idea插件-httpsblogcsdnnetwin7systemarticledetails83508313">idea插件 <a href="https://blog.csdn.net/win7system/article/details/83508313">https://blog.csdn.net/win7system/article/details/83508313</a></h3>
-<p>想要把IDEA窗口拖拽回当前屏幕，可以找到项目中.idea文件夹下的workspace.xml文件全文搜索ProjectFrameBounds关键字，修改x的值为0或者直接将name=“x”的这一行删除即可，然后重启IDEA即可</p>
+</div><h2 id="idea插件">idea插件</h2>
+<ul>
+<li><a href="https://blog.csdn.net/HeatDeath/article/details/80156993">https://blog.csdn.net/HeatDeath/article/details/80156993</a></li>
+<li><a href="https://blog.csdn.net/win7system/article/details/83508313">https://blog.csdn.net/win7system/article/details/83508313</a></li>
+</ul>
+<h4 id="想要把idea窗口拖拽回当前屏幕可以找到项目中idea文件夹下的workspacexml文件全文搜索projectframebounds关键字修改x的值为0或者直接将namex的这一行删除即可然后重启idea即可">想要把IDEA窗口拖拽回当前屏幕，可以找到项目中.idea文件夹下的workspace.xml文件全文搜索ProjectFrameBounds关键字，修改x的值为0或者直接将name=“x”的这一行删除即可，然后重启IDEA即可</h4>
 
         </div>
 
@@ -322,9 +325,9 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
         
         <li><a href="/post/My-pom-xml/">My-pom.xml</a></li>
         
-        <li><a href="/post/Java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/">Java环境变量配置</a></li>
+        <li><a href="/post/cisco-c3600/">cisco-c3600</a></li>
         
-        <li><a href="/post/maven%E9%85%8D%E7%BD%AE/">maven配置</a></li>
+        <li><a href="/post/install-hexo/">install-hexo</a></li>
         
     </ul>
 </div>
@@ -411,11 +414,11 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
 <ul class="widget-list">
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/phoenixtree/" title="win装机">win装机</a>
+        <a href="https://phoenixtree2poplar.github.io/post/config/" title="config">config</a>
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/shell/" title="shell">shell</a>
+        <a href="https://phoenixtree2poplar.github.io/post/win/" title="win装机">win装机</a>
     </li>
     
     <li>
@@ -423,15 +426,7 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/npm/" title="npm">npm</a>
-    </li>
-    
-    <li>
         <a href="https://phoenixtree2poplar.github.io/post/flyway/" title="flyway">flyway</a>
-    </li>
-    
-    <li>
-        <a href="https://phoenixtree2poplar.github.io/post/Windows/" title="Windows">Windows</a>
     </li>
     
     <li>
@@ -439,7 +434,7 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
     </li>
     
     <li>
-        <a href="https://phoenixtree2poplar.github.io/post/mybatis%E6%8F%92%E4%BB%B6/" title="mybatis插件">mybatis插件</a>
+        <a href="https://phoenixtree2poplar.github.io/post/mybatis-plus/" title="mybatis-plus">mybatis-plus</a>
     </li>
     
     <li>
@@ -448,6 +443,14 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
     
     <li>
         <a href="https://phoenixtree2poplar.github.io/post/mysql/" title="mysql">mysql</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/idea/" title="idea">idea</a>
+    </li>
+    
+    <li>
+        <a href="https://phoenixtree2poplar.github.io/post/command/" title="command">command</a>
     </li>
     
 </ul>
@@ -459,9 +462,9 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
         <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
 <ul class="widget-list">
     
-    <li><a href="https://phoenixtree2poplar.github.io/categories/cmd/">cmd (1)</a></li>
-    
     <li><a href="https://phoenixtree2poplar.github.io/categories/command/">command (1)</a></li>
+    
+    <li><a href="https://phoenixtree2poplar.github.io/categories/config/">config (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/docker/">docker (1)</a></li>
     
@@ -473,13 +476,7 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/idea/">idea (1)</a></li>
     
-    <li><a href="https://phoenixtree2poplar.github.io/categories/java/">java (1)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/maven/">maven (1)</a></li>
-    
     <li><a href="https://phoenixtree2poplar.github.io/categories/mybatis/">mybatis (2)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/npm/">npm (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/pkgs/">pkgs (1)</a></li>
     
@@ -488,8 +485,6 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
     <li><a href="https://phoenixtree2poplar.github.io/categories/redis/">redis (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/route/">route (1)</a></li>
-    
-    <li><a href="https://phoenixtree2poplar.github.io/categories/shell/">shell (1)</a></li>
     
     <li><a href="https://phoenixtree2poplar.github.io/categories/sql/">sql (1)</a></li>
     
@@ -500,11 +495,11 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
         <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
 <div class="tagcloud">
     
-    <a href="https://phoenixtree2poplar.github.io/tags/bat/">bat</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/cmd/">cmd</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/command/">command</a>
+    
+    <a href="https://phoenixtree2poplar.github.io/tags/config/">config</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/docker/">docker</a>
     
@@ -515,10 +510,6 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
     <a href="https://phoenixtree2poplar.github.io/tags/hexo/">hexo</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/idea/">idea</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/java/">java</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/jdk/">jdk</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/linux/">linux</a>
     
@@ -534,10 +525,6 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
     
     <a href="https://phoenixtree2poplar.github.io/tags/mysql/">mysql</a>
     
-    <a href="https://phoenixtree2poplar.github.io/tags/node/">node</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/npm/">npm</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/pkgs/">pkgs</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/pom/">pom</a>
@@ -546,8 +533,6 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
     
     <a href="https://phoenixtree2poplar.github.io/tags/route/">route</a>
     
-    <a href="https://phoenixtree2poplar.github.io/tags/shell/">shell</a>
-    
     <a href="https://phoenixtree2poplar.github.io/tags/sql/">sql</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/tomcat/">tomcat</a>
@@ -555,8 +540,6 @@ Ctrl+Alt+Shift+/ --&gt; Registry -&gt; compiler.automake.allow.when.app.running 
     <a href="https://phoenixtree2poplar.github.io/tags/win%E8%A3%85%E6%9C%BA/">win装机</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/%E5%91%BD%E4%BB%A4/">命令</a>
-    
-    <a href="https://phoenixtree2poplar.github.io/tags/%E8%84%9A%E6%9C%AC/">脚本</a>
     
     <a href="https://phoenixtree2poplar.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/">路由器</a>
     

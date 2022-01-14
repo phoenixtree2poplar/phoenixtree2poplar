@@ -6,22 +6,22 @@
     <description>Recent content in Categories on 梧桐</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 15 Mar 2020 17:28:12 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Jan 2022 02:21:14 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>config</title>
+      <link>https://phoenixtree2poplar.github.io/categories/config/</link>
+      <pubDate>Fri, 14 Jan 2022 02:21:14 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/config/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>pkgs</title>
       <link>https://phoenixtree2poplar.github.io/categories/pkgs/</link>
       <pubDate>Sun, 15 Mar 2020 17:28:12 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/categories/pkgs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shell</title>
-      <link>https://phoenixtree2poplar.github.io/categories/shell/</link>
-      <pubDate>Wed, 04 Mar 2020 21:06:27 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/categories/shell/</guid>
       <description></description>
     </item>
     
@@ -35,29 +35,11 @@
     </item>
     
     <item>
-      <title>npm</title>
-      <link>https://phoenixtree2poplar.github.io/categories/npm/</link>
-      <pubDate>Sat, 18 Jan 2020 22:03:18 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/categories/npm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>flywaty</title>
       <link>https://phoenixtree2poplar.github.io/categories/flywaty/</link>
       <pubDate>Fri, 06 Dec 2019 22:16:49 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/categories/flywaty/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cmd</title>
-      <link>https://phoenixtree2poplar.github.io/categories/cmd/</link>
-      <pubDate>Fri, 15 Nov 2019 21:57:50 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/categories/cmd/</guid>
       <description></description>
     </item>
     
@@ -121,24 +103,6 @@
       <pubDate>Fri, 12 Jul 2019 21:38:02 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/categories/pom/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>https://phoenixtree2poplar.github.io/categories/java/</link>
-      <pubDate>Thu, 07 Mar 2019 12:55:58 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/categories/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>maven</title>
-      <link>https://phoenixtree2poplar.github.io/categories/maven/</link>
-      <pubDate>Fri, 31 Aug 2018 10:53:29 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/categories/maven/</guid>
       <description></description>
     </item>
     
