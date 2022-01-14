@@ -1,3 +1,4 @@
++++
 ## Win装机
 C盘100G
 1. [Windows官网](https://www.microsoft.com/zh-cn/software-download/windows10)最新镜像制作-->安装 [国内镜像](https://msdn.itellyou.cn)
