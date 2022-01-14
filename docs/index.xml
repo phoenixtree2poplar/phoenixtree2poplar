@@ -13,7 +13,7 @@
       <pubDate>Sun, 15 Mar 2020 17:28:12 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/post/phoenixtree/</guid>
-      <description>Win装机 C盘100G Windows官网最新镜像制作&amp;ndash;&amp;gt;安装 国内镜像 系统文件夹地址更改 关闭Windows保护 关闭Win更新 win10 Defender一键关闭 Windows激活&amp;ndash;&amp;gt;重启 开启备份 software winrar解压软件 chrome 搜狗输入法(智慧版) 迅雷 修改下载位置 微</description>
+      <description>Win装机 C盘100G Windows官网最新镜像制作&amp;ndash;&amp;gt;安装 国内镜像 系统文件夹地址更改(重要) 安装完后更新一次 关闭Windows保护 &amp;ndash;&amp;gt; 关闭Win更新 &amp;ndash;&amp;gt; win10 Defender一键关闭 &amp;ndash;&amp;gt; Windows激活&amp;ndash;&amp;gt;重启 开启备份 software winrar 解压软件 + 迅雷 (修改下载位置</description>
     </item>
     
     <item>
@@ -158,24 +158,6 @@
       
       <guid>https://phoenixtree2poplar.github.io/post/cisco-c3600/</guid>
       <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 en #enable 进入特权模式 disa #disable 退出特权模式，进入用户模式 conf t #configure terminal 进入全局配置模式 tab #可补全命令 ？ #可显示开头命令 int f0/0 #interface f0/0 进入指定接口配置 ip add 192.168.1.1 255.255.255.0 #ip address 在接口配置下为该接口添加IP ip add dhcp #接口配置下设置该</description>
-    </item>
-    
-    <item>
-      <title>window10 uninstall update</title>
-      <link>https://phoenixtree2poplar.github.io/post/window10-uninstall-update/</link>
-      <pubDate>Tue, 23 May 2017 08:38:16 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/post/window10-uninstall-update/</guid>
-      <description>Win10系统关闭自动更新方法如下 1.按Win键+R键调出运行，输入“gpedit.msc”点击“确定”，调出“本地组策略编辑器”。 2.顺序依次展开&amp;quot;计算机配置&amp;quot;，&amp;ldquo;管理模板&amp;rdquo; ，&amp;ldquo;windows组件&amp;rdquo; ，&amp;ldqu</description>
-    </item>
-    
-    <item>
-      <title>Remove OneDrive</title>
-      <link>https://phoenixtree2poplar.github.io/post/%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4-onedirve/</link>
-      <pubDate>Fri, 05 May 2017 10:27:52 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/post/%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4-onedirve/</guid>
-      <description>关于禁止onedrive自启动简单的就是在任务管理器的启动中禁用onedrive的启动项目就可以。 关于组策略管理 运行gpedit.msc，进入【计算机配置】-【管理模板】-【windows组件】-【onedrive】，右侧的三个选项： 默认情况下，将文档保存到 OneDrive，选择</description>
     </item>
     
     <item>
