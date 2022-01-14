@@ -5,7 +5,7 @@ tags=["pom"]
 categories=["pom"]
 toc=true
 +++
-# phoenixtree-parent的pom.xml
+## phoenixtree-parent的pom.xml
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -50,7 +50,7 @@ toc=true
     </build>
 </project>
 ```
-# phoenixtree-poplar的pom.xml
+## phoenixtree-poplar的pom.xml
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

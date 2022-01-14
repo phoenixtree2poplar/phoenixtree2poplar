@@ -17,7 +17,7 @@ ubuntu latest b39b81afc8ca      188.3 MB
 centos latest 8efe422e6104       210 MB
 alpine 内置 apk 包管理器, 而不是Ubuntu的apt, alpine 包的网址是 https://pkgs.alpinelinux.org/packages
 ```
-# 常用 docker images
+## 常用 docker images
 ```bash
 docker search 命令搜索指定的 image, 或者访问网址 https://hub.docker.com/explore/ 
 docker pull openjdk:8-alpine  # 大小为107.8MB
@@ -52,7 +52,7 @@ docker run -p 80 -d --name mynginx2 nginx:1.15-alpine
 Dockerfile EXPOSE 可能会开放多个端口, 使用 -P 参数将自动为这些容器内部端口分配对应的Host主机端口
 docker run -P -d --name mynginx1 nginx:1.15-alpine
 ```
-# 常用命令
+## 常用命令
 ```bash
 docker images 命令, 显示可用的容器
 docker rmi <镜像Id> 命令,删除指定镜像
@@ -75,8 +75,8 @@ docker rmi $(docker images -qf dangling=true) 命令, 删除那些没有被容�
 docker system df 命令, 可以一次性查看镜像/容器/host volume的磁盘占用情况. 
 docker ps -s 命令, 输出容器的空间占用
 ```
-# docker 一些管理命令集
-#### 除了上面常用的命令外, docker 还有一些管理命令集, 这些命令集还可以包含二级命令:
+## docker 一些管理命令集
+### 除了上面常用的命令外, docker 还有一些管理命令集, 这些命令集还可以包含二级命令:
 ```bash
 config Manage Docker configs
 container Manage containers
@@ -96,7 +96,7 @@ docker image build, 编译 Dockfile
 docker network create, 创建 docker 网络
 docker volume create, 创建数据卷
 ```
-# ocker run/exec 命令
+## ocker run/exec 命令
 ```bash
 运行 hello-world 容器, 如果本地没有下载, 将会自动从hub站点下载. 
 docker run hello-world 命令
@@ -109,7 +109,7 @@ docker exec -it myredis redis-cli
 exec 后的 -it 参数的意思是, 以交互的方式并分配一个伪tty, 经常一起联用.
 ```
 
-# docker redis 使用
+## docker redis 使用
 ```bash
 docker pull redis:latest  # 下载最新版的 redis image
 pull run redis  # 简单方式启动 redis 服务
@@ -125,7 +125,7 @@ requirepass "your passwd" : 设置redis认证密码
 
 ```
 ```bash
-下面命令摘自: http://www.cnblogs.com/cgpei/p/7151612.html
+### 下面命令摘自: http://www.cnblogs.com/cgpei/p/7151612.html
 # docker run -p 6699:6379 --name myredis -v $PWD/redis.conf:/etc/redis/redis.conf -v $PWD/data:/data -d redis:3.2 redis-server /etc/redis/redis.conf --appendonly yes
 　　命令说明：
 　　--name myredis : 指定容器名称，这个最好加上，不然在看docker进程的时候会很尴尬。

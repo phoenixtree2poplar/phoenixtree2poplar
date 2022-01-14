@@ -140,14 +140,15 @@
         <nav id="TableOfContents">
   <ul>
     <li><a href="#docker-基础镜像环境-alpine">docker 基础镜像环境 alpine</a></li>
-  </ul>
-
-  <ul>
-    <li>
+    <li><a href="#常用-docker-images">常用 docker images</a></li>
+    <li><a href="#常用命令">常用命令</a></li>
+    <li><a href="#docker-一些管理命令集">docker 一些管理命令集</a>
       <ul>
-        <li></li>
+        <li><a href="#除了上面常用的命令外-docker-还有一些管理命令集-这些命令集还可以包含二级命令">除了上面常用的命令外, docker 还有一些管理命令集, 这些命令集还可以包含二级命令:</a></li>
       </ul>
     </li>
+    <li><a href="#ocker-runexec-命令">ocker run/exec 命令</a></li>
+    <li><a href="#docker-redis-使用">docker redis 使用</a></li>
   </ul>
 </nav>
     </div>
@@ -220,7 +221,7 @@ debian latest 4d6ce913b130      84.98 MB
 ubuntu latest b39b81afc8ca      188.3 MB
 centos latest 8efe422e6104       210 MB
 alpine 内置 apk 包管理器, 而不是Ubuntu的apt, alpine 包的网址是 https://pkgs.alpinelinux.org/packages
-</code></pre><h1 id="常用-docker-images">常用 docker images</h1>
+</code></pre><h2 id="常用-docker-images">常用 docker images</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -291,7 +292,7 @@ Dockerfile EXPOSE 可能会开放多个端口, 使用 -P 参数将自动为这�
 docker run -P -d --name mynginx1 nginx:1.15-alpine
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="常用命令">常用命令</h1>
+</div><h2 id="常用命令">常用命令</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -338,8 +339,8 @@ docker system df 命令, 可以一次性查看镜像/容器/host volume的磁盘
 docker ps -s 命令, 输出容器的空间占用
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="docker-一些管理命令集">docker 一些管理命令集</h1>
-<h4 id="除了上面常用的命令外-docker-还有一些管理命令集-这些命令集还可以包含二级命令">除了上面常用的命令外, docker 还有一些管理命令集, 这些命令集还可以包含二级命令:</h4>
+</div><h2 id="docker-一些管理命令集">docker 一些管理命令集</h2>
+<h3 id="除了上面常用的命令外-docker-还有一些管理命令集-这些命令集还可以包含二级命令">除了上面常用的命令外, docker 还有一些管理命令集, 这些命令集还可以包含二级命令:</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -380,7 +381,7 @@ docker network create, 创建 docker 网络
 docker volume create, 创建数据卷
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="ocker-runexec-命令">ocker run/exec 命令</h1>
+</div><h2 id="ocker-runexec-命令">ocker run/exec 命令</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -405,7 +406,7 @@ docker <span style="color:#0086b3">exec</span> -it myredis redis-cli
 <span style="color:#0086b3">exec</span> 后的 -it 参数的意思是, 以交互的方式并分配一个伪tty, 经常一起联用.
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="docker-redis-使用">docker redis 使用</h1>
+</div><h2 id="docker-redis-使用">docker redis 使用</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -451,7 +452,7 @@ requirepass <span style="color:#d14">&#34;your passwd&#34;</span> : 设置redis�
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">下面命令摘自: http://www.cnblogs.com/cgpei/p/7151612.html
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic">### 下面命令摘自: http://www.cnblogs.com/cgpei/p/7151612.html</span>
 <span style="color:#998;font-style:italic"># docker run -p 6699:6379 --name myredis -v $PWD/redis.conf:/etc/redis/redis.conf -v $PWD/data:/data -d redis:3.2 redis-server /etc/redis/redis.conf --appendonly yes</span>
 　　命令说明：
 　　--name myredis : 指定容器名称，这个最好加上，不然在看docker进程的时候会很尴尬。
