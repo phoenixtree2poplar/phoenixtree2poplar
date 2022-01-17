@@ -139,16 +139,8 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#docker-基础镜像环境-alpine">docker 基础镜像环境 alpine</a></li>
-    <li><a href="#常用-docker-images">常用 docker images</a></li>
     <li><a href="#常用命令">常用命令</a></li>
-    <li><a href="#docker-一些管理命令集">docker 一些管理命令集</a>
-      <ul>
-        <li><a href="#除了上面常用的命令外-docker-还有一些管理命令集-这些命令集还可以包含二级命令">除了上面常用的命令外, docker 还有一些管理命令集, 这些命令集还可以包含二级命令:</a></li>
-      </ul>
-    </li>
-    <li><a href="#ocker-runexec-命令">ocker run/exec 命令</a></li>
-    <li><a href="#docker-redis-使用">docker redis 使用</a></li>
+    <li><a href="#docker-基础镜像环境-alpine">docker 基础镜像环境 alpine</a></li>
   </ul>
 </nav>
     </div>
@@ -212,16 +204,7 @@
             <p>
         <img class="mx-auto" alt="" src="docker.jpg" />   
     </p>
-<h2 id="docker-基础镜像环境-alpine">docker 基础镜像环境 alpine</h2>
-<p>在hub官网会经常能看到 alpine 字样, alpine 是要给非常轻量级的Linux发行版,Docker官方已经推荐使用alpine 代替之前的 Ubuntu作为基础镜像环境, 好处是制作出的最终镜像文件很多, 但docker dub上目前仍以 Ubuntu 为主流的基础镜像环境.
-下面是几个常用发行版基础镜像的大小.</p>
-<pre tabindex="0"><code>REPOSITORY TAG IMAGE ID VIRTUAL SIZE
-alpine latest 4e38e38c8ce0       4.799 MB
-debian latest 4d6ce913b130      84.98 MB
-ubuntu latest b39b81afc8ca      188.3 MB
-centos latest 8efe422e6104       210 MB
-alpine 内置 apk 包管理器, 而不是Ubuntu的apt, alpine 包的网址是 https://pkgs.alpinelinux.org/packages
-</code></pre><h2 id="常用-docker-images">常用 docker images</h2>
+<h2 id="常用命令">常用命令</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -249,256 +232,45 @@ alpine 内置 apk 包管理器, 而不是Ubuntu的apt, alpine 包的网址是 ht
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker search 命令搜索指定的 image, 或者访问网址 https://hub.docker.com/explore/ 
-docker pull openjdk:8-alpine  <span style="color:#998;font-style:italic"># 大小为107.8MB</span>
-docker pull openjdk:8             <span style="color:#998;font-style:italic"># 大小为309MB </span>
-docker pull nginx
-docker pull tomcat
-docker pull wnameless/oracle-xe-11g
-docker pull python
-docker pull mysql
-docker pull mongo
-docker pull redis
-docker pull rabbitmq
-docker pull rabbitmq:3-management
-------------------------------------
-用于 docker 命令学习的镜像和命令
-docker pull nginx:1.15-alpine  <span style="color:#998;font-style:italic">#只需要20M的空间</span>
-docker pull busybox  <span style="color:#998;font-style:italic">#只占用2M空间</span>
-以守护态运行容器, 经常用于容器的学习. 
-docker run -d --name mybusybox busybox /bin/sh -c <span style="color:#d14">&#34;while true; do echo hello world; sleep 1; done&#34;</span>
-使用镜像nginx:1.15-alpine以后台模式启动一个容器, 并将容器的80端口映射到主机随机端口<span style="color:#000;font-weight:bold">(</span>80是该镜像expose的端口<span style="color:#000;font-weight:bold">)</span>
-docker run -P -d --name mynginx1 nginx:1.15-alpine
-使用镜像nginx:1.15-alpine以后台模式启动一个容器, 指定主机的端口为 <span style="color:#099">80</span>
-docker run -p 80:80 -d --name mynginx2 nginx:1.15-alpine
-docker 容器端口映射
-1. 指定host端口和容器内端口
-使用镜像nginx:1.15-alpine以后台模式启动一个容器, 指定主机的端口为80, 冒号前的host端口, 冒号后为容器内部的端口. 
-docker run -p 80:80 -d --name mynginx2 nginx:1.15-alpine
-2. 容器内端口随机分配一个Host端口 
-下面 -p 参数的 <span style="color:#099">80</span> 指的是容器内部的端口, 没有指定host端口, docker在主机上自动开放一个映射端口<span style="color:#000;font-weight:bold">(</span>当然是未被占用的<span style="color:#000;font-weight:bold">)</span>, 自动端口号一般大于等于 <span style="color:#099">32768</span> . 
-docker run -p <span style="color:#099">80</span> -d --name mynginx2 nginx:1.15-alpine
-3. 自动为所有的 Dockerfile EXPOSE 端口映射Host端口
-Dockerfile EXPOSE 可能会开放多个端口, 使用 -P 参数将自动为这些容器内部端口分配对应的Host主机端口
-docker run -P -d --name mynginx1 nginx:1.15-alpine
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="常用命令">常用命令</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker images 命令, 显示可用的容器
-docker rmi &lt;镜像Id&gt; 命令,删除指定镜像
-docker pull hello-world 命令 , 下载 hello-world image
-docker rmi &lt;镜像Id&gt; 命令,删除指定镜像
-docker ps 命令, 列出当前正在运行的容器, 结果的第一列是container_Id, 第2列是容器名称. 
-docker ps -a 命令, 列出当前正在运行的和之前运行完的容器
-docker stop container_id/container-name 命令, 停止指定的容器, 该容器Id或名称可以从docker ps中获取. 
-docker restart container_id/container-name 命令, 重新启动指定的容器, 该容器Id或名称可以从docker ps中获取. 
-docker start container_id/container-name 命令, 启动指定的容器, 该容器Id或名称可以从docker ps中获取. 
-docker rm container_id/container-name, 删除指定的容器
-docker rm <span style="color:#000;font-weight:bold">$(</span>docker ps -a -q<span style="color:#000;font-weight:bold">)</span> 命令, 删除所有运行结束了容器, 正在运行的容器不会被删除
-docker top container_id/container-name, 查看容器内的进程
-docker logs <span style="color:#000;font-weight:bold">[</span>-f<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">[</span>-t<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">[</span>--tail string<span style="color:#000;font-weight:bold">]</span> 容器名, 查看容器的日志输出, -f是打开跟踪, -t是加上时间戳, --tail <span style="color:#099">100</span> 表示仅显示最后的100行日志
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker images        <span style="color:#998;font-style:italic">#显示本地镜像</span>
+docker search mysql  <span style="color:#998;font-style:italic">#查询mysql镜像，或者访问网址 https://hub.docker.com/explore/ </span>
+<span style="color:#998;font-style:italic">#常用镜像 openjdk8 python tomcat nginx mysql mongo redis rabbitmq</span>
+docker pull mysql    <span style="color:#998;font-style:italic">#下载mysql镜像</span>
+docker rmi image_id/image_name  <span style="color:#998;font-style:italic">#删除镜像</span>
+docker image build -t my_image  .  <span style="color:#998;font-style:italic"># 编译Dockfile文件</span>
+docker ps     <span style="color:#998;font-style:italic">#列出正在运行的容器</span>
+docker ps -a  <span style="color:#998;font-style:italic">#列出所有容器</span>
+docker run -it --name my_container image_id/image_name  <span style="color:#998;font-style:italic">#创建并启动并进入容器终端，退出则容器停止</span>
+docker run -p 80:80 -v /web:/web --name my_container -d image_id/image_name  <span style="color:#998;font-style:italic">#后台创建并启动容器，指定-p端口、-v磁盘目录映射，冒号前为宿主机</span>
+docker <span style="color:#0086b3">exec</span> -it container_id/container-name /bin/bash  <span style="color:#998;font-style:italic">#进入容器终端</span>
+docker start    container_id/container_name  <span style="color:#998;font-style:italic">#启动容器</span>
+docker stop     container_id/container_name  <span style="color:#998;font-style:italic">#停止容器</span>
+docker restart  container_id/container_name  <span style="color:#998;font-style:italic">#重启容器</span>
+docker rm container_id/container_name  <span style="color:#998;font-style:italic">#删除容器</span>
+docker rm <span style="color:#000;font-weight:bold">$(</span>docker ps -a -q<span style="color:#000;font-weight:bold">)</span>  <span style="color:#998;font-style:italic">#删除所有运行结束了容器, 正在运行的容器不会被删除</span>
+docker top container_id/container_name  <span style="color:#998;font-style:italic">#查看容器内的进程</span>
+docker logs <span style="color:#000;font-weight:bold">[</span>-f<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">[</span>-t<span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">[</span>--tail string<span style="color:#000;font-weight:bold">]</span> 容器名  <span style="color:#998;font-style:italic">#查看容器的日志输出, -f是打开跟踪, -t是加上时间戳</span>
 docker search nginx, 在hub站点中搜索 nginx 镜像
-docker image inspect image_id 命令, 显示指定镜像的详细信息. 
+docker image inspect image_id  <span style="color:#998;font-style:italic">#显示指定镜像的详细信息.</span>
 docker container inspect container_id/container-name 命令, 显示指定容器的详细信息,包括容器的Ip
 docker images -f <span style="color:#008080">dangling</span><span style="color:#000;font-weight:bold">=</span><span style="color:#0086b3">true</span> 命令, 列出没有被容器化的镜像
-docker rmi <span style="color:#000;font-weight:bold">$(</span>docker images -qf <span style="color:#008080">dangling</span><span style="color:#000;font-weight:bold">=</span><span style="color:#0086b3">true</span><span style="color:#000;font-weight:bold">)</span> 命令, 删除那些没有被容器化的镜像
-docker system df 命令, 可以一次性查看镜像/容器/host volume的磁盘占用情况. 
-docker ps -s 命令, 输出容器的空间占用
+docker rmi <span style="color:#000;font-weight:bold">$(</span>docker images -qf <span style="color:#008080">dangling</span><span style="color:#000;font-weight:bold">=</span><span style="color:#0086b3">true</span><span style="color:#000;font-weight:bold">)</span>  <span style="color:#998;font-style:italic">#删除那些没有被容器化的镜像</span>
+docker system df  <span style="color:#998;font-style:italic">#可以一次性查看镜像/容器/host volume的磁盘占用情况. </span>
+docker ps -s  <span style="color:#998;font-style:italic">#输出容器的空间占用</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="docker-一些管理命令集">docker 一些管理命令集</h2>
-<h3 id="除了上面常用的命令外-docker-还有一些管理命令集-这些命令集还可以包含二级命令">除了上面常用的命令外, docker 还有一些管理命令集, 这些命令集还可以包含二级命令:</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">config Manage Docker configs
-container Manage containers
-image Manage images
-network Manage networks
-node Manage Swarm nodes
-plugin Manage plugins
-secret Manage Docker secrets
-service Manage services
-stack Manage Docker stacks
-swarm Manage Swarm
-system Manage Docker
-trust Manage trust on Docker images
-volume Manage volumes
-比较常用的是, 
-docker image build, 编译 Dockfile
-docker network create, 创建 docker 网络
-docker volume create, 创建数据卷
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="ocker-runexec-命令">ocker run/exec 命令</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">运行 hello-world 容器, 如果本地没有下载, 将会自动从hub站点下载. 
-docker run hello-world 命令
-以守护态运行容器
-docker run -d --name mybusybox busybox /bin/sh -c <span style="color:#d14">&#34;while true; do echo hello world; sleep 1; done&#34;</span>
-登陆一个容器, 运行中的容器其实是一个功能完备的Linux操作系统, 所以我们可以在登陆该容器执行常规的Linux命令. 
-docker <span style="color:#0086b3">exec</span> -it container_id/container-name /bin/bash
-使用 redis-cli 登陆 myredis 容器
-docker <span style="color:#0086b3">exec</span> -it myredis redis-cli 
-<span style="color:#0086b3">exec</span> 后的 -it 参数的意思是, 以交互的方式并分配一个伪tty, 经常一起联用.
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="docker-redis-使用">docker redis 使用</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker pull redis:latest  <span style="color:#998;font-style:italic"># 下载最新版的 redis image</span>
-pull run redis  <span style="color:#998;font-style:italic"># 简单方式启动 redis 服务</span>
-
-下面命令摘自: https://blog.csdn.net/cookily_liangzai/article/details/80726163
-docker run --name redis-test -p 6379:6379 -d --restart<span style="color:#000;font-weight:bold">=</span>always redis:latest redis-server --appendonly yes --requirepass <span style="color:#d14">&#34;your passwd&#34;</span>
---name redis-test: 为容器指定名称为 redis-test
--p 6379:6379 :将容器内端口映射到宿主机端口<span style="color:#000;font-weight:bold">(</span>容器端口在右边, 宿主端口在左边<span style="color:#000;font-weight:bold">)</span> 
--d: 即 --detach, 以后台的方式执行容器
-–restart<span style="color:#000;font-weight:bold">=</span>always: 随docker启动而启动
-redis-server –appendonly yes: 在容器执行redis-server启动命令, 并打开redis持久化配置 
-requirepass <span style="color:#d14">&#34;your passwd&#34;</span> : 设置redis认证密码
-
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic">### 下面命令摘自: http://www.cnblogs.com/cgpei/p/7151612.html</span>
-<span style="color:#998;font-style:italic"># docker run -p 6699:6379 --name myredis -v $PWD/redis.conf:/etc/redis/redis.conf -v $PWD/data:/data -d redis:3.2 redis-server /etc/redis/redis.conf --appendonly yes</span>
-　　命令说明：
-　　--name myredis : 指定容器名称，这个最好加上，不然在看docker进程的时候会很尴尬。
-　　-p 6699:6379 ： 端口映射，默认redis启动的是6379，至于外部端口，随便玩吧，不冲突就行。
-　　-v <span style="color:#008080">$PWD</span>/redis.conf:/etc/redis/redis.conf ： 将主机中当前目录下的redis.conf配置文件映射。
-　　-v <span style="color:#008080">$PWD</span>/data:/data -d redis:3.2 ： 将主机中当前目录下的data挂载到容器的/data
-　　--redis-server --appendonly yes :在容器执行redis-server启动命令，并打开redis持久化配置<span style="color:#d14">\
-</span><span style="color:#d14"></span>　　注意事项：
-　　　　如果不需要指定配置，-v <span style="color:#008080">$PWD</span>/redis.conf:/etc/redis/redis.conf 可以不用 ，
-　　　　redis-server 后面的那段 /etc/redis/redis.conf 也可以不用。
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="mysql-官方docker镜像的使用">MySQL 官方Docker镜像的使用</h1>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">摘自 https://itbilu.com/linux/docker/EyP7QP86M.html
-
-docker run --name itbilu-mysql -p 3306:3306 -e <span style="color:#008080">MYSQL_ROOT_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>my-pass -d mysql:5.7
-我们就创建了一个名为 itbilu-mysql 的MySQL数据库服务器容器实例, 在创建数据库时，通过环境变量MYSQL_ROOT_PASSWORD设置数据库的root密码，还通过5.7标签指定了所使用的镜像版本。
-
-不使用cnf文件的配置方式, 启动一个MySQL服务器容器，并使用UTF-8<span style="color:#000;font-weight:bold">(</span>utf8mb4<span style="color:#000;font-weight:bold">)</span>格式的表编码：
-docker run --name itbilu-mysql -p 3306:3306 -e <span style="color:#008080">MYSQL_ROOT_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>my-pw -d mysql:5.7 --character-set-server<span style="color:#000;font-weight:bold">=</span>utf8mb4 --collation-server<span style="color:#000;font-weight:bold">=</span>utf8mb4_unicode_ci
-
-使用宿主机/my/cnf/my.cnf 配置文件，这时就可以通过以下方式启动MySQL容器
-docker run --name itbilu-mysql -p 3306:3306 -v /my/cnf/:/etc/mysql/ -e <span style="color:#008080">MYSQL_ROOT_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>my-pass -d mysql:5.7
-
-指定MySQL数据目录的volume 
-docker run --name itbilu-mysql -p 3306:3306 -v /my/datadir:/var/lib/mysql -v /my/cnf/:/etc/mysql/ -e <span style="color:#008080">MYSQL_ROOT_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>my-pw -d mysql:5.7
-</code></pre></td></tr></table>
-</div>
-</div>
+</div><h2 id="docker-基础镜像环境-alpine">docker 基础镜像环境 alpine</h2>
+<p>在hub官网会经常能看到 alpine 字样, alpine 是要给非常轻量级的Linux发行版,Docker官方已经推荐使用alpine 代替之前的 Ubuntu作为基础镜像环境, 好处是制作出的最终镜像文件很多, 但docker dub上目前仍以 Ubuntu 为主流的基础镜像环境.
+下面是几个常用发行版基础镜像的大小.</p>
+<pre tabindex="0"><code>REPOSITORY TAG IMAGE ID VIRTUAL SIZE
+alpine latest 4e38e38c8ce0       4.799 MB
+debian latest 4d6ce913b130      84.98 MB
+ubuntu latest b39b81afc8ca      188.3 MB
+centos latest 8efe422e6104       210 MB
+alpine 内置 apk 包管理器, 而不是Ubuntu的apt, alpine 包的网址是 https://pkgs.alpinelinux.org/packages
+</code></pre>
         </div>
 
         

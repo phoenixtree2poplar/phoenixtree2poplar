@@ -13,7 +13,7 @@
       <pubDate>Tue, 03 Sep 2019 23:14:41 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/post/docker/</guid>
-      <description>docker 基础镜像环境 alpine 在hub官网会经常能看到 alpine 字样, alpine 是要给非常轻量级的Linux发行版,Docker官方已经推荐使用alpine 代替之前的 Ubuntu作为基础镜像环境, 好处是制作出的最终镜像文件很多, 但docker dub上目前仍以 Ubuntu 为主流的基础镜像环境. 下面是几个常用发行版基础镜像</description>
+      <description>常用命令 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 docker images #显示本地镜像 docker search mysql #查询mysql镜像，或者访问网址 https://hub.docker.com/explore/ #常用镜像 openjdk8 python tomcat nginx mysql mongo redis rabbitmq docker pull mysql #下载mysql镜像 docker rmi image_id/image_name #删除镜像 docker image build -t my_image . # 编译Dockfile文件 docker ps #列出正在运行的容器 docker ps -a #列出所有容器 docker run -it --name my_container image_id/image_name</description>
     </item>
     
   </channel>
