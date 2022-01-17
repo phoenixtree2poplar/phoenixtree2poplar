@@ -39,9 +39,9 @@ docker ps -s  #输出容器的空间占用
 下面是几个常用发行版基础镜像的大小.
 ```
 REPOSITORY TAG IMAGE ID VIRTUAL SIZE
-alpine latest 4e38e38c8ce0       4.799 MB
-debian latest 4d6ce913b130      84.98 MB
-ubuntu latest b39b81afc8ca      188.3 MB
-centos latest 8efe422e6104       210 MB
-alpine 内置 apk 包管理器, 而不是Ubuntu的apt, alpine 包的网址是 https://pkgs.alpinelinux.org/packages
+alpine latest 4e38e38c8ce0    5 MB
+debian latest 4d6ce913b130   90 MB
+ubuntu latest b39b81afc8ca  200 MB
+centos latest 8efe422e6104  250 MB
+alpine 内置apk包管理器, 而不是Ubuntu的apt, alpine包的网址是 https://pkgs.alpinelinux.org/packages
 ```
