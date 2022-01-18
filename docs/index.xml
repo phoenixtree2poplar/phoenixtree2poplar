@@ -8,12 +8,12 @@
     <language>zh-CN</language>
     <lastBuildDate>Tue, 18 Jan 2022 02:21:21 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>config</title>
+      <title>pop</title>
       <link>https://phoenixtree2poplar.github.io/post/pop/</link>
       <pubDate>Tue, 18 Jan 2022 02:21:21 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/post/pop/</guid>
-      <description>docker容器 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 #推送阿里云镜像 docker login --username=wu_ton-g@foxmail.com registry.cn-hangzhou.aliyuncs.com docker tag c059bfaa849c registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1 docker push registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1 #mysql7启动 docker run -id --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=i88 centos/mysql-57-centos7 #rocketmq获取 docker pull foxiswho/rocketmq:server-4.5.1 docker pull foxiswho/rocketmq:broker-4.5.1 rocketmq启动 docker run -di -p 9876:9876 --name=rmqserver -e &amp;#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&amp;#34; -e &amp;#34;JAVA_OPTS=-Duser.home=/opt&amp;#34; foxiswho/rocketmq:server-4.5.1 docker run -di -p 10911:10911 -p 10909:10909 --name=rmqbroker -e &amp;#34;JAVA_OPTS=-Duser.home=/opt&amp;#34; -e &amp;#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&amp;#34; foxiswho/rocketmq:broker-4.5.1 #rmqbroker容器需要配置 rmqserver</description>
+      <description>docker容器 推送阿里云镜像 1 2 3 docker login --username=wu_ton-g@foxmail.com registry.cn-hangzhou.aliyuncs.com docker tag c059bfaa849c registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1 docker push registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1 mysql7 1 2 docker pull centos/mysql-57-centos7 docker run -id --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=i88 centos/mysql-57-centos7 rocketmq 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 #rocketmq镜像获取 docker pull foxiswho/rocketmq:server-4.5.1 docker pull foxiswho/rocketmq:broker-4.5.1 #rocketmq启动 docker run -di -p 9876:9876 --name=rmqserver -e &amp;#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&amp;#34; -e &amp;#34;JAVA_OPTS=-Duser.home=/opt&amp;#34; foxiswho/rocketmq:server-4.5.1 docker run -di -p 10911:10911 -p 10909:10909 --name=rmqbroker -e &amp;#34;JAVA_OPTS=-Duser.home=/opt&amp;#34; -e &amp;#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&amp;#34; foxiswho/rocketmq:broker-4.5.1 #rmqbroker容器需要配置 rmqserver ip地</description>
     </item>
     
     <item>
