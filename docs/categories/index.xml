@@ -6,7 +6,16 @@
     <description>Recent content in Categories on 梧桐</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 18 Jan 2022 02:21:21 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Feb 2022 23:14:41 +0000</lastBuildDate><atom:link href="https://phoenixtree2poplar.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>https://phoenixtree2poplar.github.io/categories/docker/</link>
+      <pubDate>Tue, 22 Feb 2022 23:14:41 +0000</pubDate>
+      
+      <guid>https://phoenixtree2poplar.github.io/categories/docker/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>learn</title>
       <link>https://phoenixtree2poplar.github.io/categories/learn/</link>
@@ -49,15 +58,6 @@
       <pubDate>Fri, 06 Dec 2019 22:16:49 +0000</pubDate>
       
       <guid>https://phoenixtree2poplar.github.io/categories/flywaty/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://phoenixtree2poplar.github.io/categories/docker/</link>
-      <pubDate>Tue, 03 Sep 2019 23:14:41 +0000</pubDate>
-      
-      <guid>https://phoenixtree2poplar.github.io/categories/docker/</guid>
       <description></description>
     </item>
     

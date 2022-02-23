@@ -13,10 +13,10 @@
     <meta property="og:title" content="docker - 梧桐">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2019-09-03T23:14:41&#43;08:00'>
+    <meta property="article:published_time" content='2022-02-22T23:14:41&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2019-09-03T23:14:41&#43;08:00'>
+    <meta property="article:modified_time" content='2022-02-22T23:14:41&#43;08:00'>
         
     <meta name="Keywords" content="golang,go语言,go语言笔记,梧桐,java,android,博客,项目管理,python,软件架构,公众号,小程序">
     <meta name="description" content="docker">
@@ -140,6 +140,12 @@
         <nav id="TableOfContents">
   <ul>
     <li><a href="#常用命令">常用命令</a></li>
+    <li><a href="#推送阿里云镜像">推送阿里云镜像</a></li>
+    <li><a href="#mysql7">mysql7</a>
+      <ul>
+        <li><a href="#rocketmq">rocketmq</a></li>
+      </ul>
+    </li>
     <li><a href="#docker-基础镜像环境-alpine">docker 基础镜像环境 alpine</a></li>
   </ul>
 </nav>
@@ -177,7 +183,7 @@
             <h1 class="post-title">docker</h1>
         </header>
         <date class="post-meta meta-date">
-            2019年9月3日
+            2022年2月22日
         </date>
         
         <div class="post-meta">
@@ -232,6 +238,7 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker images        <span style="color:#998;font-style:italic">#显示本地镜像</span>
@@ -242,6 +249,7 @@ docker rmi image_id/image_name  <span style="color:#998;font-style:italic">#删�
 docker image build -t my_image  .  <span style="color:#998;font-style:italic"># 编译Dockfile文件</span>
 docker ps     <span style="color:#998;font-style:italic">#列出正在运行的容器</span>
 docker ps -a  <span style="color:#998;font-style:italic">#列出所有容器</span>
+docker inspect -f<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;{{.Name}} {{.NetworkSettings.IPAddress}} {{.HostConfig.PortBindings}}&#39;</span> <span style="color:#000;font-weight:bold">$(</span>docker ps -aq<span style="color:#000;font-weight:bold">)</span> <span style="color:#998;font-style:italic">#docker列出所有容器ip及端口信息</span>
 docker run -it --name my_container image_id/image_name  <span style="color:#998;font-style:italic">#创建并启动并进入容器终端，退出则容器停止</span>
 docker run -p 80:80 -v /web:/web --name my_container -d image_id/image_name  <span style="color:#998;font-style:italic">#后台创建并启动容器，指定-p端口、-v磁盘目录映射，冒号前为宿主机</span>
 docker <span style="color:#0086b3">exec</span> -it container_id/container-name /bin/bash  <span style="color:#998;font-style:italic">#进入容器终端</span>
@@ -259,6 +267,67 @@ docker images -f <span style="color:#008080">dangling</span><span style="color:#
 docker rmi <span style="color:#000;font-weight:bold">$(</span>docker images -qf <span style="color:#008080">dangling</span><span style="color:#000;font-weight:bold">=</span><span style="color:#0086b3">true</span><span style="color:#000;font-weight:bold">)</span>  <span style="color:#998;font-style:italic">#删除那些没有被容器化的镜像</span>
 docker system df  <span style="color:#998;font-style:italic">#可以一次性查看镜像/容器/host volume的磁盘占用情况. </span>
 docker ps -s  <span style="color:#998;font-style:italic">#输出容器的空间占用</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="推送阿里云镜像">推送阿里云镜像</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker login --username<span style="color:#000;font-weight:bold">=</span>wu_ton-g@foxmail.com registry.cn-hangzhou.aliyuncs.com
+docker tag c059bfaa849c registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1
+docker push registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="mysql7">mysql7</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker pull centos/mysql-57-centos7
+docker run -id --name<span style="color:#000;font-weight:bold">=</span>mysql -p 3306:3306 -e <span style="color:#008080">MYSQL_ROOT_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>root centos/mysql-57-centos7
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="rocketmq">rocketmq</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#998;font-style:italic">#rocketmq镜像获取</span>
+docker pull foxiswho/rocketmq:server-4.5.1
+docker pull foxiswho/rocketmq:broker-4.5.1
+<span style="color:#998;font-style:italic">#rocketmq启动</span>
+docker run -di -p 9876:9876 --name<span style="color:#000;font-weight:bold">=</span>rmqserver -e <span style="color:#d14">&#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&#34;</span> -e <span style="color:#d14">&#34;JAVA_OPTS=-Duser.home=/opt&#34;</span> foxiswho/rocketmq:server-4.5.1
+docker run -di -p 10911:10911 -p 10909:10909 --name<span style="color:#000;font-weight:bold">=</span>rmqbroker -e <span style="color:#d14">&#34;JAVA_OPTS=-Duser.home=/opt&#34;</span> -e <span style="color:#d14">&#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&#34;</span> foxiswho/rocketmq:broker-4.5.1
+<span style="color:#998;font-style:italic">#rmqbroker容器需要配置 rmqserver ip地址</span>
+vi /etc/rocketmq/broker.conf
+<span style="color:#008080">brokerIP1</span><span style="color:#000;font-weight:bold">=</span>172.17.0.3
+<span style="color:#008080">namesrvAddr</span><span style="color:#000;font-weight:bold">=</span>192.168.17.130:9876
+<span style="color:#998;font-style:italic">#rocketmq测试</span>
+sh tools.sh org.apache.rocketmq.example.quickstart.Producer
+sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
+<span style="color:#998;font-style:italic">#rocketmq web管理工具</span>
+docker run -id --name<span style="color:#000;font-weight:bold">=</span>rmq-web  -e <span style="color:#d14">&#34;JAVA_OPTS=-Drocketmq.namesrv.addr=192.168.17.130:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false&#34;</span> -p 8080:8080 docker.io/styletang/rocketmq-console-ng
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="docker-基础镜像环境-alpine">docker 基础镜像环境 alpine</h2>
@@ -282,15 +351,15 @@ alpine 内置apk包管理器, 而不是Ubuntu的apt, alpine包的网址是 https
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/mybatis-plus/">mybatis-plus</a></li>
+        <li><a href="/post/pop/">pop</a></li>
         
-        <li><a href="/post/redis/">redis</a></li>
+        <li><a href="/post/config/">config</a></li>
         
-        <li><a href="/post/mysql/">mysql</a></li>
+        <li><a href="/post/win/">win装机</a></li>
         
-        <li><a href="/post/idea/">idea</a></li>
+        <li><a href="/post/mybatis-plus-generator/">mybatis-plus-generator</a></li>
         
-        <li><a href="/post/command/">command</a></li>
+        <li><a href="/post/flyway/">flyway</a></li>
         
     </ul>
 </div>
@@ -377,6 +446,10 @@ alpine 内置apk包管理器, 而不是Ubuntu的apt, alpine包的网址是 https
 <ul class="widget-list">
     
     <li>
+        <a href="https://phoenixtree2poplar.github.io/post/docker/" title="docker">docker</a>
+    </li>
+    
+    <li>
         <a href="https://phoenixtree2poplar.github.io/post/pop/" title="pop">pop</a>
     </li>
     
@@ -394,10 +467,6 @@ alpine 内置apk包管理器, 而不是Ubuntu的apt, alpine包的网址是 https
     
     <li>
         <a href="https://phoenixtree2poplar.github.io/post/flyway/" title="flyway">flyway</a>
-    </li>
-    
-    <li>
-        <a href="https://phoenixtree2poplar.github.io/post/docker/" title="docker">docker</a>
     </li>
     
     <li>

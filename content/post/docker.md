@@ -1,6 +1,6 @@
 +++
 title="docker"
-date= 2019-09-03 23:14:41
+date= 2022-02-22 23:14:41
 tags=["docker"]
 categories=["docker"]
 toc=true
@@ -16,6 +16,7 @@ docker rmi image_id/image_name  #删除镜像
 docker image build -t my_image  .  # 编译Dockfile文件
 docker ps     #列出正在运行的容器
 docker ps -a  #列出所有容器
+docker inspect -f='{{.Name}} {{.NetworkSettings.IPAddress}} {{.HostConfig.PortBindings}}' $(docker ps -aq) #docker列出所有容器ip及端口信息
 docker run -it --name my_container image_id/image_name  #创建并启动并进入容器终端，退出则容器停止
 docker run -p 80:80 -v /web:/web --name my_container -d image_id/image_name  #后台创建并启动容器，指定-p端口、-v磁盘目录映射，冒号前为宿主机
 docker exec -it container_id/container-name /bin/bash  #进入容器终端
@@ -34,6 +35,36 @@ docker rmi $(docker images -qf dangling=true)  #删除那些没有被容器化�
 docker system df  #可以一次性查看镜像/容器/host volume的磁盘占用情况. 
 docker ps -s  #输出容器的空间占用
 ```
+## 推送阿里云镜像
+```sh
+docker login --username=wu_ton-g@foxmail.com registry.cn-hangzhou.aliyuncs.com
+docker tag c059bfaa849c registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1
+docker push registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1
+```
+## mysql7
+```sh
+docker pull centos/mysql-57-centos7
+docker run -id --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root centos/mysql-57-centos7
+```
+### rocketmq
+```sh
+#rocketmq镜像获取
+docker pull foxiswho/rocketmq:server-4.5.1
+docker pull foxiswho/rocketmq:broker-4.5.1
+#rocketmq启动
+docker run -di -p 9876:9876 --name=rmqserver -e "JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m" -e "JAVA_OPTS=-Duser.home=/opt" foxiswho/rocketmq:server-4.5.1
+docker run -di -p 10911:10911 -p 10909:10909 --name=rmqbroker -e "JAVA_OPTS=-Duser.home=/opt" -e "JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m" foxiswho/rocketmq:broker-4.5.1
+#rmqbroker容器需要配置 rmqserver ip地址
+vi /etc/rocketmq/broker.conf
+brokerIP1=172.17.0.3
+namesrvAddr=192.168.17.130:9876
+#rocketmq测试
+sh tools.sh org.apache.rocketmq.example.quickstart.Producer
+sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
+#rocketmq web管理工具
+docker run -id --name=rmq-web  -e "JAVA_OPTS=-Drocketmq.namesrv.addr=192.168.17.130:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false" -p 8080:8080 docker.io/styletang/rocketmq-console-ng
+```
+
 ## docker 基础镜像环境 alpine
 在hub官网会经常能看到 alpine 字样, alpine 是要给非常轻量级的Linux发行版,Docker官方已经推荐使用alpine 代替之前的 Ubuntu作为基础镜像环境, 好处是制作出的最终镜像文件很多, 但docker dub上目前仍以 Ubuntu 为主流的基础镜像环境.
 下面是几个常用发行版基础镜像的大小.
