@@ -16,7 +16,7 @@ docker push registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1
 ## mysql7
 ```sh
 docker pull centos/mysql-57-centos7
-docker run -id --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=i88  centos/mysql-57-centos7
+docker run -id --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root centos/mysql-57-centos7
 ```
 ### rocketmq
 ```sh
