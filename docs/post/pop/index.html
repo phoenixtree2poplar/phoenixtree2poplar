@@ -139,13 +139,7 @@
     <div class="post-toc-content">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#docker容器">docker容器</a></li>
-    <li><a href="#推送阿里云镜像">推送阿里云镜像</a></li>
-    <li><a href="#mysql7">mysql7</a>
-      <ul>
-        <li><a href="#rocketmq">rocketmq</a></li>
-      </ul>
-    </li>
+    <li><a href="#mybatis">mybatis</a></li>
   </ul>
 </nav>
     </div>
@@ -206,69 +200,8 @@
         </div>
         
         <div class="post-content">
-            <h2 id="docker容器">docker容器</h2>
-<h2 id="推送阿里云镜像">推送阿里云镜像</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker login --username<span style="color:#000;font-weight:bold">=</span>wu_ton-g@foxmail.com registry.cn-hangzhou.aliyuncs.com
-docker tag c059bfaa849c registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1
-docker push registry.cn-hangzhou.aliyuncs.com/phoenixtree/poplar:0.1
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="mysql7">mysql7</h2>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker pull centos/mysql-57-centos7
-docker run -id --name<span style="color:#000;font-weight:bold">=</span>mysql -p 3306:3306 -e <span style="color:#008080">MYSQL_ROOT_PASSWORD</span><span style="color:#000;font-weight:bold">=</span>root centos/mysql-57-centos7
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="rocketmq">rocketmq</h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#998;font-style:italic">#rocketmq镜像获取</span>
-docker pull foxiswho/rocketmq:server-4.5.1
-docker pull foxiswho/rocketmq:broker-4.5.1
-<span style="color:#998;font-style:italic">#rocketmq启动</span>
-docker run -di -p 9876:9876 --name<span style="color:#000;font-weight:bold">=</span>rmqserver -e <span style="color:#d14">&#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&#34;</span> -e <span style="color:#d14">&#34;JAVA_OPTS=-Duser.home=/opt&#34;</span> foxiswho/rocketmq:server-4.5.1
-docker run -di -p 10911:10911 -p 10909:10909 --name<span style="color:#000;font-weight:bold">=</span>rmqbroker -e <span style="color:#d14">&#34;JAVA_OPTS=-Duser.home=/opt&#34;</span> -e <span style="color:#d14">&#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&#34;</span> foxiswho/rocketmq:broker-4.5.1
-<span style="color:#998;font-style:italic">#rmqbroker容器需要配置 rmqserver ip地址</span>
-vi /etc/rocketmq/broker.conf
-<span style="color:#008080">brokerIP1</span><span style="color:#000;font-weight:bold">=</span>172.17.0.3
-<span style="color:#008080">namesrvAddr</span><span style="color:#000;font-weight:bold">=</span>192.168.17.130:9876
-<span style="color:#998;font-style:italic">#rocketmq测试</span>
-sh tools.sh org.apache.rocketmq.example.quickstart.Producer
-sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
-<span style="color:#998;font-style:italic">#rocketmq web管理工具</span>
-docker run -id --name<span style="color:#000;font-weight:bold">=</span>rmq-web  -e <span style="color:#d14">&#34;JAVA_OPTS=-Drocketmq.namesrv.addr=192.168.17.130:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false&#34;</span> -p 8080:8080 docker.io/styletang/rocketmq-console-ng
-</code></pre></td></tr></table>
-</div>
-</div>
+            <h2 id="mybatis">mybatis</h2>
+
         </div>
 
         
