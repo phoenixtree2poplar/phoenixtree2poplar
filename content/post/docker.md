@@ -52,8 +52,10 @@ docker run -id --name=mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root centos/mysq
 docker pull foxiswho/rocketmq:server-4.5.1
 docker pull foxiswho/rocketmq:broker-4.5.1
 #rocketmq启动
-docker run -di -p 9876:9876 --name=rmqserver -e "JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m" -e "JAVA_OPTS=-Duser.home=/opt" foxiswho/rocketmq:server-4.5.1
-docker run -di -p 10911:10911 -p 10909:10909 --name=rmqbroker -e "JAVA_OPTS=-Duser.home=/opt" -e "JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m" foxiswho/rocketmq:broker-4.5.1
+docker run -id -p 9876:9876 --name=rmqs -e "JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m" -e "JAVA_OPTS=-Duser.home=/opt" foxiswho/rocketmq:server-4.5.1
+docker run -id -p 10911:10911 -p 10909:10909 --name=rmqb -e "JAVA_OPTS=-Duser.home=/opt" -e "JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m" foxiswho/rocketmq:broker-4.5.1
+#主机上需要修改添加 NAMESRV_ADDR /etc/profile
+export NAMESRV_ADDR=172.17.0.3:9876
 #rmqbroker容器需要配置 rmqserver ip地址
 vi /etc/rocketmq/broker.conf
 brokerIP1=172.17.0.3
@@ -62,9 +64,8 @@ namesrvAddr=192.168.17.130:9876
 sh tools.sh org.apache.rocketmq.example.quickstart.Producer
 sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
 #rocketmq web管理工具
-docker run -id --name=rmq-web  -e "JAVA_OPTS=-Drocketmq.namesrv.addr=192.168.17.130:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false" -p 8080:8080 docker.io/styletang/rocketmq-console-ng
+docker run -id --name=rmqweb  -e "JAVA_OPTS=-Drocketmq.namesrv.addr=192.168.17.130:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false" -p 8080:8080 docker.io/styletang/rocketmq-console-ng
 ```
-
 ## docker 基础镜像环境 alpine
 在hub官网会经常能看到 alpine 字样, alpine 是要给非常轻量级的Linux发行版,Docker官方已经推荐使用alpine 代替之前的 Ubuntu作为基础镜像环境, 好处是制作出的最终镜像文件很多, 但docker dub上目前仍以 Ubuntu 为主流的基础镜像环境.
 下面是几个常用发行版基础镜像的大小.

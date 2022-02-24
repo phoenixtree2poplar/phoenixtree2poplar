@@ -311,14 +311,18 @@ docker run -id --name<span style="color:#000;font-weight:bold">=</span>mysql -p 
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#998;font-style:italic">#rocketmq镜像获取</span>
 docker pull foxiswho/rocketmq:server-4.5.1
 docker pull foxiswho/rocketmq:broker-4.5.1
 <span style="color:#998;font-style:italic">#rocketmq启动</span>
-docker run -di -p 9876:9876 --name<span style="color:#000;font-weight:bold">=</span>rmqserver -e <span style="color:#d14">&#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&#34;</span> -e <span style="color:#d14">&#34;JAVA_OPTS=-Duser.home=/opt&#34;</span> foxiswho/rocketmq:server-4.5.1
-docker run -di -p 10911:10911 -p 10909:10909 --name<span style="color:#000;font-weight:bold">=</span>rmqbroker -e <span style="color:#d14">&#34;JAVA_OPTS=-Duser.home=/opt&#34;</span> -e <span style="color:#d14">&#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&#34;</span> foxiswho/rocketmq:broker-4.5.1
+docker run -id -p 9876:9876 --name<span style="color:#000;font-weight:bold">=</span>rmqs -e <span style="color:#d14">&#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&#34;</span> -e <span style="color:#d14">&#34;JAVA_OPTS=-Duser.home=/opt&#34;</span> foxiswho/rocketmq:server-4.5.1
+docker run -id -p 10911:10911 -p 10909:10909 --name<span style="color:#000;font-weight:bold">=</span>rmqb -e <span style="color:#d14">&#34;JAVA_OPTS=-Duser.home=/opt&#34;</span> -e <span style="color:#d14">&#34;JAVA_OPT_EXT=-server -Xms128m -Xmx128m -Xmn128m&#34;</span> foxiswho/rocketmq:broker-4.5.1
+<span style="color:#998;font-style:italic">#主机上需要修改添加 NAMESRV_ADDR /etc/profile</span>
+<span style="color:#0086b3">export</span> <span style="color:#008080">NAMESRV_ADDR</span><span style="color:#000;font-weight:bold">=</span>172.17.0.3:9876
 <span style="color:#998;font-style:italic">#rmqbroker容器需要配置 rmqserver ip地址</span>
 vi /etc/rocketmq/broker.conf
 <span style="color:#008080">brokerIP1</span><span style="color:#000;font-weight:bold">=</span>172.17.0.3
@@ -327,7 +331,7 @@ vi /etc/rocketmq/broker.conf
 sh tools.sh org.apache.rocketmq.example.quickstart.Producer
 sh tools.sh org.apache.rocketmq.example.quickstart.Consumer
 <span style="color:#998;font-style:italic">#rocketmq web管理工具</span>
-docker run -id --name<span style="color:#000;font-weight:bold">=</span>rmq-web  -e <span style="color:#d14">&#34;JAVA_OPTS=-Drocketmq.namesrv.addr=192.168.17.130:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false&#34;</span> -p 8080:8080 docker.io/styletang/rocketmq-console-ng
+docker run -id --name<span style="color:#000;font-weight:bold">=</span>rmqweb  -e <span style="color:#d14">&#34;JAVA_OPTS=-Drocketmq.namesrv.addr=192.168.17.130:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false&#34;</span> -p 8080:8080 docker.io/styletang/rocketmq-console-ng
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="docker-基础镜像环境-alpine">docker 基础镜像环境 alpine</h2>
