@@ -130,3 +130,5 @@ cat /proc/cpuinfo| grep "processor"| wc -l  #查看逻辑CPU的个
 free -m  #数查看内存 
 #总核数 = 物理CPU个数 X 每颗物理CPU的核数 
 #总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime #linux修改时区
+```

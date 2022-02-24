@@ -430,6 +430,7 @@ hexo d -g  #发布网页
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cat /proc/cpuinfo  | grep name | cut -f2 -d: | uniq  <span style="color:#998;font-style:italic">#查看cpu名称</span>
@@ -438,7 +439,9 @@ cat /proc/cpuinfo| grep <span style="color:#d14">&#34;cpu cores&#34;</span>| uni
 cat /proc/cpuinfo| grep <span style="color:#d14">&#34;processor&#34;</span>| wc -l  <span style="color:#998;font-style:italic">#查看逻辑CPU的个</span>
 free -m  <span style="color:#998;font-style:italic">#数查看内存 </span>
 <span style="color:#998;font-style:italic">#总核数 = 物理CPU个数 X 每颗物理CPU的核数 </span>
-<span style="color:#998;font-style:italic">#总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数</span></code></pre></td></tr></table>
+<span style="color:#998;font-style:italic">#总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数</span>
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime <span style="color:#998;font-style:italic">#linux修改时区</span>
+</code></pre></td></tr></table>
 </div>
 </div>
         </div>
