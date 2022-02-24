@@ -41,6 +41,8 @@ net start sql7           #开启数据库 提示成功，表示安装成功
 ## 连接MySQL时的url解析
 ```
 jdbc:mysql://localhost:3306/popalr?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true
+# idea2021.3.1配置
+jdbc:mysql://192.168.101.129:3306/mybatis?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true
 ```
 ```
 localhost：地址
